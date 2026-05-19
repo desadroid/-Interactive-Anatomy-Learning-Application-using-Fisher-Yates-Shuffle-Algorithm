@@ -1,0 +1,357 @@
+[
+  {
+    "sys": "circulatory",
+    "question": "Apa nama bahasa medis dari organ berotot Jantung yang berfungsi memompa darah ke seluruh tubuh?",
+    "options": ["Pulmo", "Cor", "Arteria", "Ventriculus"],
+    "correct": 1,
+    "explanation": "Pembahasan: Jantung memiliki nama medis Cor. Organ ini memompa darah ke seluruh sirkulasi melalui pembuluh darah."
+  },
+  {
+    "sys": "circulatory",
+    "question": "Organ utama pernapasan tempat pertukaran oksigen dan karbon dioksida secara difusi adalah...",
+    "options": ["Jantung", "Pulmo (Paru-paru)", "Aorta", "Hati"],
+    "correct": 1,
+    "explanation": "Pembahasan: Paru-paru (Pulmo) adalah organ pernapasan utama tempat bertukarnya O2 dan CO2 di kapiler alveolus."
+  },
+  {
+    "sys": "circulatory",
+    "question": "Pembuluh darah berotot tebal yang membawa darah kaya oksigen keluar meninggalkan jantung disebut...",
+    "options": ["Arteria (Nadi)", "Vena (Balik)", "Kapiler", "Aorta"],
+    "correct": 0,
+    "explanation": "Pembahasan: Pembuluh nadi (Arteria) memiliki dinding tebal elastis untuk menyalurkan darah bertekanan tinggi dari jantung."
+  },
+  {
+    "sys": "circulatory",
+    "question": "Pembuluh darah yang mengalirkan darah kaya karbon dioksida kembali dari seluruh tubuh menuju jantung adalah...",
+    "options": ["Arteria", "Vena (Balik)", "Capillus", "Aorta"],
+    "correct": 1,
+    "explanation": "Pembahasan: Pembuluh balik (Vena) membawa darah bertekanan rendah kembali menuju atrium jantung."
+  },
+  {
+    "sys": "circulatory",
+    "question": "Pembuluh darah terkecil tempat pertukaran zat nutrisi dan oksigen langsung dengan sel tubuh disebut...",
+    "options": ["Aorta", "Vena", "Capillus (Kapiler)", "Arteria"],
+    "correct": 2,
+    "explanation": "Pembahasan: Pembuluh kapiler (Capillus) memiliki dinding selapis sel pipih yang sangat menunjang pertukaran zat seluler."
+  },
+  {
+    "sys": "circulatory",
+    "question": "Apakah pembuluh darah arteri utama dan terbesar yang mengalir keluar langsung dari bilik kiri gaster gantung?",
+    "options": ["Vena Cava", "Aorta", "Arteri Pulmonalis", "Ventriculus"],
+    "correct": 1,
+    "explanation": "Pembahasan: Aorta menyalurkan darah bersih bertekanan tinggi dari ventrikel kiri jantung langsung ke seluruh sirkulasi sistemik."
+  },
+  {
+    "sys": "circulatory",
+    "question": "Sel darah berbentuk bikonkaf tanpa inti yang bertugas mengikat oksigen melalui hemoglobin adalah...",
+    "options": ["Leukosit", "Trombosit", "Eritrosit (Merah)", "Plasma Sanguinis"],
+    "correct": 2,
+    "explanation": "Pembahasan: Eritrosit (sel darah merah) dioptimalkan tanpa inti sel agar bermuatan hemoglobin maksimal untuk mengikat O2."
+  },
+  {
+    "sys": "circulatory",
+    "question": "Ruang gantung jantung bagian bawah yang berotot tebal untuk memompa darah keluar dari jantung dinamakan...",
+    "options": ["Atrium (Serambi)", "Ventriculus Cordis (Bilik)", "Pericardium", "Myocardium"],
+    "correct": 1,
+    "explanation": "Pembahasan: Bilik jantung atau Ventriculus Cordis bertugas memompa darah ke paru-paru (kanan) dan ke seluruh tubuh (kiri)."
+  },
+
+  {
+    "sys": "respiratory",
+    "question": "Pintu masuk awal pernapasan yang bertugas menyaring debu, menghangatkan, dan melembapkan udara adalah...",
+    "options": ["Laring", "Trakea", "Cavum Nasalis (Hidung)", "Faring"],
+    "correct": 2,
+    "explanation": "Pembahasan: Rongga hidung (Cavum Nasalis) mengandung rambut silia, pembuluh darah kapiler, dan mukus penyaring kotoran."
+  },
+  {
+    "sys": "respiratory",
+    "question": "Saluran napas penghubung tenggorok yang berisi plica vocalis (pita suara) untuk berbicara adalah...",
+    "options": ["Laring", "Bronkus", "Alveolus", "Pleura"],
+    "correct": 0,
+    "explanation": "Pembahasan: Laring (pangkal tenggorokan) menyalurkan udara ke trakea sekaligus melindungi pita suara penghasil getaran bunyi."
+  },
+  {
+    "sys": "respiratory",
+    "question": "Tabung silindris panjang yang disokong oleh cincin tulang rawan berbentuk C agar napas tidak kempis adalah...",
+    "options": ["Trakea (Batang Tenggorok)", "Bronkiolus", "Faring", "Laring"],
+    "correct": 0,
+    "explanation": "Pembahasan: Batang tenggorokan (Trakea) dilapisi epitel bersilia untuk menghalau benda asing naik kembali ke faring."
+  },
+  {
+    "sys": "respiratory",
+    "question": "Percabangan utama dari trakea yang bercabang ke bagian paru-paru kanan dan kiri disebut...",
+    "options": ["Bronkiolus", "Bronkus", "Alveolus", "Epiglottis"],
+    "correct": 1,
+    "explanation": "Pembahasan: Bronkus membagi jalur trakea menjadi kanan dan kiri sebelum bercabang menjadi saluran yang lebih sempit."
+  },
+  {
+    "sys": "respiratory",
+    "question": "Struktur kecil menyerupai dompolan buah anggur tempat difusi gas O2 dan CO2 di paru-paru adalah...",
+    "options": ["Bronkiolus", "Pleura", "Alveolus", "Diaphragma"],
+    "correct": 2,
+    "explanation": "Pembahasan: Alveolus adalah tempat utama respirasi eksternal karena memiliki dinding tipis bersentuhan langsung dengan kapiler darah."
+  },
+  {
+    "sys": "respiratory",
+    "question": "Katup tulang rawan berbentuk daun penutup jalan napas otomatis saat kita sedang menelan makanan adalah...",
+    "options": ["Plica Vocalis", "Pleura", "Epiglottis", "Laring"],
+    "correct": 2,
+    "explanation": "Pembahasan: Epiglottis bertindak sebagai pemisah lalu lintas udara dan bolus makanan agar tidak tersedak ke saluran napas."
+  },
+  {
+    "sys": "respiratory",
+    "question": "Selaput membran ganda yang melapisi organ paru-paru dan melindunginya dari gesekan tulang rusuk gaster dada adalah...",
+    "options": ["Pericardium", "Meninges", "Pleura", "Fascia"],
+    "correct": 2,
+    "explanation": "Pembahasan: Pleura memproduksi cairan serosa tipis penahan gesekan dinamis saat paru-paru mengembang dan mengempis."
+  },
+  {
+    "sys": "respiratory",
+    "question": "Otot berbentuk kubah pelindung dada yang bertindak sebagai penggerak utama pernapasan perut adalah...",
+    "options": ["Musculus Deltoideus", "Diaphragma", "Musculus Pectoralis", "Tendon"],
+    "correct": 1,
+    "explanation": "Pembahasan: Kontraksi diafragma (bergerak turun mendatar) menciptakan tekanan negatif rongga dada sehingga paru-paru terisi udara."
+  },
+
+  {
+    "sys": "digestive",
+    "question": "Di organ manakah dimulainya pencernaan karbohidrat secara kimiawi oleh enzim amilase ptialin?",
+    "options": ["Esophagus", "Cavum Oris (Mulut)", "Gaster", "Duodenum"],
+    "correct": 1,
+    "explanation": "Pembahasan: Rongga mulut (Cavum Oris) memulai pemecahan pati/karbohidrat lewat saliva kelenjar air liur."
+  },
+  {
+    "sys": "digestive",
+    "question": "Saluran berotot peristaltik yang mendorong bolus makanan dari rongga mulut menuju lambung gaster adalah...",
+    "options": ["Trakea", "Faring", "Esophagus (Kerongkongan)", "Duodenum"],
+    "correct": 2,
+    "explanation": "Pembahasan: Esofagus menghasilkan kontraksi ritmis bergelombang (peristaltik) untuk mendorong makanan menuruni dada."
+  },
+  {
+    "sys": "digestive",
+    "question": "Kantung lambung berotot tebal yang mensekresikan asam lambung (HCl) dan enzim pemecah protein (pepsin) adalah...",
+    "options": ["Hepar", "Gaster", "Intestinum Tenue", "Vesica Fellea"],
+    "correct": 1,
+    "explanation": "Pembahasan: Lambung (Gaster) mencerna protein kimiawi dan membunuh kuman lewat keasaman cairan lambung."
+  },
+  {
+    "sys": "digestive",
+    "question": "Bagian pangkal usus halus tempat bermuaranya saluran pembuangan empedu hati dan pankreas adalah...",
+    "options": ["Jejunum", "Ileum", "Duodenum (Usus 12 Jari)", "Cecum"],
+    "correct": 2,
+    "explanation": "Pembahasan: Duodenum memproses kimus asam dari lambung dengan bantuan bikarbonat pankreas & emulsi empedu."
+  },
+  {
+    "sys": "digestive",
+    "question": "Usus penyerapan sari makanan yang dipenuhi jutaan tonjolan rambut penyerap zat gizi dinamakan...",
+    "options": ["Duodenum", "Jejunum", "Ileum", "Cecum"],
+    "correct": 2,
+    "explanation": "Pembahasan: Ileum dioptimalkan untuk memindahkan zat glukosa, asam amino, dan asam lemak menuju pembuluh darah kapiler."
+  },
+  {
+    "sys": "digestive",
+    "question": "Di manakah terjadinya penyerapan air sisa makanan secara intensif serta pembentukan massa feses?",
+    "options": ["Gaster", "Intestinum Tenue", "Intestinum Crassum (Usus Besar)", "Rectum"],
+    "correct": 2,
+    "explanation": "Pembahasan: Usus besar (Intestinum Crassum) memproses ampas sisa pencernaan dan menyerap air agar feses padat."
+  },
+  {
+    "sys": "digestive",
+    "question": "Apakah kelenjar metabolisme terbesar tubuh yang memproduksi empedu dan menawarkan senyawa beracun?",
+    "options": ["Pancreas", "Glandula Parotis", "Hepar (Hati)", "Vesica Fellea"],
+    "correct": 2,
+    "explanation": "Pembahasan: Hati (Hepar/Liver) memisahkan nutrisi dari sirkulasi portal hepatika sekaligus menetralkan racun obat/alkohol."
+  },
+  {
+    "sys": "digestive",
+    "question": "Rongga hidup bagian dalam gigi manusia yang dialiri saraf sensitif dan pembuluh kapiler darah adalah...",
+    "options": ["Email", "Dentin", "Pulpa (Rongga Gigi)", "Cementum"],
+    "correct": 2,
+    "explanation": "Pembahasan: Pulpa menyuplai nutrisi sel dentin gigi dan menghantarkan rangsangan sakit ke otak."
+  },
+  {
+    "sys": "digestive",
+    "question": "Lipatan jonjot mikroskopis di usus halus yang melipatgandakan area serapan nutrisi adalah...",
+    "options": ["Vili", "Alveolus", "Sistem Havers", "Epiglottis"],
+    "correct": 0,
+    "explanation": "Pembahasan: Vili meningkatkan efisiensi absorbsi makanan di dinding mukosa intestinum."
+  },
+
+  {
+    "sys": "skeletal",
+    "question": "Rangka helm pelindung kepala yang bertugas melindungi massa otak dari benturan keras luar adalah...",
+    "options": ["Cranium (Tengkorak)", "Sternum", "Scapula", "Pelvis"],
+    "correct": 0,
+    "explanation": "Pembahasan: Tulang tengkorak (Cranium) melindungi sistem saraf pusat atas dari bahaya cedera traumatis."
+  },
+  {
+    "sys": "skeletal",
+    "question": "Manakah tulang pipa terpanjang, tertebal, dan terkuat pada kerangka gerak bawah manusia?",
+    "options": ["Humerus", "Femur (Tulang Paha)", "Tibia", "Fibula"],
+    "correct": 1,
+    "explanation": "Pembahasan: Tulang paha (Femur) dirancang menahan beban kompresi dan dorongan kuat otot kuadrisep paha."
+  },
+  {
+    "sys": "skeletal",
+    "question": "Tulang pipa besar di betis bagian depan yang berfungsi vital menyangga berat seluruh tubuh tegak adalah...",
+    "options": ["Femur", "Fibula", "Tibia (Tulang Kering)", "Patella"],
+    "correct": 2,
+    "explanation": "Pembahasan: Tibia menyalurkan dorongan beban paha menuju tumpuan telapak kaki."
+  },
+  {
+    "sys": "skeletal",
+    "question": "Tulang bahu horizontal berbentuk huruf S tipis penghubung lengan dada atas dinamakan...",
+    "options": ["Scapula", "Clavicula (Selangka)", "Humerus", "Sternum"],
+    "correct": 1,
+    "explanation": "Pembahasan: Clavicula menyangga sendi bahu lateral agar bahu tidak melorot ke depan dada."
+  },
+  {
+    "sys": "skeletal",
+    "question": "Tulang dada vertikal pipih di tengah rongga dada tempat terikatnya tulang rusuk sejati depan adalah...",
+    "options": ["Sternum (Dada)", "Costae", "Clavicula", "Scapula"],
+    "correct": 0,
+    "explanation": "Pembahasan: Sternum (tulang dada) melindungi jantung serta menjadi pasak iga perisai dada."
+  },
+  {
+    "sys": "skeletal",
+    "question": "Dua belas pasang tulang melengkung sangkar pelindung rongga dada kedokteran disebut...",
+    "options": ["Vertebrae", "Costae (Rusuk)", "Sternum", "Clavicula"],
+    "correct": 1,
+    "explanation": "Pembahasan: Costae (tulang rusuk) dinamis bergerak naik turun untuk memfasilitasi kapasitas udara paru-paru."
+  },
+  {
+    "sys": "skeletal",
+    "question": "Ruas-ruas tulang keras pelindung tiang saraf spinal aksial tubuh dinamakan...",
+    "options": ["Sternum", "Vertebrae (Belakang)", "Sacrum", "Coccyx"],
+    "correct": 1,
+    "explanation": "Pembahasan: Ruas tulang belakang (Vertebrae) menopang kepala, leher, dada, dan punggung agar tubuh tegak fleksibel."
+  },
+  {
+    "sys": "skeletal",
+    "question": "Cincin sabuk tulang penyangga perut bawah, kandung kemih, dan penopang paha bawah adalah...",
+    "options": ["Cranium", "Sternum", "Pelvis (Panggul)", "Sacrum"],
+    "correct": 2,
+    "explanation": "Pembahasan: Panggul (Pelvis) berfungsi menyeimbangkan poros pinggang dengan sendi paha."
+  },
+  {
+    "sys": "skeletal",
+    "question": "Struktur osteon melingkar konsentris mengitari pembuluh darah nutrisi tulang adalah...",
+    "options": ["Sistem Havers", "Osteoblas", "Osteosit", "Osteoklas"],
+    "correct": 0,
+    "explanation": "Pembahasan: Sistem Havers mengalirkan suplai nutrisi darah ke lacuna-lacuna tulang keras."
+  },
+
+  {
+    "sys": "muscular",
+    "question": "Jaringan aktif tubuh yang menggerakkan tulang melalui daya kontraksi dan relaksasi serat protein gaster adalah...",
+    "options": ["Tendon", "Ligamentum", "Textus Muscularis (Otot)", "Fascia"],
+    "correct": 2,
+    "explanation": "Pembahasan: Otot (Textus Muscularis) adalah alat gerak aktif karena dapat memendek menarik tendon."
+  },
+  {
+    "sys": "muscular",
+    "question": "Otot tanpa lurik berbentuk kumparan yang berkontraksi involunter di dinding usus/pembuluh darah adalah...",
+    "options": ["Otot Lurik", "Otot Rangka", "Otot Polos", "Tendon"],
+    "correct": 2,
+    "explanation": "Pembahasan: Otot polos bekerja otomatis tanpa disadari, diatur oleh sistem saraf otonom simpatik."
+  },
+  {
+    "sys": "muscular",
+    "question": "Jaringan ikat putih sangat padat tebal yang menempelkan pangkal otot gaster pada tulang disebut...",
+    "options": ["Ligamentum", "Tendon", "Fascia", "Cartilago"],
+    "correct": 1,
+    "explanation": "Pembahasan: Tendon memindahkan tegangan gaya otot langsung ke permukaan tulang penggerak."
+  },
+  {
+    "sys": "muscular",
+    "question": "Pita ikat sendi elastis penyambung antara tulang keras dengan tulang keras persendian adalah...",
+    "options": ["Tendon", "Ligamentum", "Fascia", "Pleura"],
+    "correct": 1,
+    "explanation": "Pembahasan: Ligamentum menahan persendian agar tulang tidak tergelincir bergeser melebihi batas."
+  },
+  {
+    "sys": "muscular",
+    "question": "Otot lengan depan bagian atas yang bertugas melengkungkan menekuk sendi siku tangan adalah...",
+    "options": ["Musculus Triceps", "Musculus Biceps Brachii", "Musculus Deltoideus", "Musculus Masseter"],
+    "correct": 1,
+    "explanation": "Pembahasan: Biceps brachii bertindak sebagai fleksor utama sendi siku tangan depan."
+  },
+  {
+    "sys": "muscular",
+    "question": "Otot antagonis lengan atas bagian belakang penggerak meluruskan siku bawah tangan adalah...",
+    "options": ["Musculus Biceps", "Musculus Triceps Brachii", "Musculus Deltoideus", "Musculus Masseter"],
+    "correct": 1,
+    "explanation": "Pembahasan: Triceps brachii menarik ulna agar sendi lengan bawah lurus kembali."
+  },
+  {
+    "sys": "muscular",
+    "question": "Otot tebal penyusun bokong manusia yang sangat vital menahan gravitasi berdiri tegak tegak adalah...",
+    "options": ["Musculus Biceps", "Musculus Gastrocnemius", "Musculus Gluteus Maximus", "Musculus Masseter"],
+    "correct": 2,
+    "explanation": "Pembahasan: Gluteus maximus adalah otot bokong terbesar pelindung panggul saat melangkah maju."
+  },
+  {
+    "sys": "muscular",
+    "question": "Otot pengunyah pada pipi rahang yang berkontraksi menggiling makanan keras adalah...",
+    "options": ["Musculus Biceps", "Musculus Deltoideus", "Musculus Masseter", "Musculus Pectoralis"],
+    "correct": 2,
+    "explanation": "Pembahasan: Musculus masseter menekan mandibula ke atas dengan daya gigit terkuat pada tengkorak."
+  },
+
+  {
+    "sys": "excretory",
+    "question": "Sepasang organ penyaring plasma darah penyeimbang cairan osmolaritas tubuh penghasil urine adalah...",
+    "options": ["Hepar", "Ren (Ginjal)", "Ureter", "Vesica Urinaria"],
+    "correct": 1,
+    "explanation": "Pembahasan: Ginjal (Ren) membuang limbah nitrogen (urea) lewat jutaan saringan nefron nefron."
+  },
+  {
+    "sys": "excretory",
+    "question": "Saluran pipa berotot yang menyalurkan urine dari pelvis ginjal menuruni perut menuju kandung kemih adalah...",
+    "options": ["Uretra", "Ureter", "Tubulus", "Glomerulus"],
+    "correct": 1,
+    "explanation": "Pembahasan: Ureter mengalirkan urine bertahap berkat gelombang peristaltik otot polos ureter."
+  },
+  {
+    "sys": "excretory",
+    "question": "Kantung otot elastis elastis penampung cairan air seni urine sementara waktu sebelum dibuang adalah...",
+    "options": ["Ureter", "Vesica Urinaria (Kemih)", "Urethra", "Glomerulus"],
+    "correct": 1,
+    "explanation": "Pembahasan: Kandung kemih (Vesica Urinaria) dapat menampung urine sekitar 300-500ml sebelum saraf memicu refleks kencing."
+  },
+  {
+    "sys": "excretory",
+    "question": "Saluran pelepasan tunggal keluar pembawa urine dari kantung kemih keluar dari tubuh adalah...",
+    "options": ["Ureter", "Urethra (Uretra)", "Tubulus", "Glomerulus"],
+    "correct": 1,
+    "explanation": "Pembahasan: Urethra mengosongkan kandung kemih keluar sirkulasi tubuh luar."
+  },
+  {
+    "sys": "excretory",
+    "question": "Sel saraf utama unit terkecil sistem transmisi sinyal impuls elektrokimiawi tubuh adalah...",
+    "options": ["Neuron", "Dendrit", "Akson", "Mielin"],
+    "correct": 0,
+    "explanation": "Pembahasan: Sel saraf (Neuron) menghantarkan impuls listrik searah melalui dendrit, soma, dan akson."
+  },
+  {
+    "sys": "excretory",
+    "question": "Bagian sistem otak belakang pengatur koordinasi keseimbangan fisik dan kehalusan gerak motorik adalah...",
+    "options": ["Cerebrum", "Cerebellum (Otak Kecil)", "Medula Oblongata", "Medulla Spinalis"],
+    "correct": 1,
+    "explanation": "Pembahasan: Otak kecil (Cerebellum) mencocokkan perintah motorik sadar otak dengan umpan balik sensorik posisi tubuh."
+  },
+  {
+    "sys": "excretory",
+    "question": "Batang otak bagian bawah pengontrol detak nadi otomatis dan pusat denyut refleks respirasi gaster adalah...",
+    "options": ["Pons Varolii", "Cerebellum", "Medula Oblongata", "Medulla Spinalis"],
+    "correct": 2,
+    "explanation": "Pembahasan: Medula oblongata mengatur sirkuit penting otonom kelangsungan hidup seperti denyut nadi dan batuk."
+  },
+  {
+    "sys": "excretory",
+    "question": "Tiga selaput membran berlapis pelindung otak cranium dari gesekan mekanis luar disebut...",
+    "options": ["Pleura", "Pericardium", "Meninges", "Fascia"],
+    "correct": 2,
+    "explanation": "Pembahasan: Meninges (Duramater, Araknoid, Piamater) melindungi otak dan menampung cairan serebrospinal."
+  }
+]
