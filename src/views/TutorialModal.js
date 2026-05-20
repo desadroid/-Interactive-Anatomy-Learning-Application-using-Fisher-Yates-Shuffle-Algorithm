@@ -9,18 +9,18 @@ export default function TutorialModal({ controller }) {
   const stepsData = [
     {
       title: "Selamat Datang di AnatoMedia 🩺",
-      desc: "Platform pembelajaran anatomi interaktif luring (100% offline). Belajar dan uji kompetensi kedokteran Anda tanpa perlu pendaftaran akun sama sekali.",
+      desc: "Platform pembelajaran istilah kedokteran interaktif luring (100% offline). Belajar dan uji kompetensi medis Anda tanpa perlu pendaftaran akun sama sekali.",
       icon: "pulse",
       color: "#00A896"
     },
     {
-      title: "Atlas Anatomi & Kamus PDF 📖",
-      desc: "Jelajahi 6 sistem organ mayor dengan peta atlas interaktif. Pelajari 100 istilah Latin medis resmi kurikulum IDI lengkap dengan pengucapan audio Google Speech.",
+      title: "Kamus Istilah & Kartu Flash 📖",
+      desc: "Jelajahi 6 materi sistem organ mayor dengan kamus istilah dan kartu flash interaktif. Pelajari 100 istilah Latin medis kurikulum IDI lengkap dengan lafal audio.",
       icon: "book",
       color: "#FF9F43"
     },
     {
-      title: "Kuis Anatomi 3 Level 🏆",
+      title: "Kuis Interaktif 3 Level 🏆",
       desc: "Uji pemahaman Anda melalui kuis 50 soal pilihan ganda. Pilih 3 tingkat kesulitan (Mudah, Sedang, Sulit) dengan countdown timer dinamis per pertanyaan.",
       icon: "trophy",
       color: "#3498DB"

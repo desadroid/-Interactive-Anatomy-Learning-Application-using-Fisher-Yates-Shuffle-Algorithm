@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Animated, Easing, Dimensions } from 'react-native';
+import { Animated, Easing, Dimensions, BackHandler } from 'react-native';
+import * as Haptics from 'expo-haptics';
 import * as Speech from 'expo-speech';
 import MedicalDatabase from '../../data/database.json';
 import MainQuizQuestionsPool from '../../data/questions.json';
@@ -16,7 +17,7 @@ export default function useAnatoMedia() {
 
   // Active Organ Study Dashboard state
   const [activeStudySystem, setActiveStudySystem] = useState('digestive');
-  const [studyTab, setStudyTab] = useState('kamus'); // 'atlas', 'kamus', 'kartu'
+  const [studyTab, setStudyTab] = useState('atlas'); // 'atlas', 'kamus', 'kartu'
   const [dictionarySearch, setDictionarySearch] = useState('');
   
   // Flashcard Deck study state
@@ -34,11 +35,8 @@ export default function useAnatoMedia() {
   // First Time User Walkthrough flag
   const [firstTimeUser, setFirstTimeUser] = useState(true);
 
-  // Quiz Difficulty & System parameters
+  // Quiz Difficulty parameter
   const [quizDifficulty, setQuizDifficulty] = useState('medium'); // 'easy', 'medium', 'hard'
-  const [quizSettings, setQuizSettings] = useState({
-    system: 'all' // 'all', 'circulatory', 'respiratory', etc.
-  });
   const [activeQuizQuestions, setActiveQuizQuestions] = useState([]);
   const [quizActiveIndex, setQuizActiveIndex] = useState(0);
   const [quizAnswersCorrect, setQuizAnswersCorrect] = useState(0);
@@ -50,34 +48,16 @@ export default function useAnatoMedia() {
     { title: 'Kuis Pencernaan (Gaster)', date: 'Baru Saja', score: 90, color: '#2ECC71' },
     { title: 'Kuis Rangka (Costae)', date: 'Kemarin', score: 70, color: '#FF9F43' }
   ]);
-
-  // Animated loops values
-  const ecgAnimValue = useRef(new Animated.Value(0)).current;
-  const scoreboardScoreRing = useRef(new Animated.Value(0)).current;
-  const confettiAnimValue = useRef(new Animated.Value(0)).current;
-
-  // ECG background looping
-  useEffect(() => {
-    Animated.loop(
-      Animated.timing(ecgAnimValue, {
-        toValue: 1,
-        duration: 3500,
-        easing: Easing.linear,
-        useNativeDriver: true
-      })
-    ).start();
-  }, [ecgAnimValue]);
+  const [isQuizResultMode, setIsQuizResultMode] = useState(false);
 
   const getTimerDuration = () => {
-    if (quizDifficulty === 'easy') return 30;
-    if (quizDifficulty === 'hard') return 10;
-    return 20; // medium
+    return 60; // Generous 60 seconds limit for all levels
   };
 
   const getDifficultyCleanName = (lvl) => {
-    if (lvl === 'easy') return 'Mudah';
-    if (lvl === 'hard') return 'Sulit';
-    return 'Sedang';
+    if (lvl === 'easy') return 'Mudah (Istilah Dasar)';
+    if (lvl === 'hard') return 'Sulit (Struktur & Klinis)';
+    return 'Sedang (Fungsi Organ)';
   };
 
   // Quiz countdown timer ticker
@@ -126,40 +106,12 @@ export default function useAnatoMedia() {
     if (screen === 'scoreboard') {
       const totalActive = activeQuizQuestions.length || 50;
       const finalScore = Math.round((quizAnswersCorrect / totalActive) * 100);
-      
-      // Scoreboard circular ring draw animation
-      scoreboardScoreRing.setValue(0);
-      Animated.timing(scoreboardScoreRing, {
-        toValue: finalScore,
-        duration: 2000,
-        easing: Easing.out(Easing.quad),
-        useNativeDriver: false
-      }).start();
-
-      // Neon cardiac diagnostics scanning loop trigger
-      confettiAnimValue.setValue(0);
-      Animated.loop(
-        Animated.sequence([
-          Animated.timing(confettiAnimValue, {
-            toValue: 1,
-            duration: 2200,
-            easing: Easing.inOut(Easing.quad),
-            useNativeDriver: false
-          }),
-          Animated.timing(confettiAnimValue, {
-            toValue: 0,
-            duration: 2200,
-            easing: Easing.inOut(Easing.quad),
-            useNativeDriver: false
-          })
-        ])
-      ).start();
 
       // Append score to local histories log
       const now = new Date();
       const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
       const newHistory = {
-        title: `Kuis ${getSystemCleanName(quizSettings.system)} (${getDifficultyCleanName(quizDifficulty)})`,
+        title: `Ujian Anatomi (${getDifficultyCleanName(quizDifficulty)})`,
         date: `Baru Saja • ${now.getDate()} Mei • ${timeStr}`,
         score: finalScore,
         color: finalScore >= 80 ? '#2ECC71' : (finalScore >= 60 ? '#00A896' : '#FF9F43')
@@ -190,6 +142,16 @@ export default function useAnatoMedia() {
     return arr;
   };
 
+  const getFilteredQuestionsCount = () => {
+    let pool = MainQuizQuestionsPool;
+    if (quizSettings.system !== 'all') {
+      pool = MainQuizQuestionsPool.filter(q => q.sys === quizSettings.system);
+    }
+    let filtered = pool.filter(q => q.level === quizDifficulty);
+    if (filtered.length < 5) return pool.length;
+    return filtered.length;
+  };
+
   // Launch and initialize the customized Quiz
   const startQuizSimulator = () => {
     let pool = MainQuizQuestionsPool;
@@ -202,9 +164,17 @@ export default function useAnatoMedia() {
       return;
     }
 
-    const shuffled = shuffleArray(pool);
-    // Level semua 50 soal!
-    const selected = shuffled.slice(0, Math.min(50, shuffled.length));
+    // Filter by anatomical difficulty
+    let filteredByDiff = pool.filter(q => q.level === quizDifficulty);
+    
+    // Fallback if system has too few questions under this level
+    if (filteredByDiff.length < 5) {
+      filteredByDiff = pool;
+    }
+
+    const shuffled = shuffleArray(filteredByDiff);
+    // Pick all questions (50 questions per session)
+    const selected = shuffled.slice(0, 50);
 
     setActiveQuizQuestions(selected);
     setQuizActiveIndex(0);
@@ -216,6 +186,38 @@ export default function useAnatoMedia() {
 
     navigateTo('quiz');
   };
+
+  const resumeQuizSimulator = () => {
+    setActiveScreen('quiz');
+  };
+
+  // Android Hardware Back Button Handler
+  useEffect(() => {
+    const backAction = () => {
+      // Return true to prevent default exit, false to allow exit
+      switch (activeScreen) {
+        case 'overview':
+          setActiveScreen('organ-selection');
+          return true;
+        case 'quiz':
+          setActiveScreen('quiz-setup');
+          return true;
+        case 'scoreboard':
+          setActiveScreen('dashboard');
+          return true;
+        case 'organ-selection':
+        case 'quiz-setup':
+          setActiveScreen('dashboard');
+          return true;
+        case 'dashboard':
+        default:
+          return false; // Allow exit app
+      }
+    };
+
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+    return () => backHandler.remove();
+  }, [activeScreen]);
 
   // Handle choice locking & explanation triggers
   const handleSelectOption = (idx) => {
@@ -229,9 +231,11 @@ export default function useAnatoMedia() {
     if (isCorrect) {
       setQuizAnswersCorrect(prev => prev + 1);
       triggerToast("Jawaban Benar");
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     } else {
       setQuizAnswersWrong(prev => prev + 1);
       triggerToast("Jawaban Kurang Tepat");
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error); // Native Android/iOS strong haptic feedback
     }
 
     // Hold screen for 4.5 seconds so students can read the detailed clinical explanation
@@ -243,6 +247,7 @@ export default function useAnatoMedia() {
         setQuizIsAnswered(false);
         setQuizTimerSecs(getTimerDuration());
       } else {
+        setIsQuizResultMode(true);
         navigateTo('scoreboard');
       }
     }, 4500);
@@ -278,7 +283,7 @@ export default function useAnatoMedia() {
   // Open specific Organ Dashboard
   const openOrganDashboard = (sysKey) => {
     setActiveStudySystem(sysKey);
-    setStudyTab('kamus');
+    setStudyTab('atlas');
     setFlashcardIndex(0);
     setFlashcardFlipped(false);
     setDictionarySearch('');
@@ -297,7 +302,6 @@ export default function useAnatoMedia() {
     flashcardIndex,
     flashcardFlipped,
     flashcardProgress,
-    quizSettings,
     activeQuizQuestions,
     quizActiveIndex,
     quizAnswersCorrect,
@@ -306,9 +310,8 @@ export default function useAnatoMedia() {
     quizIsAnswered,
     quizTimerSecs,
     quizHistoriesList,
-    ecgAnimValue,
-    scoreboardScoreRing,
-    confettiAnimValue,
+    isQuizResultMode,
+    setIsQuizResultMode,
     firstTimeUser,
     quizDifficulty,
     setFirstTimeUser,
@@ -330,6 +333,8 @@ export default function useAnatoMedia() {
     setPresenterVisible,
     setQuizSettings,
     getTimerDuration,
-    getDifficultyCleanName
+    getDifficultyCleanName,
+    getFilteredQuestionsCount,
+    resumeQuizSimulator
   };
 }

@@ -20,19 +20,16 @@ export default function OrganSelectionScreen({ controller }) {
         <TouchableOpacity style={styles.navBtn} onPress={() => controller.navigateTo('dashboard')}>
           <Ionicons name="arrow-back" size={20} color="#2C3E50" />
         </TouchableOpacity>
-        <Text style={styles.navTitle}>Atlas Anatomi Kedokteran</Text>
-        <TouchableOpacity style={styles.navBtn} onPress={() => controller.triggerToast("Pencarian Atlas diaktifkan.")}>
+        <Text style={styles.navTitle}>Materi Pembelajaran</Text>
+        <TouchableOpacity style={styles.navBtn} onPress={() => controller.triggerToast("Pencarian materi diaktifkan.")}>
           <Ionicons name="search" size={18} color="#2C3E50" />
         </TouchableOpacity>
       </View>
 
       <ScrollView contentContainerStyle={styles.organGridScroll}>
-        <Text style={styles.organGridHeading}>Pilih Sistem Organ untuk Dipelajari</Text>
+        <Text style={styles.organGridHeading}>Pilih Kategori Bahasan untuk Dipelajari</Text>
         <View style={styles.organGrid}>
           {majorSystems.map((sys) => {
-            const completed = controller.flashcardProgress[sys.key] || 0;
-            const pct = Math.round((completed / sys.total) * 100);
-            
             return (
               <TouchableOpacity
                 key={sys.key}
@@ -50,12 +47,8 @@ export default function OrganSelectionScreen({ controller }) {
                 </View>
                 <Text style={[styles.organCardLabel, { color: '#2C3E50' }]}>{sys.name}</Text>
                 
-                {/* Progress Bar inside each organ card */}
-                <View style={styles.organCardProgressContainer}>
-                  <View style={styles.organCardProgressBarBg}>
-                    <View style={[styles.organCardProgressBarFill, { width: `${pct}%`, backgroundColor: sys.color }]} />
-                  </View>
-                  <Text style={styles.organCardProgressText}>{completed}/{sys.total} Istilah ({pct}%)</Text>
+                <View style={{ marginTop: 12, alignItems: 'center' }}>
+                  <Text style={{ fontSize: 11, color: '#718096', fontWeight: '500' }}>{sys.sub}</Text>
                 </View>
               </TouchableOpacity>
             );

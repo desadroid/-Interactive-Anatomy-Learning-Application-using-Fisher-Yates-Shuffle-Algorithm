@@ -1,5 +1,5 @@
-import React from 'react';
-import { SafeAreaView, View, StatusBar, TouchableOpacity, Text } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { SafeAreaView, View, StatusBar, TouchableOpacity, Text, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 // MVC Modular Imports
@@ -19,6 +19,30 @@ import TutorialModal from './src/views/TutorialModal';
 
 export default function App() {
   const controller = useAnatoMedia();
+
+  // Animasi Transisi Halaman (Aman dari Bug Freeze Android)
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const slideAnim = useRef(new Animated.Value(20)).current;
+
+  useEffect(() => {
+    // Reset nilai setiap kali layar berubah
+    fadeAnim.setValue(0);
+    slideAnim.setValue(15);
+
+    // Jalankan animasi secara paralel tanpa Native Driver untuk mencegah hilangnya sentuhan
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 250,
+        useNativeDriver: false, // <-- KUNCI PERBAIKAN: Harus false agar tidak freeze
+      }),
+      Animated.timing(slideAnim, {
+        toValue: 0,
+        duration: 250,
+        useNativeDriver: false,
+      })
+    ]).start();
+  }, [controller.activeScreen]);
 
   const renderScreen = () => {
     switch (controller.activeScreen) {
@@ -45,7 +69,9 @@ export default function App() {
       
       {/* Centered Tablet Responsive Simulator Viewport */}
       <View style={styles.viewport}>
-        {renderScreen()}
+        <Animated.View style={{ flex: 1, opacity: fadeAnim, transform: [{ translateY: slideAnim }] }}>
+          {renderScreen()}
+        </Animated.View>
       </View>
 
       {/* Floating dynamic status toast message */}

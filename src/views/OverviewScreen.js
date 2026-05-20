@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, TextInput, Image } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, Text, TouchableOpacity, ScrollView, TextInput, Image, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles, { STATUSBAR_PADDING } from '../styles/styles';
 import MedicalDatabase from '../../data/database.json';
@@ -79,6 +79,41 @@ export default function OverviewScreen({ controller }) {
 
   const currentFlashcard = systemTerms[controller.flashcardIndex] || systemTerms[0];
 
+  const fadeAnim = useRef(new Animated.Value(1)).current;
+  const slideAnim = useRef(new Animated.Value(0)).current;
+  const [isFlipped, setIsFlipped] = useState(controller.flashcardFlipped);
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 120,
+        useNativeDriver: true
+      }),
+      Animated.timing(slideAnim, {
+        toValue: -15,
+        duration: 120,
+        useNativeDriver: true
+      })
+    ]).start(() => {
+      setIsFlipped(controller.flashcardFlipped);
+      slideAnim.setValue(15);
+      
+      Animated.parallel([
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 180,
+          useNativeDriver: true
+        }),
+        Animated.timing(slideAnim, {
+          toValue: 0,
+          duration: 180,
+          useNativeDriver: true
+        })
+      ]).start();
+    });
+  }, [controller.flashcardFlipped, controller.flashcardIndex]);
+
   return (
     <View style={styles.screenContainer}>
       {/* Safe Area Header */}
@@ -96,7 +131,7 @@ export default function OverviewScreen({ controller }) {
       <View style={styles.studyTabsRow}>
         {[
           { tabKey: 'atlas', label: 'Atlas Visual', icon: 'map' },
-          { tabKey: 'kamus', label: 'Kamus PDF', icon: 'book' },
+          { tabKey: 'kamus', label: 'Kamus Istilah', icon: 'book' },
           { tabKey: 'kartu', label: 'Kartu Flash', icon: 'albums' }
         ].map(btn => (
           <TouchableOpacity
@@ -112,86 +147,104 @@ export default function OverviewScreen({ controller }) {
         ))}
       </View>
 
-      {/* TAB 1: ATLAS VISUAL MAP (INTERACTIVE HOTSPOTS) */}
-      {controller.studyTab === 'atlas' && (
-        <ScrollView style={styles.atlasContainer} contentContainerStyle={{ paddingBottom: 40 }}>
-          
-          <View style={styles.interactiveAtlasContainer}>
-            <View style={styles.hudBadge}>
-              <View style={styles.hudDot} />
-              <Text style={styles.hudText}>Interactive Hotspot Map</Text>
-            </View>
-
-            {organImages[controller.activeStudySystem] && (
-              <Image 
-                source={organImages[controller.activeStudySystem]} 
-                style={styles.interactiveOrganImg} 
-                resizeMode="contain"
-              />
-            )}
-
-            {/* Render dynamic clickable hotspots */}
-            {getMajorParts(controller.activeStudySystem).map((part, idx) => {
-              const isActive = activePartIdx === idx;
-              return (
+      {/* TAB 1: INTERACTIVE ATLAS (HOTSPOT MAP) */}
+      {controller.studyTab === 'atlas' && (() => {
+        const parts = getMajorParts(controller.activeStudySystem);
+        const activePart = parts[activePartIdx] || parts[0];
+        
+        return (
+          <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 14 }}>
+            {/* Interactive Image Container */}
+            <View style={styles.interactiveAtlasContainer}>
+              {organImages[controller.activeStudySystem] && (
+                <Image 
+                  source={organImages[controller.activeStudySystem]} 
+                  style={styles.interactiveOrganImg} 
+                  resizeMode="contain"
+                />
+              )}
+              
+              {/* Hotspots */}
+              {parts.map((part, index) => (
                 <TouchableOpacity
-                  key={idx}
+                  key={index}
                   style={[
                     styles.atlasHotspot, 
-                    { top: part.top, left: part.left },
-                    isActive && styles.atlasHotspotActive
+                    activePartIdx === index && styles.atlasHotspotActive,
+                    { top: part.top, left: part.left }
                   ]}
                   onPress={() => {
-                    setActivePartIdx(idx);
-                    controller.speakText(part.medis); // Speak Latin term on category selection!
+                    setActivePartIdx(index);
+                    controller.triggerToast(`Fokus: ${part.umum}`);
                   }}
                 >
-                  <View style={isActive ? styles.hotspotInnerActive : styles.hotspotInner} />
+                  <View style={[styles.hotspotInner, activePartIdx === index && styles.hotspotInnerActive]} />
                 </TouchableOpacity>
-              );
-            })}
-          </View>
+              ))}
+            </View>
 
-          {/* Interactive HUD card */}
-          {(() => {
-            const parts = getMajorParts(controller.activeStudySystem);
-            const activePart = parts[activePartIdx] || parts[0];
-            if (!activePart) return null;
-
-            return (
+            {/* Premium HUD Info Card */}
+            {activePart && (
               <View style={styles.atlasHudCard}>
                 <View style={styles.atlasHudHeader}>
                   <Text style={styles.atlasHudTitle}>{activePart.umum}</Text>
-                  <View style={styles.atlasHudMedisBadge}>
-                    <Text style={styles.atlasHudMedisText}>{activePart.medis}</Text>
-                  </View>
+                  <TouchableOpacity 
+                    style={styles.atlasHudMedisBadge}
+                    onPress={() => controller.speakText(activePart.medis)}
+                  >
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                      <Text style={styles.atlasHudMedisText}>{activePart.medis}</Text>
+                      <Ionicons name="volume-medium" size={12} color="#00A896" />
+                    </View>
+                  </TouchableOpacity>
                 </View>
+                
                 <Text style={styles.atlasHudDesc}>{activePart.desc}</Text>
                 
                 <View style={styles.atlasHudActions}>
-                  <TouchableOpacity
-                    style={[styles.btnFilledTeal, { flex: 1, height: 40 }]}
-                    onPress={() => controller.speakText(activePart.medis)}
-                  >
-                    <Ionicons name="volume-medium" size={16} color="#FFFFFF" style={{ marginRight: 6 }} />
-                    <Text style={styles.btnFilledTealText}>Lafalkan 🔊</Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={[styles.btnOutlinedSecondary, { flex: 1, height: 40 }]}
+                  <TouchableOpacity 
+                    style={[styles.btnFilledTeal, { flex: 1, height: 38 }]}
                     onPress={() => controller.jumpToFlashcard(activePart.umum)}
                   >
-                    <Ionicons name="albums" size={16} color="#2C3E50" style={{ marginRight: 6 }} />
-                    <Text style={styles.btnOutlinedSecondaryText}>Kartu Flash 🎴</Text>
+                    <Ionicons name="albums" size={14} color="#FFFFFF" style={{ marginRight: 6 }} />
+                    <Text style={[styles.btnFilledTealText, { fontSize: 12 }]}>Buka Kartu Flash</Text>
                   </TouchableOpacity>
                 </View>
               </View>
-            );
-          })()}
-            );
-          })()}
-        </ScrollView>
-      )}
+            )}
+
+            {/* List of parts for easy tapping */}
+            <Text style={[styles.atlasPartsLabel, { marginTop: 14 }]}>Daftar Bagian Organ:</Text>
+            <View style={styles.atlasPartsList}>
+              {parts.map((part, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={[
+                    styles.atlasPartItem,
+                    activePartIdx === index && styles.atlasPartItemActive
+                  ]}
+                  onPress={() => {
+                    setActivePartIdx(index);
+                    controller.triggerToast(`Fokus: ${part.umum}`);
+                  }}
+                >
+                  <Ionicons 
+                    name="ellipse" 
+                    size={8} 
+                    color={activePartIdx === index ? '#00A896' : '#718096'} 
+                  />
+                  <Text style={[
+                    styles.atlasPartItemText,
+                    activePartIdx === index && styles.atlasPartItemTextActive
+                  ]}>
+                    {part.umum}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </ScrollView>
+        );
+      })()}
 
       {/* TAB 2: SEARCHABLE KAMUS KEDOKTERAN (100 TERMS) */}
       {controller.studyTab === 'kamus' && (
@@ -240,8 +293,6 @@ export default function OverviewScreen({ controller }) {
                 </TouchableOpacity>
               ))
             )}
-              ))
-            )}
           </ScrollView>
         </View>
       )}
@@ -255,49 +306,78 @@ export default function OverviewScreen({ controller }) {
 
           <TouchableOpacity
             activeOpacity={0.95}
-            style={[styles.flashcardContainer, controller.flashcardFlipped && styles.flashcardContainerFlipped]}
+            style={[
+              styles.flashcardContainer, 
+              isFlipped && styles.flashcardContainerFlipped,
+              { minHeight: 300, height: 'auto', padding: 20 }
+            ]}
             onPress={() => controller.setFlashcardFlipped(!controller.flashcardFlipped)}
           >
-            {!controller.flashcardFlipped ? (
-              /* Front side (Bahasa Umum + Image!) */
-              <View style={styles.flashcardContent}>
-                {organImages[controller.activeStudySystem] && (
-                  <View style={styles.atlasImageWrapper}>
-                    <Image 
-                      source={organImages[controller.activeStudySystem]} 
-                      style={styles.atlasOrganImg} 
-                      resizeMode="contain"
-                    />
+            <Animated.View 
+              style={{ 
+                width: '100%', 
+                opacity: fadeAnim, 
+                transform: [{ translateY: slideAnim }],
+                alignItems: 'center'
+              }}
+            >
+              {!isFlipped ? (
+                /* Front side (Bahasa Umum + Image!) */
+                <View style={{ width: '100%', alignItems: 'center' }}>
+                  {organImages[controller.activeStudySystem] && (
+                    <View style={styles.atlasImageWrapper}>
+                      <Image 
+                        source={organImages[controller.activeStudySystem]} 
+                        style={styles.atlasOrganImg} 
+                        resizeMode="contain"
+                      />
+                    </View>
+                  )}
+                  <Text style={styles.flashcardTitle}>Nama Umum Organ</Text>
+                  <Text style={styles.flashcardMainWord}>{currentFlashcard.umum}</Text>
+                  <Text style={styles.flashcardTip}>Sentuh kartu untuk membuka istilah medis</Text>
+                </View>
+              ) : (
+                /* Back side (Bahasa Medis + Fungsi + Image) */
+                <View style={{ width: '100%', alignItems: 'center' }}>
+                  {/* Clean Top Header Row with Sound Button */}
+                  <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: 12 }}>
+                    <Text style={[styles.flashcardMedisTitle, { marginTop: 0 }]}>Nama Medis / Latin</Text>
+                    <TouchableOpacity 
+                      style={{ padding: 6, borderRadius: 20, backgroundColor: 'rgba(255, 159, 67, 0.08)' }} 
+                      onPress={(e) => {
+                        e.stopPropagation(); // Stop flip trigger
+                        controller.speakText(currentFlashcard.medis);
+                      }}
+                    >
+                      <Ionicons name="volume-high" size={16} color="#FF9F43" />
+                    </TouchableOpacity>
                   </View>
-                )}
-                <Text style={styles.flashcardTitle}>Nama Umum Organ</Text>
-                <Text style={styles.flashcardMainWord}>{currentFlashcard.umum}</Text>
-                <Text style={styles.flashcardTip}>Sentuh kartu untuk membuka istilah medis kedokteran</Text>
-              </View>
-            ) : (
-              /* Back side (Bahasa Medis + Fungsi + Image) */
-              <View style={styles.flashcardContent}>
-                <TouchableOpacity 
-                  style={styles.flashcardSpeakBtn} 
-                  onPress={() => controller.speakText(currentFlashcard.medis)}
-                >
-                  <Ionicons name="volume-high" size={24} color="#FF9F43" />
-                </TouchableOpacity>
-                {organImages[controller.activeStudySystem] && (
-                  <View style={[styles.atlasImageWrapper, { marginBottom: 6 }]}>
-                    <Image 
-                      source={organImages[controller.activeStudySystem]} 
-                      style={styles.atlasOrganImg} 
-                      resizeMode="contain"
-                    />
-                  </View>
-                )}
-                <Text style={styles.flashcardMedisTitle}>Nama Medis / Latin</Text>
-                <Text style={styles.flashcardMedisWord}>{currentFlashcard.medis}</Text>
-                <View style={styles.flashcardDivider} />
-                <Text style={styles.flashcardDesc}>{currentFlashcard.desc}</Text>
-              </View>
-            )}
+
+                  {organImages[controller.activeStudySystem] && (
+                    <View style={[styles.atlasImageWrapper, { marginBottom: 10, width: 80, height: 80, borderRadius: 16, padding: 6 }]}>
+                      <Image 
+                        source={organImages[controller.activeStudySystem]} 
+                        style={{ width: 60, height: 60 }} 
+                        resizeMode="contain"
+                      />
+                    </View>
+                  )}
+                  <Text style={styles.flashcardMedisWord}>{currentFlashcard.medis}</Text>
+                  <View style={styles.flashcardDivider} />
+                  
+                  {/* Scrollable Description so it never overflows */}
+                  <ScrollView 
+                    style={{ width: '100%', maxHeight: 90 }} 
+                    contentContainerStyle={{ alignItems: 'center', paddingBottom: 6 }}
+                    showsVerticalScrollIndicator={true}
+                    nestedScrollEnabled={true}
+                  >
+                    <Text style={styles.flashcardDesc}>{currentFlashcard.desc}</Text>
+                  </ScrollView>
+                </View>
+              )}
+            </Animated.View>
           </TouchableOpacity>
 
           {/* Simple Premium Slide Deck Switcher - No track overlays! */}

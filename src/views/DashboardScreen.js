@@ -12,9 +12,9 @@ export default function DashboardScreen({ controller }) {
         <View style={styles.profileRow}>
           <View>
             <Text style={styles.helloText}>AKADEMI KEDOKTERAN INDONESIA</Text>
-            <Text style={styles.nameText}>Calon Dokter Anatomi</Text>
+            <Text style={styles.nameText}>Calon Dokter Medis</Text>
           </View>
-          <TouchableOpacity style={styles.avatarContainer} onPress={() => controller.triggerToast("Peringkat: Mahasiswa Teladan Anatomi")}>
+          <TouchableOpacity style={styles.avatarContainer} onPress={() => controller.triggerToast("Peringkat: Mahasiswa Teladan")}>
             <View style={styles.avatarMock}>
               <Ionicons name="school" size={24} color="#00A896" />
             </View>
@@ -39,35 +39,41 @@ export default function DashboardScreen({ controller }) {
         </View>
       </View>
 
-          {/* Dynamic 4-Card Main Menu Grid */}
+      {/* Dynamic 4-Card Main Menu Grid */}
       <View style={styles.sectionContainer}>
         <Text style={styles.sectionTitle}>Menu Belajar &amp; Kuis</Text>
         <View style={styles.menuGrid}>
           
-          {/* Card 1: Atlas selection */}
+          {/* Card 1: Materi Pembelajaran */}
           <TouchableOpacity style={[styles.menuCard, styles.tealBorder]} onPress={() => controller.navigateTo('organ-selection')}>
             <View style={[styles.menuIconCircle, { backgroundColor: 'rgba(0, 168, 150, 0.1)' }]}>
               <Ionicons name="book" size={20} color="#00A896" />
             </View>
-            <Text style={styles.menuCardTitle}>Atlas Anatomi</Text>
-            <Text style={styles.menuCardDesc}>Pilih 6 sistem organ &amp; kartu flash</Text>
+            <Text style={styles.menuCardTitle}>Materi Pembelajaran</Text>
+            <Text style={styles.menuCardDesc}>Pilih kategori materi &amp; pelajari kartu</Text>
           </TouchableOpacity>
 
-          {/* Card 2: 50 Questions customized simulator */}
+          {/* Card 2: Kuis Interaktif */}
           <TouchableOpacity style={[styles.menuCard, styles.orangeBorder]} onPress={() => controller.navigateTo('quiz-setup')}>
             <View style={[styles.menuIconCircle, { backgroundColor: 'rgba(255, 159, 67, 0.1)' }]}>
               <Ionicons name="trophy" size={20} color="#FF9F43" />
             </View>
-            <Text style={styles.menuCardTitle}>Kuis Anatomi</Text>
-            <Text style={styles.menuCardDesc}>Kuis 50 Soal &amp; 3 tingkat kesulitan</Text>
+            <Text style={styles.menuCardTitle}>Kuis Interaktif</Text>
+            <Text style={styles.menuCardDesc}>Evaluasi 50 Soal &amp; 3 tingkat kesulitan</Text>
           </TouchableOpacity>
 
-          {/* Card 3: Local Quiz history modal */}
-          <TouchableOpacity style={[styles.menuCard, styles.blueBorder]} onPress={() => controller.navigateTo('scoreboard')}>
+          {/* Card 3: Riwayat Kuis */}
+          <TouchableOpacity 
+            style={[styles.menuCard, styles.blueBorder]} 
+            onPress={() => {
+              controller.setIsQuizResultMode(false);
+              controller.navigateTo('scoreboard');
+            }}
+          >
             <View style={[styles.menuIconCircle, { backgroundColor: 'rgba(52, 152, 219, 0.1)' }]}>
               <MaterialCommunityIcons name="history" size={20} color="#3498DB" />
             </View>
-            <Text style={styles.menuCardTitle}>Papan Skor</Text>
+            <Text style={styles.menuCardTitle}>Riwayat Kuis</Text>
             <Text style={styles.menuCardDesc}>Hasil evaluasi kuis terakhir Anda</Text>
           </TouchableOpacity>
 
@@ -83,19 +89,27 @@ export default function DashboardScreen({ controller }) {
         </View>
       </View>
 
-      {/* Overall Local Stats */}
+      {/* Gamification Rank Widget */}
       <View style={styles.sectionContainer}>
         <View style={styles.cardBox}>
           <View style={styles.cardBoxHeader}>
-            <Text style={styles.progressCardTitle}><Ionicons name="pulse" size={16} color="#00A896" /> Total Pemahaman Istilah</Text>
-            <Text style={styles.progressCardBadge}>Database PDF</Text>
+            <Text style={styles.progressCardTitle}>
+              <Ionicons name="medal" size={18} color="#F6AD55" style={{ marginRight: 6 }} /> 
+              Kepangkatan Medis
+            </Text>
+            <View style={{ backgroundColor: '#FFF5F5', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 12, borderWidth: 1, borderColor: '#FED7D7' }}>
+              <Text style={{ fontSize: 10, fontWeight: 'bold', color: '#E53E3E' }}>LEVEL 4</Text>
+            </View>
           </View>
-          <View style={styles.progressBarBg}>
-            <View style={[styles.progressBarFill, { width: '45%' }]} />
-          </View>
-          <View style={styles.progressStats}>
-            <Text style={styles.progressStatsText}>Kamus: <Text style={{ color: '#2C3E50', fontWeight: 'bold' }}>45 / 100 Istilah Medis</Text></Text>
-            <Text style={styles.progressStatsText}>Level Paham: <Text style={{ color: '#00A896', fontWeight: 'bold' }}>45%</Text></Text>
+          
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 12, paddingBottom: 6 }}>
+            <View style={{ width: 64, height: 64, borderRadius: 32, backgroundColor: '#FFFAF0', borderWidth: 2, borderColor: '#F6AD55', justifyContent: 'center', alignItems: 'center', marginRight: 16 }}>
+              <Ionicons name="star" size={32} color="#F6AD55" />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#2C3E50', marginBottom: 4 }}>Dokter Spesialis Anatomi</Text>
+              <Text style={{ fontSize: 12, color: '#718096', lineHeight: 18 }}>Anda telah menyelesaikan 15 kuis tingkat Sulit dengan predikat kelulusan Cum Laude (A+).</Text>
+            </View>
           </View>
         </View>
       </View>

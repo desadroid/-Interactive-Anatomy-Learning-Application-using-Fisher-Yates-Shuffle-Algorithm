@@ -1,357 +1,1952 @@
 [
   {
-    "sys": "circulatory",
-    "question": "Apa nama bahasa medis dari organ berotot Jantung yang berfungsi memompa darah ke seluruh tubuh?",
-    "options": ["Pulmo", "Cor", "Arteria", "Ventriculus"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ yang berfungsi memompa darah adalah...",
+    "options": [
+      "Paru-paru",
+      "Jantung",
+      "Hati",
+      "Ginjal"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Jantung memiliki nama medis Cor. Organ ini memompa darah ke seluruh sirkulasi melalui pembuluh darah."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Jantung."
   },
   {
-    "sys": "circulatory",
-    "question": "Organ utama pernapasan tempat pertukaran oksigen dan karbon dioksida secara difusi adalah...",
-    "options": ["Jantung", "Pulmo (Paru-paru)", "Aorta", "Hati"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis untuk paru- paru adalah...",
+    "options": [
+      "Ren",
+      "Pulmo",
+      "Hepar",
+      "Cor"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Paru-paru (Pulmo) adalah organ pernapasan utama tempat bertukarnya O2 dan CO2 di kapiler alveolus."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Pulmo."
   },
   {
-    "sys": "circulatory",
-    "question": "Pembuluh darah berotot tebal yang membawa darah kaya oksigen keluar meninggalkan jantung disebut...",
-    "options": ["Arteria (Nadi)", "Vena (Balik)", "Kapiler", "Aorta"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi utama ginjal adalah...",
+    "options": [
+      "Memompa darah",
+      "Menyaring darah",
+      "Menghasilkan suara",
+      "Menyerap cahaya"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menyaring darah."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah umum dari Hepar adalah...",
+    "options": [
+      "Ginjal",
+      "Paru-paru",
+      "Hati",
+      "Lambung"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Hati."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ untuk berpikir adalah...",
+    "options": [
+      "Otak",
+      "Jantung",
+      "Hati",
+      "Lambung"
+    ],
     "correct": 0,
-    "explanation": "Pembahasan: Pembuluh nadi (Arteria) memiliki dinding tebal elastis untuk menyalurkan darah bertekanan tinggi dari jantung."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Otak."
   },
   {
-    "sys": "circulatory",
-    "question": "Pembuluh darah yang mengalirkan darah kaya karbon dioksida kembali dari seluruh tubuh menuju jantung adalah...",
-    "options": ["Arteria", "Vena (Balik)", "Capillus", "Aorta"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis lambung adalah...",
+    "options": [
+      "Vesika",
+      "Gaster",
+      "Pulmo",
+      "Uterus"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Pembuluh balik (Vena) membawa darah bertekanan rendah kembali menuju atrium jantung."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Gaster."
   },
   {
-    "sys": "circulatory",
-    "question": "Pembuluh darah terkecil tempat pertukaran zat nutrisi dan oksigen langsung dengan sel tubuh disebut...",
-    "options": ["Aorta", "Vena", "Capillus (Kapiler)", "Arteria"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ pernapasan manusia adalah...",
+    "options": [
+      "Ginjal",
+      "Jantung",
+      "Paru-paru",
+      "Limpa"
+    ],
     "correct": 2,
-    "explanation": "Pembahasan: Pembuluh kapiler (Capillus) memiliki dinding selapis sel pipih yang sangat menunjang pertukaran zat seluler."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Paru-paru."
   },
   {
-    "sys": "circulatory",
-    "question": "Apakah pembuluh darah arteri utama dan terbesar yang mengalir keluar langsung dari bilik kiri gaster gantung?",
-    "options": ["Vena Cava", "Aorta", "Arteri Pulmonalis", "Ventriculus"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Tulang paha disebut...",
+    "options": [
+      "Radius",
+      "Femur",
+      "Tibia",
+      "Ulna"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Aorta menyalurkan darah bersih bertekanan tinggi dari ventrikel kiri jantung langsung ke seluruh sirkulasi sistemik."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Femur."
   },
   {
-    "sys": "circulatory",
-    "question": "Sel darah berbentuk bikonkaf tanpa inti yang bertugas mengikat oksigen melalui hemoglobin adalah...",
-    "options": ["Leukosit", "Trombosit", "Eritrosit (Merah)", "Plasma Sanguinis"],
-    "correct": 2,
-    "explanation": "Pembahasan: Eritrosit (sel darah merah) dioptimalkan tanpa inti sel agar bermuatan hemoglobin maksimal untuk mengikat O2."
-  },
-  {
-    "sys": "circulatory",
-    "question": "Ruang gantung jantung bagian bawah yang berotot tebal untuk memompa darah keluar dari jantung dinamakan...",
-    "options": ["Atrium (Serambi)", "Ventriculus Cordis (Bilik)", "Pericardium", "Myocardium"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ yang menghasilkan urine adalah...",
+    "options": [
+      "Paru-paru",
+      "Ginjal",
+      "Hati",
+      "Limpa"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Bilik jantung atau Ventriculus Cordis bertugas memompa darah ke paru-paru (kanan) dan ke seluruh tubuh (kiri)."
-  },
-
-  {
-    "sys": "respiratory",
-    "question": "Pintu masuk awal pernapasan yang bertugas menyaring debu, menghangatkan, dan melembapkan udara adalah...",
-    "options": ["Laring", "Trakea", "Cavum Nasalis (Hidung)", "Faring"],
-    "correct": 2,
-    "explanation": "Pembahasan: Rongga hidung (Cavum Nasalis) mengandung rambut silia, pembuluh darah kapiler, dan mukus penyaring kotoran."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Ginjal."
   },
   {
-    "sys": "respiratory",
-    "question": "Saluran napas penghubung tenggorok yang berisi plica vocalis (pita suara) untuk berbicara adalah...",
-    "options": ["Laring", "Bronkus", "Alveolus", "Pleura"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis jantung adalah...",
+    "options": [
+      "Cor",
+      "Ren",
+      "Pulmo",
+      "Hepar"
+    ],
     "correct": 0,
-    "explanation": "Pembahasan: Laring (pangkal tenggorokan) menyalurkan udara ke trakea sekaligus melindungi pita suara penghasil getaran bunyi."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Cor."
   },
   {
-    "sys": "respiratory",
-    "question": "Tabung silindris panjang yang disokong oleh cincin tulang rawan berbentuk C agar napas tidak kempis adalah...",
-    "options": ["Trakea (Batang Tenggorok)", "Bronkiolus", "Faring", "Laring"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi paru- paru adalah...",
+    "options": [
+      "Menyaring darah",
+      "Menukar oksigen",
+      "Menghasilkan urine",
+      "Memompa darah"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menukar oksigen."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis kulit adalah...",
+    "options": [
+      "Cutis",
+      "Cranium",
+      "Costae",
+      "Vertebrae"
+    ],
     "correct": 0,
-    "explanation": "Pembahasan: Batang tenggorokan (Trakea) dilapisi epitel bersilia untuk menghalau benda asing naik kembali ke faring."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Cutis."
   },
   {
-    "sys": "respiratory",
-    "question": "Percabangan utama dari trakea yang bercabang ke bagian paru-paru kanan dan kiri disebut...",
-    "options": ["Bronkiolus", "Bronkus", "Alveolus", "Epiglottis"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Bagian tubuh untuk melihat adalah...",
+    "options": [
+      "Telinga",
+      "Lidah",
+      "Mata",
+      "Hidung"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Mata."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Tulang belakang disebut...",
+    "options": [
+      "Sternum",
+      "Vertebrae",
+      "Cranium",
+      "Radius"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Bronkus membagi jalur trakea menjadi kanan dan kiri sebelum bercabang menjadi saluran yang lebih sempit."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Vertebrae."
   },
   {
-    "sys": "respiratory",
-    "question": "Struktur kecil menyerupai dompolan buah anggur tempat difusi gas O2 dan CO2 di paru-paru adalah...",
-    "options": ["Bronkiolus", "Pleura", "Alveolus", "Diaphragma"],
-    "correct": 2,
-    "explanation": "Pembahasan: Alveolus adalah tempat utama respirasi eksternal karena memiliki dinding tipis bersentuhan langsung dengan kapiler darah."
-  },
-  {
-    "sys": "respiratory",
-    "question": "Katup tulang rawan berbentuk daun penutup jalan napas otomatis saat kita sedang menelan makanan adalah...",
-    "options": ["Plica Vocalis", "Pleura", "Epiglottis", "Laring"],
-    "correct": 2,
-    "explanation": "Pembahasan: Epiglottis bertindak sebagai pemisah lalu lintas udara dan bolus makanan agar tidak tersedak ke saluran napas."
-  },
-  {
-    "sys": "respiratory",
-    "question": "Selaput membran ganda yang melapisi organ paru-paru dan melindunginya dari gesekan tulang rusuk gaster dada adalah...",
-    "options": ["Pericardium", "Meninges", "Pleura", "Fascia"],
-    "correct": 2,
-    "explanation": "Pembahasan: Pleura memproduksi cairan serosa tipis penahan gesekan dinamis saat paru-paru mengembang dan mengempis."
-  },
-  {
-    "sys": "respiratory",
-    "question": "Otot berbentuk kubah pelindung dada yang bertindak sebagai penggerak utama pernapasan perut adalah...",
-    "options": ["Musculus Deltoideus", "Diaphragma", "Musculus Pectoralis", "Tendon"],
-    "correct": 1,
-    "explanation": "Pembahasan: Kontraksi diafragma (bergerak turun mendatar) menciptakan tekanan negatif rongga dada sehingga paru-paru terisi udara."
-  },
-
-  {
-    "sys": "digestive",
-    "question": "Di organ manakah dimulainya pencernaan karbohidrat secara kimiawi oleh enzim amilase ptialin?",
-    "options": ["Esophagus", "Cavum Oris (Mulut)", "Gaster", "Duodenum"],
-    "correct": 1,
-    "explanation": "Pembahasan: Rongga mulut (Cavum Oris) memulai pemecahan pati/karbohidrat lewat saliva kelenjar air liur."
-  },
-  {
-    "sys": "digestive",
-    "question": "Saluran berotot peristaltik yang mendorong bolus makanan dari rongga mulut menuju lambung gaster adalah...",
-    "options": ["Trakea", "Faring", "Esophagus (Kerongkongan)", "Duodenum"],
-    "correct": 2,
-    "explanation": "Pembahasan: Esofagus menghasilkan kontraksi ritmis bergelombang (peristaltik) untuk mendorong makanan menuruni dada."
-  },
-  {
-    "sys": "digestive",
-    "question": "Kantung lambung berotot tebal yang mensekresikan asam lambung (HCl) dan enzim pemecah protein (pepsin) adalah...",
-    "options": ["Hepar", "Gaster", "Intestinum Tenue", "Vesica Fellea"],
-    "correct": 1,
-    "explanation": "Pembahasan: Lambung (Gaster) mencerna protein kimiawi dan membunuh kuman lewat keasaman cairan lambung."
-  },
-  {
-    "sys": "digestive",
-    "question": "Bagian pangkal usus halus tempat bermuaranya saluran pembuangan empedu hati dan pankreas adalah...",
-    "options": ["Jejunum", "Ileum", "Duodenum (Usus 12 Jari)", "Cecum"],
-    "correct": 2,
-    "explanation": "Pembahasan: Duodenum memproses kimus asam dari lambung dengan bantuan bikarbonat pankreas & emulsi empedu."
-  },
-  {
-    "sys": "digestive",
-    "question": "Usus penyerapan sari makanan yang dipenuhi jutaan tonjolan rambut penyerap zat gizi dinamakan...",
-    "options": ["Duodenum", "Jejunum", "Ileum", "Cecum"],
-    "correct": 2,
-    "explanation": "Pembahasan: Ileum dioptimalkan untuk memindahkan zat glukosa, asam amino, dan asam lemak menuju pembuluh darah kapiler."
-  },
-  {
-    "sys": "digestive",
-    "question": "Di manakah terjadinya penyerapan air sisa makanan secara intensif serta pembentukan massa feses?",
-    "options": ["Gaster", "Intestinum Tenue", "Intestinum Crassum (Usus Besar)", "Rectum"],
-    "correct": 2,
-    "explanation": "Pembahasan: Usus besar (Intestinum Crassum) memproses ampas sisa pencernaan dan menyerap air agar feses padat."
-  },
-  {
-    "sys": "digestive",
-    "question": "Apakah kelenjar metabolisme terbesar tubuh yang memproduksi empedu dan menawarkan senyawa beracun?",
-    "options": ["Pancreas", "Glandula Parotis", "Hepar (Hati)", "Vesica Fellea"],
-    "correct": 2,
-    "explanation": "Pembahasan: Hati (Hepar/Liver) memisahkan nutrisi dari sirkulasi portal hepatika sekaligus menetralkan racun obat/alkohol."
-  },
-  {
-    "sys": "digestive",
-    "question": "Rongga hidup bagian dalam gigi manusia yang dialiri saraf sensitif dan pembuluh kapiler darah adalah...",
-    "options": ["Email", "Dentin", "Pulpa (Rongga Gigi)", "Cementum"],
-    "correct": 2,
-    "explanation": "Pembahasan: Pulpa menyuplai nutrisi sel dentin gigi dan menghantarkan rangsangan sakit ke otak."
-  },
-  {
-    "sys": "digestive",
-    "question": "Lipatan jonjot mikroskopis di usus halus yang melipatgandakan area serapan nutrisi adalah...",
-    "options": ["Vili", "Alveolus", "Sistem Havers", "Epiglottis"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ yang mencerna makanan adalah...",
+    "options": [
+      "Lambung",
+      "Jantung",
+      "Paru-paru",
+      "Otak"
+    ],
     "correct": 0,
-    "explanation": "Pembahasan: Vili meningkatkan efisiensi absorbsi makanan di dinding mukosa intestinum."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Lambung."
   },
-
   {
-    "sys": "skeletal",
-    "question": "Rangka helm pelindung kepala yang bertugas melindungi massa otak dari benturan keras luar adalah...",
-    "options": ["Cranium (Tengkorak)", "Sternum", "Scapula", "Pelvis"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis ginjal adalah...",
+    "options": [
+      "Hepar",
+      "Ren",
+      "Cor",
+      "Pulmo"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Ren."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi hati adalah...",
+    "options": [
+      "Memompa darah",
+      "Menghasilkan empedu",
+      "Menangkap cahaya",
+      "Mengatur suara"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menghasilkan empedu."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ pendengaran adalah...",
+    "options": [
+      "Mata",
+      "Lidah",
+      "Telinga",
+      "Hidung"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Telinga."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis rahim adalah...",
+    "options": [
+      "Ovarium",
+      "Uterus",
+      "Vesika",
+      "Gaster"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Uterus."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi jantung adalah...",
+    "options": [
+      "Menukar gas",
+      "Memompa darah",
+      "Menghasilkan urine",
+      "Menyerap nutrisi"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Memompa darah."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Bagian tubuh untuk mencium adalah...",
+    "options": [
+      "Mata",
+      "Hidung",
+      "Lidah",
+      "Telinga"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Hidung."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Tulang rusuk disebut...",
+    "options": [
+      "Costae",
+      "Femur",
+      "Radius",
+      "Tibia"
+    ],
     "correct": 0,
-    "explanation": "Pembahasan: Tulang tengkorak (Cranium) melindungi sistem saraf pusat atas dari bahaya cedera traumatis."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Costae."
   },
   {
-    "sys": "skeletal",
-    "question": "Manakah tulang pipa terpanjang, tertebal, dan terkuat pada kerangka gerak bawah manusia?",
-    "options": ["Humerus", "Femur (Tulang Paha)", "Tibia", "Fibula"],
-    "correct": 1,
-    "explanation": "Pembahasan: Tulang paha (Femur) dirancang menahan beban kompresi dan dorongan kuat otot kuadrisep paha."
-  },
-  {
-    "sys": "skeletal",
-    "question": "Tulang pipa besar di betis bagian depan yang berfungsi vital menyangga berat seluruh tubuh tegak adalah...",
-    "options": ["Femur", "Fibula", "Tibia (Tulang Kering)", "Patella"],
-    "correct": 2,
-    "explanation": "Pembahasan: Tibia menyalurkan dorongan beban paha menuju tumpuan telapak kaki."
-  },
-  {
-    "sys": "skeletal",
-    "question": "Tulang bahu horizontal berbentuk huruf S tipis penghubung lengan dada atas dinamakan...",
-    "options": ["Scapula", "Clavicula (Selangka)", "Humerus", "Sternum"],
-    "correct": 1,
-    "explanation": "Pembahasan: Clavicula menyangga sendi bahu lateral agar bahu tidak melorot ke depan dada."
-  },
-  {
-    "sys": "skeletal",
-    "question": "Tulang dada vertikal pipih di tengah rongga dada tempat terikatnya tulang rusuk sejati depan adalah...",
-    "options": ["Sternum (Dada)", "Costae", "Clavicula", "Scapula"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ yang mengatur keseimbangan tubuh adalah...",
+    "options": [
+      "Cerebellum",
+      "Lambung",
+      "Hati",
+      "Limpa"
+    ],
     "correct": 0,
-    "explanation": "Pembahasan: Sternum (tulang dada) melindungi jantung serta menjadi pasak iga perisai dada."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Cerebellum."
   },
   {
-    "sys": "skeletal",
-    "question": "Dua belas pasang tulang melengkung sangkar pelindung rongga dada kedokteran disebut...",
-    "options": ["Vertebrae", "Costae (Rusuk)", "Sternum", "Clavicula"],
-    "correct": 1,
-    "explanation": "Pembahasan: Costae (tulang rusuk) dinamis bergerak naik turun untuk memfasilitasi kapasitas udara paru-paru."
-  },
-  {
-    "sys": "skeletal",
-    "question": "Ruas-ruas tulang keras pelindung tiang saraf spinal aksial tubuh dinamakan...",
-    "options": ["Sternum", "Vertebrae (Belakang)", "Sacrum", "Coccyx"],
-    "correct": 1,
-    "explanation": "Pembahasan: Ruas tulang belakang (Vertebrae) menopang kepala, leher, dada, dan punggung agar tubuh tegak fleksibel."
-  },
-  {
-    "sys": "skeletal",
-    "question": "Cincin sabuk tulang penyangga perut bawah, kandung kemih, dan penopang paha bawah adalah...",
-    "options": ["Cranium", "Sternum", "Pelvis (Panggul)", "Sacrum"],
-    "correct": 2,
-    "explanation": "Pembahasan: Panggul (Pelvis) berfungsi menyeimbangkan poros pinggang dengan sendi paha."
-  },
-  {
-    "sys": "skeletal",
-    "question": "Struktur osteon melingkar konsentris mengitari pembuluh darah nutrisi tulang adalah...",
-    "options": ["Sistem Havers", "Osteoblas", "Osteosit", "Osteoklas"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis usus halus adalah...",
+    "options": [
+      "Intestinum Tenue",
+      "Intestinum Crassum",
+      "Esophagus",
+      "Colon"
+    ],
     "correct": 0,
-    "explanation": "Pembahasan: Sistem Havers mengalirkan suplai nutrisi darah ke lacuna-lacuna tulang keras."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Intestinum Tenue."
   },
-
   {
-    "sys": "muscular",
-    "question": "Jaringan aktif tubuh yang menggerakkan tulang melalui daya kontraksi dan relaksasi serat protein gaster adalah...",
-    "options": ["Tendon", "Ligamentum", "Textus Muscularis (Otot)", "Fascia"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi lidah adalah...",
+    "options": [
+      "Mendengar",
+      "Melihat",
+      "Mengecap rasa",
+      "Memompa darah"
+    ],
     "correct": 2,
-    "explanation": "Pembahasan: Otot (Textus Muscularis) adalah alat gerak aktif karena dapat memendek menarik tendon."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Mengecap rasa."
   },
   {
-    "sys": "muscular",
-    "question": "Otot tanpa lurik berbentuk kumparan yang berkontraksi involunter di dinding usus/pembuluh darah adalah...",
-    "options": ["Otot Lurik", "Otot Rangka", "Otot Polos", "Tendon"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ reproduksi wanita adalah...",
+    "options": [
+      "Testis",
+      "Penis",
+      "Uterus",
+      "Prostat"
+    ],
     "correct": 2,
-    "explanation": "Pembahasan: Otot polos bekerja otomatis tanpa disadari, diatur oleh sistem saraf otonom simpatik."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Uterus."
   },
   {
-    "sys": "muscular",
-    "question": "Jaringan ikat putih sangat padat tebal yang menempelkan pangkal otot gaster pada tulang disebut...",
-    "options": ["Ligamentum", "Tendon", "Fascia", "Cartilago"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Bagian tubuh yang melindungi otak adalah...",
+    "options": [
+      "Sternum",
+      "Cranium",
+      "Costae",
+      "Femur"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Tendon memindahkan tegangan gaya otot langsung ke permukaan tulang penggerak."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Cranium."
   },
   {
-    "sys": "muscular",
-    "question": "Pita ikat sendi elastis penyambung antara tulang keras dengan tulang keras persendian adalah...",
-    "options": ["Tendon", "Ligamentum", "Fascia", "Pleura"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis pembuluh nadi adalah...",
+    "options": [
+      "Vena",
+      "Arteria",
+      "Kapiler",
+      "Plasma"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Ligamentum menahan persendian agar tulang tidak tergelincir bergeser melebihi batas."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Arteria."
   },
   {
-    "sys": "muscular",
-    "question": "Otot lengan depan bagian atas yang bertugas melengkungkan menekuk sendi siku tangan adalah...",
-    "options": ["Musculus Triceps", "Musculus Biceps Brachii", "Musculus Deltoideus", "Musculus Masseter"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi darah merah adalah...",
+    "options": [
+      "Melawan kuman",
+      "Membawa oksigen",
+      "Membekukan darah",
+      "Menghasilkan hormon"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Biceps brachii bertindak sebagai fleksor utama sendi siku tangan depan."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Membawa oksigen."
   },
   {
-    "sys": "muscular",
-    "question": "Otot antagonis lengan atas bagian belakang penggerak meluruskan siku bawah tangan adalah...",
-    "options": ["Musculus Biceps", "Musculus Triceps Brachii", "Musculus Deltoideus", "Musculus Masseter"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Sel darah putih disebut...",
+    "options": [
+      "Eritrosit",
+      "Leukosit",
+      "Trombosit",
+      "Plasma"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Triceps brachii menarik ulna agar sendi lengan bawah lurus kembali."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Leukosit."
   },
   {
-    "sys": "muscular",
-    "question": "Otot tebal penyusun bokong manusia yang sangat vital menahan gravitasi berdiri tegak tegak adalah...",
-    "options": ["Musculus Biceps", "Musculus Gastrocnemius", "Musculus Gluteus Maximus", "Musculus Masseter"],
-    "correct": 2,
-    "explanation": "Pembahasan: Gluteus maximus adalah otot bokong terbesar pelindung panggul saat melangkah maju."
-  },
-  {
-    "sys": "muscular",
-    "question": "Otot pengunyah pada pipi rahang yang berkontraksi menggiling makanan keras adalah...",
-    "options": ["Musculus Biceps", "Musculus Deltoideus", "Musculus Masseter", "Musculus Pectoralis"],
-    "correct": 2,
-    "explanation": "Pembahasan: Musculus masseter menekan mandibula ke atas dengan daya gigit terkuat pada tengkorak."
-  },
-
-  {
-    "sys": "excretory",
-    "question": "Sepasang organ penyaring plasma darah penyeimbang cairan osmolaritas tubuh penghasil urine adalah...",
-    "options": ["Hepar", "Ren (Ginjal)", "Ureter", "Vesica Urinaria"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi trombosit adalah...",
+    "options": [
+      "Membawa oksigen",
+      "Membekukan darah",
+      "Menyerap nutrisi",
+      "Menukar gas"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Ginjal (Ren) membuang limbah nitrogen (urea) lewat jutaan saringan nefron nefron."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Membekukan darah."
   },
   {
-    "sys": "excretory",
-    "question": "Saluran pipa berotot yang menyalurkan urine dari pelvis ginjal menuruni perut menuju kandung kemih adalah...",
-    "options": ["Uretra", "Ureter", "Tubulus", "Glomerulus"],
-    "correct": 1,
-    "explanation": "Pembahasan: Ureter mengalirkan urine bertahap berkat gelombang peristaltik otot polos ureter."
-  },
-  {
-    "sys": "excretory",
-    "question": "Kantung otot elastis elastis penampung cairan air seni urine sementara waktu sebelum dibuang adalah...",
-    "options": ["Ureter", "Vesica Urinaria (Kemih)", "Urethra", "Glomerulus"],
-    "correct": 1,
-    "explanation": "Pembahasan: Kandung kemih (Vesica Urinaria) dapat menampung urine sekitar 300-500ml sebelum saraf memicu refleks kencing."
-  },
-  {
-    "sys": "excretory",
-    "question": "Saluran pelepasan tunggal keluar pembawa urine dari kantung kemih keluar dari tubuh adalah...",
-    "options": ["Ureter", "Urethra (Uretra)", "Tubulus", "Glomerulus"],
-    "correct": 1,
-    "explanation": "Pembahasan: Urethra mengosongkan kandung kemih keluar sirkulasi tubuh luar."
-  },
-  {
-    "sys": "excretory",
-    "question": "Sel saraf utama unit terkecil sistem transmisi sinyal impuls elektrokimiawi tubuh adalah...",
-    "options": ["Neuron", "Dendrit", "Akson", "Mielin"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ yang menghasilkan hormon insulin adalah...",
+    "options": [
+      "Pankreas",
+      "Hati",
+      "Jantung",
+      "Ginjal"
+    ],
     "correct": 0,
-    "explanation": "Pembahasan: Sel saraf (Neuron) menghantarkan impuls listrik searah melalui dendrit, soma, dan akson."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Pankreas."
   },
   {
-    "sys": "excretory",
-    "question": "Bagian sistem otak belakang pengatur koordinasi keseimbangan fisik dan kehalusan gerak motorik adalah...",
-    "options": ["Cerebrum", "Cerebellum (Otak Kecil)", "Medula Oblongata", "Medulla Spinalis"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis tenggorokan adalah...",
+    "options": [
+      "Trakea",
+      "Uterus",
+      "Vesika",
+      "Tibia"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Trakea."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Bagian mata yang mengatur cahaya adalah...",
+    "options": [
+      "Retina",
+      "Iris",
+      "Sklera",
+      "Kornea"
+    ],
     "correct": 1,
-    "explanation": "Pembahasan: Otak kecil (Cerebellum) mencocokkan perintah motorik sadar otak dengan umpan balik sensorik posisi tubuh."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Iris."
   },
   {
-    "sys": "excretory",
-    "question": "Batang otak bagian bawah pengontrol detak nadi otomatis dan pusat denyut refleks respirasi gaster adalah...",
-    "options": ["Pons Varolii", "Cerebellum", "Medula Oblongata", "Medulla Spinalis"],
-    "correct": 2,
-    "explanation": "Pembahasan: Medula oblongata mengatur sirkuit penting otonom kelangsungan hidup seperti denyut nadi dan batuk."
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ tubuh yang menghasilkan sperma adalah...",
+    "options": [
+      "Prostat",
+      "Testis",
+      "Uretra",
+      "Epididimis"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Testis."
   },
   {
-    "sys": "excretory",
-    "question": "Tiga selaput membran berlapis pelindung otak cranium dari gesekan mekanis luar disebut...",
-    "options": ["Pleura", "Pericardium", "Meninges", "Fascia"],
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi tulang adalah...",
+    "options": [
+      "Menghasilkan empedu",
+      "Menopang tubuh",
+      "Menukar oksigen",
+      "Menghasilkan suara"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menopang tubuh."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ ekskresi manusia adalah...",
+    "options": [
+      "Ginjal",
+      "Jantung",
+      "Mata",
+      "Telinga"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Ginjal."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis usus besar adalah...",
+    "options": [
+      "Colon",
+      "Intestinum Crassum",
+      "Esophagus",
+      "Duodenum"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Intestinum Crassum."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ yang menghasilkan empedu adalah...",
+    "options": [
+      "Hati",
+      "Ginjal",
+      "Paru-paru",
+      "Jantung"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Hati."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi alveolus adalah...",
+    "options": [
+      "Mencerna makanan",
+      "Pertukaran gas",
+      "Menghasilkan hormon",
+      "Menyaring darah"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Pertukaran gas."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Tulang kering disebut...",
+    "options": [
+      "Tibia",
+      "Femur",
+      "Ulna",
+      "Radius"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Tibia."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi kulit adalah...",
+    "options": [
+      "Mengatur suhu tubuh",
+      "Menghasilkan darah",
+      "Memompa darah",
+      "Menghasilkan empedu"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Mengatur suhu tubuh."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ yang berfungsi untuk berpikir disebut...",
+    "options": [
+      "Cerebrum",
+      "Pulmo",
+      "Hepar",
+      "Gaster"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Cerebrum."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Cairan merah dalam tubuh disebut...",
+    "options": [
+      "Empedu",
+      "Darah",
+      "Plasma",
+      "Limfa"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Darah."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi ginjal dalam tubuh adalah...",
+    "options": [
+      "Menyerap cahaya",
+      "Menyaring darah",
+      "Menghasilkan suara",
+      "Menukar oksigen"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menyaring darah."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ penyimpan urine adalah...",
+    "options": [
+      "Ureter",
+      "Vesika Urinaria",
+      "Ginjal",
+      "Uretra"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Vesika Urinaria."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Istilah medis mata adalah...",
+    "options": [
+      "Oculi",
+      "Lingua",
+      "Pulmo",
+      "Cor"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Oculi."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi tulang rusuk adalah...",
+    "options": [
+      "Melindungi jantung dan paru",
+      "Menyerap nutrisi",
+      "Menghasilkan hormon",
+      "Menukar gas"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Melindungi jantung dan paru."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Organ tubuh yang membantu pernapasan adalah...",
+    "options": [
+      "Diafragma",
+      "Femur",
+      "Tibia",
+      "Radius"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Diafragma."
+  },
+  {
+    "level": "easy",
+    "sys": "all",
+    "question": "Fungsi otak adalah...",
+    "options": [
+      "Mengatur tubuh",
+      "Menyaring darah",
+      "Menghasilkan empedu",
+      "Menukar oksigen"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Mengatur tubuh."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian mata yang menangkap bayangan adalah...",
+    "options": [
+      "Iris",
+      "Retina",
+      "Kornea",
+      "Sklera"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Retina."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi utama usus halus adalah...",
+    "options": [
+      "Menyerap nutrisi",
+      "Menyaring darah",
+      "Menghasilkan hormon",
+      "Memompa darah"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menyerap nutrisi."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Istilah medis tulang dada adalah...",
+    "options": [
+      "Costae",
+      "Sternum",
+      "Femur",
+      "Tibia"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Sternum."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ yang menghasilkan hormon tiroksin adalah...",
+    "options": [
+      "Tiroid",
+      "Pankreas",
+      "Hipofisis",
+      "Limpa"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Tiroid."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Pembuluh darah yang membawa darah menuju jantung disebut...",
+    "options": [
+      "Arteri",
+      "Kapiler",
+      "Vena",
+      "Aorta"
+    ],
     "correct": 2,
-    "explanation": "Pembahasan: Meninges (Duramater, Araknoid, Piamater) melindungi otak dan menampung cairan serebrospinal."
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Vena."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi cerebellum adalah...",
+    "options": [
+      "Mengatur keseimbangan",
+      "Menyaring darah",
+      "Menghasilkan insulin",
+      "Mengedarkan darah"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Mengatur keseimbangan."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian telinga untuk menangkap getaran suara adalah...",
+    "options": [
+      "Koklea",
+      "Membran timpani",
+      "Eustachius",
+      "Vestibula"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Membran timpani."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Istilah medis sel darah merah adalah...",
+    "options": [
+      "Leukosit",
+      "Eritrosit",
+      "Trombosit",
+      "Plasma"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Eritrosit."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi epiglottis adalah...",
+    "options": [
+      "Menghasilkan suara",
+      "Menutup saluran napas",
+      "Menyerap oksigen",
+      "Menyaring darah"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menutup saluran napas."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian kulit paling luar disebut...",
+    "options": [
+      "Dermis",
+      "Epidermis",
+      "Hipodermis",
+      "Fasia"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Epidermis."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi ureter adalah...",
+    "options": [
+      "Mengalirkan urine ke kandung kemih",
+      "Menyaring darah",
+      "Menyimpan urine",
+      "Menghasilkan urine"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Mengalirkan urine ke kandung kemih."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ penghasil testosteron adalah...",
+    "options": [
+      "Testis",
+      "Epididimis",
+      "Prostat",
+      "Penis"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Testis."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian otak terbesar disebut...",
+    "options": [
+      "Cerebellum",
+      "Medulla",
+      "Cerebrum",
+      "Hipotalamus"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Cerebrum."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi leukosit adalah...",
+    "options": [
+      "Membawa oksigen",
+      "Melawan infeksi",
+      "Membekukan darah",
+      "Menghasilkan hormon"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Melawan infeksi."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Istilah medis lidah adalah...",
+    "options": [
+      "Lingua",
+      "Oculi",
+      "Pulmo",
+      "Cor"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Lingua."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ tubuh yang menghasilkan empedu adalah...",
+    "options": [
+      "Ginjal",
+      "Hati",
+      "Lambung",
+      "Paru-paru"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Hati."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi pleura adalah...",
+    "options": [
+      "Menyaring darah",
+      "Mengurangi gesekan paru- paru",
+      "Menghasilkan hormon",
+      "Menyerap nutrisi"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Mengurangi gesekan paru- paru."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian nefron tempat filtrasi darah adalah...",
+    "options": [
+      "Henle",
+      "Glomerulus",
+      "Tubulus",
+      "Pelvis"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Glomerulus."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi iris pada mata adalah...",
+    "options": [
+      "Mengatur cahaya",
+      "Menangkap bayangan",
+      "Membiaskan cahaya",
+      "Menghasilkan air mata"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Mengatur cahaya."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Tulang tempurung lutut disebut...",
+    "options": [
+      "Patella",
+      "Fibula",
+      "Tibia",
+      "Radius"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Patella."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ tubuh yang mengatur metabolisme adalah...",
+    "options": [
+      "Tiroid",
+      "Pankreas",
+      "Hati",
+      "Limpa"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Tiroid."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi bronkus adalah...",
+    "options": [
+      "Menyaring darah",
+      "Menyalurkan udara",
+      "Menghasilkan hormon",
+      "Menukar gas"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menyalurkan udara."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Istilah medis tulang lengan atas adalah...",
+    "options": [
+      "Radius",
+      "Ulna",
+      "Humerus",
+      "Femur"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Humerus."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ yang menghasilkan insulin adalah...",
+    "options": [
+      "Tiroid",
+      "Pankreas",
+      "Limpa",
+      "Hati"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Pankreas."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi kapiler adalah...",
+    "options": [
+      "Menghubungkan arteri dan vena",
+      "Membekukan darah",
+      "Menghasilkan hormon",
+      "Menyaring darah"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menghubungkan arteri dan vena."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian mata berwarna putih disebut...",
+    "options": [
+      "Retina",
+      "Iris",
+      "Kornea",
+      "Sklera"
+    ],
+    "correct": 3,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah D. Sklera."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi sumsum tulang belakang adalah...",
+    "options": [
+      "Mengatur keseimbangan",
+      "Menghantarkan impuls saraf",
+      "Menghasilkan empedu",
+      "Menyaring darah"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menghantarkan impuls saraf."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ tubuh yang menyimpan feses sementara adalah...",
+    "options": [
+      "Colon",
+      "Rectum",
+      "Duodenum",
+      "Ileum"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Rectum."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi tendon adalah...",
+    "options": [
+      "Menghubungkan otot dan tulang",
+      "Menghubungkan tulang dan tulang",
+      "Menyimpan lemak",
+      "Menghasilkan darah"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menghubungkan otot dan tulang."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian telinga dalam berbentuk rumah siput disebut...",
+    "options": [
+      "Koklea",
+      "Tympani",
+      "Pleura",
+      "Retina"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Koklea."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi alveolus pada paru-paru adalah...",
+    "options": [
+      "Pertukaran oksigen dan karbon dioksida",
+      "Menyaring darah",
+      "Menghasilkan suara",
+      "Menghasilkan hormon"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Pertukaran oksigen dan karbon dioksida."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ tubuh yang menghasilkan urine primer adalah...",
+    "options": [
+      "Glomerulus",
+      "Ureter",
+      "Uretra",
+      "Vesika"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Glomerulus."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi medula oblongata adalah...",
+    "options": [
+      "Mengatur gerak sadar",
+      "Mengatur fungsi vital tubuh",
+      "Menghasilkan hormon",
+      "Menyerap nutrisi"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Mengatur fungsi vital tubuh."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Istilah medis tulang betis adalah...",
+    "options": [
+      "Femur",
+      "Tibia",
+      "Fibula",
+      "Radius"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Fibula."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi papila pada lidah adalah...",
+    "options": [
+      "Menelan makanan",
+      "Mengenali rasa",
+      "Menghasilkan saliva",
+      "Menyerap air"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Mengenali rasa."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ tubuh yang menghasilkan adrenalin adalah...",
+    "options": [
+      "Tiroid",
+      "Suprarenalis",
+      "Limpa",
+      "Hipofisis"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Suprarenalis."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi ligamentum adalah...",
+    "options": [
+      "Menghubungkan tulang dengan tulang",
+      "Menghubungkan otot dan tulang",
+      "Menyimpan lemak",
+      "Menghasilkan darah"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menghubungkan tulang dengan tulang."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian mata yang membiaskan cahaya pertama kali adalah...",
+    "options": [
+      "Retina",
+      "Kornea",
+      "Iris",
+      "Sklera"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Kornea."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi kolon adalah...",
+    "options": [
+      "Menyerap air",
+      "Menukar gas",
+      "Menghasilkan hormon",
+      "Memompa darah"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menyerap air."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ tubuh yang melindungi jantung adalah...",
+    "options": [
+      "Sternum dan costae",
+      "Tibia",
+      "Femur",
+      "Radius"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Sternum dan costae."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi mielin pada saraf adalah...",
+    "options": [
+      "Memperlambat impuls",
+      "Mempercepat impuls",
+      "Menyaring darah",
+      "Menghasilkan hormon"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Mempercepat impuls."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Istilah medis rongga hidung adalah...",
+    "options": [
+      "Cavum Nasalis",
+      "Cavum Oris",
+      "Pleura",
+      "Laring"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Cavum Nasalis."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi pankreas adalah...",
+    "options": [
+      "Menghasilkan insulin",
+      "Menghasilkan empedu",
+      "Memompa darah",
+      "Menukar gas"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menghasilkan insulin."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ tubuh yang mengatur tekanan udara telinga adalah...",
+    "options": [
+      "Koklea",
+      "Saluran Eustachius",
+      "Tympani",
+      "Vestibula"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Saluran Eustachius."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi dermis adalah...",
+    "options": [
+      "Tempat kelenjar dan pembuluh darah",
+      "Lapisan tanduk",
+      "Menyerap cahaya",
+      "Menghasilkan hormon"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Tempat kelenjar dan pembuluh darah."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian tubuh yang menghasilkan sel darah disebut...",
+    "options": [
+      "Sumsum tulang",
+      "Hati",
+      "Limpa",
+      "Ginjal"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Sumsum tulang."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi duodenum adalah...",
+    "options": [
+      "Pencernaan kimiawi",
+      "Penyaringan darah",
+      "Menghasilkan hormon",
+      "Menyerap cahaya"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Pencernaan kimiawi."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Organ tubuh yang menyaring racun dalam darah adalah...",
+    "options": [
+      "Hati",
+      "Paru-paru",
+      "Limpa",
+      "Ureter"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Hati."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Fungsi retina adalah...",
+    "options": [
+      "Menangkap cahaya",
+      "Mengatur warna mata",
+      "Menghasilkan air mata",
+      "Melindungi bola mata"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menangkap cahaya."
+  },
+  {
+    "level": "medium",
+    "sys": "all",
+    "question": "Bagian tubuh yang menghubungkan otak dan tubuh adalah...",
+    "options": [
+      "Sumsum tulang belakang",
+      "Femur",
+      "Tibia",
+      "Radius"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Sumsum tulang belakang."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian nefron yang berfungsi menyerap kembali zat-zat penting disebut...",
+    "options": [
+      "Glomerulus",
+      "Tubulus Proksimal",
+      "Ureter",
+      "Vesika"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Tubulus Proksimal."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Hormon yang diproduksi pankreas untuk menurunkan gula darah adalah...",
+    "options": [
+      "Adrenalin",
+      "Insulin",
+      "Tiroksin",
+      "Kortisol"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Insulin."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian otak yang mengatur suhu tubuh adalah...",
+    "options": [
+      "Cerebellum",
+      "Hipotalamus",
+      "Medula",
+      "Pons"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Hipotalamus."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi utama hemoglobin adalah...",
+    "options": [
+      "Membekukan darah",
+      "Membawa oksigen",
+      "Menghasilkan hormon",
+      "Menghancurkan bakteri"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Membawa oksigen."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Struktur yang menghubungkan neuron satu dengan lainnya disebut...",
+    "options": [
+      "Dendrit",
+      "Akson",
+      "Sinapsis",
+      "Mielin"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Sinapsis."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian jantung yang memompa darah ke seluruh tubuh adalah...",
+    "options": [
+      "Atrium kanan",
+      "Atrium kiri",
+      "Ventrikel kanan",
+      "Ventrikel kiri"
+    ],
+    "correct": 3,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah D. Ventrikel kiri."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi hormon adrenalin adalah...",
+    "options": [
+      "Menurunkan metabolisme",
+      "Menyiapkan tubuh saat darurat",
+      "Membantu pencernaan",
+      "Mengatur tidur"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menyiapkan tubuh saat darurat."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Organ tubuh yang menghasilkan cairan empedu adalah...",
+    "options": [
+      "Lambung",
+      "Pankreas",
+      "Hati",
+      "Limpa"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Hati."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi nodus Ranvier adalah...",
+    "options": [
+      "Memperlambat impuls",
+      "Mempercepat impuls",
+      "Menghasilkan hormon",
+      "Menyaring darah"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Mempercepat impuls."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian mata yang menjaga bentuk bola mata adalah...",
+    "options": [
+      "Iris",
+      "Retina",
+      "Vitreous Humor",
+      "Kornea"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Vitreous Humor."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi alveolus dalam sistem respirasi adalah...",
+    "options": [
+      "Menukar gas",
+      "Menyaring darah",
+      "Menghasilkan lendir",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menukar gas."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Tulang yang melindungi jantung dan paru-paru adalah...",
+    "options": [
+      "Vertebrae",
+      "Costae dan Sternum",
+      "Femur",
+      "Tibia"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Costae dan Sternum."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi utama leukosit adalah...",
+    "options": [
+      "Mengangkut oksigen",
+      "Melawan infeksi",
+      "Membekukan darah",
+      "Menghasilkan hormon"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Melawan infeksi."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Organ tubuh yang mengatur keseimbangan dan koordinasi adalah...",
+    "options": [
+      "Cerebrum",
+      "Cerebellum",
+      "Medula",
+      "Hipotalamus"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Cerebellum."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian kulit yang mengandung kelenjar keringat adalah...",
+    "options": [
+      "Epidermis",
+      "Dermis",
+      "Hipodermis",
+      "Stratum korneum"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Dermis."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi epiglottis ketika menelan adalah...",
+    "options": [
+      "Membuka saluran napas",
+      "Menutup saluran napas",
+      "Menghasilkan suara",
+      "Menukar gas"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menutup saluran napas."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian telinga yang mengatur keseimbangan tubuh adalah...",
+    "options": [
+      "Koklea",
+      "Vestibula",
+      "Tympani",
+      "Eustachius"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Vestibula."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi korteks ginjal adalah...",
+    "options": [
+      "Menampung urine",
+      "Tempat filtrasi darah",
+      "Menghasilkan hormon",
+      "Menyimpan lemak"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Tempat filtrasi darah."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Hormon tiroksin diproduksi oleh kelenjar...",
+    "options": [
+      "Adrenal",
+      "Hipofisis",
+      "Tiroid",
+      "Pankreas"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Tiroid."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi utama eritrosit adalah...",
+    "options": [
+      "Membawa oksigen",
+      "Membunuh bakteri",
+      "Membekukan darah",
+      "Menyerap air"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Membawa oksigen."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Organ tubuh yang menyimpan urine sementara adalah...",
+    "options": [
+      "Ginjal",
+      "Ureter",
+      "Vesika Urinaria",
+      "Uretra"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Vesika Urinaria."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian otak yang mengatur denyut jantung adalah...",
+    "options": [
+      "Cerebellum",
+      "Medula oblongata",
+      "Cerebrum",
+      "Hipotalamus"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Medula oblongata."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi ligamentum pada tubuh manusia adalah...",
+    "options": [
+      "Menghubungkan tulang dengan tulang",
+      "Menghubungkan otot dan tulang",
+      "Menghasilkan darah",
+      "Menyimpan kalsium"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menghubungkan tulang dengan tulang."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Struktur saraf penerima rangsangan disebut...",
+    "options": [
+      "Efektor",
+      "Reseptor",
+      "Akson",
+      "Dendrit"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Reseptor."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi usus besar adalah...",
+    "options": [
+      "Menyerap protein",
+      "Menyerap air",
+      "Menukar gas",
+      "Menghasilkan hormon"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menyerap air."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Organ tubuh yang memproduksi sperma adalah...",
+    "options": [
+      "Prostat",
+      "Epididimis",
+      "Testis",
+      "Penis"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Testis."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi tendon adalah...",
+    "options": [
+      "Menghubungkan tulang dan tulang",
+      "Menghubungkan otot dan tulang",
+      "Menyerap nutrisi",
+      "Menghasilkan darah"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menghubungkan otot dan tulang."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian mata yang sensitif terhadap cahaya adalah...",
+    "options": [
+      "Iris",
+      "Retina",
+      "Kornea",
+      "Sklera"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Retina."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi utama pankreas adalah...",
+    "options": [
+      "Menghasilkan insulin",
+      "Menghasilkan empedu",
+      "Menukar gas",
+      "Menyaring darah"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Menghasilkan insulin."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Organ tubuh yang menghasilkan hormon testosteron adalah...",
+    "options": [
+      "Testis",
+      "Ovarium",
+      "Pankreas",
+      "Tiroid"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Testis."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian pembuluh darah terkecil disebut...",
+    "options": [
+      "Arteri",
+      "Vena",
+      "Kapiler",
+      "Aorta"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Kapiler."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi utama limpa adalah...",
+    "options": [
+      "Menghasilkan empedu",
+      "Menghancurkan sel darah merah tua",
+      "Menukar gas",
+      "Menghasilkan insulin"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menghancurkan sel darah merah tua."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Organ tubuh yang berfungsi menyerap sari makanan adalah...",
+    "options": [
+      "Lambung",
+      "Usus halus",
+      "Kolon",
+      "Rectum"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Usus halus."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi saluran Eustachius adalah...",
+    "options": [
+      "Menangkap suara",
+      "Menyeimbangkan tekanan udara",
+      "Menghasilkan lendir",
+      "Menyerap nutrisi"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menyeimbangkan tekanan udara."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian tulang belakang disebut...",
+    "options": [
+      "Vertebrae",
+      "Sternum",
+      "Costae",
+      "Femur"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Vertebrae."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi neurotransmitter adalah...",
+    "options": [
+      "Menghasilkan hormon",
+      "Menghantarkan impuls saraf",
+      "Menukar gas",
+      "Membawa oksigen"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Menghantarkan impuls saraf."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Organ tubuh yang menghasilkan urine disebut...",
+    "options": [
+      "Hati",
+      "Ginjal",
+      "Paru-paru",
+      "Limpa"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Ginjal."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian tubuh yang melindungi otak disebut...",
+    "options": [
+      "Cranium",
+      "Sternum",
+      "Vertebrae",
+      "Femur"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Cranium."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi uretra adalah...",
+    "options": [
+      "Menyaring darah",
+      "Mengeluarkan urine",
+      "Menghasilkan urine",
+      "Menyimpan urine"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Mengeluarkan urine."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian otot jantung disebut...",
+    "options": [
+      "Endokardium",
+      "Perikardium",
+      "Miokardium",
+      "Pleura"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Miokardium."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi miokardium adalah...",
+    "options": [
+      "Menyerap oksigen",
+      "Memompa darah",
+      "Menghasilkan hormon",
+      "Menukar gas"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Memompa darah."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Organ tubuh yang berfungsi sebagai pusat koordinasi adalah...",
+    "options": [
+      "Otak",
+      "Hati",
+      "Ginjal",
+      "Lambung"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Otak."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi plasma darah adalah...",
+    "options": [
+      "Membawa zat makanan",
+      "Menghasilkan hormon",
+      "Menyaring darah",
+      "Menghasilkan empedu"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Membawa zat makanan."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian tubuh yang menghasilkan sel telur adalah...",
+    "options": [
+      "Uterus",
+      "Ovarium",
+      "Serviks",
+      "Vagina"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Ovarium."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi kornea adalah...",
+    "options": [
+      "Mengatur warna mata",
+      "Membiaskan cahaya",
+      "Menangkap bayangan",
+      "Menghasilkan air mata"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Membiaskan cahaya."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian tubuh yang menghasilkan antibodi adalah...",
+    "options": [
+      "Leukosit",
+      "Eritrosit",
+      "Trombosit",
+      "Plasma"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Leukosit."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi medula pada ginjal adalah...",
+    "options": [
+      "Menampung urine",
+      "Menyalurkan urine",
+      "Membantu pembentukan urine",
+      "Menghasilkan hormon"
+    ],
+    "correct": 2,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah C. Membantu pembentukan urine."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Organ tubuh yang menghasilkan hormon estrogen adalah...",
+    "options": [
+      "Testis",
+      "Ovarium",
+      "Pankreas",
+      "Tiroid"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Ovarium."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Fungsi alveolus adalah tempat terjadinya...",
+    "options": [
+      "Pencernaan",
+      "Pertukaran gas",
+      "Penyaringan darah",
+      "Produksi hormon"
+    ],
+    "correct": 1,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah B. Pertukaran gas."
+  },
+  {
+    "level": "hard",
+    "sys": "all",
+    "question": "Bagian sistem saraf pusat terdiri dari...",
+    "options": [
+      "Otak dan sumsum tulang belakang",
+      "Jantung dan paru-paru",
+      "Hati dan ginjal",
+      "Lambung dan usus"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Pilihan yang tepat adalah A. Otak dan sumsum tulang belakang."
   }
 ]
