@@ -37,6 +37,7 @@ export default function useAnatoMedia() {
 
   // Quiz Difficulty parameter
   const [quizDifficulty, setQuizDifficulty] = useState('medium'); // 'easy', 'medium', 'hard'
+  const [quizSettings, setQuizSettings] = useState({ system: 'all' });
   const [activeQuizQuestions, setActiveQuizQuestions] = useState([]);
   const [quizActiveIndex, setQuizActiveIndex] = useState(0);
   const [quizAnswersCorrect, setQuizAnswersCorrect] = useState(0);
@@ -313,9 +314,11 @@ export default function useAnatoMedia() {
     isQuizResultMode,
     setIsQuizResultMode,
     firstTimeUser,
-    quizDifficulty,
+    quizSettings,
     setFirstTimeUser,
+    quizDifficulty,
     setQuizDifficulty,
+    setQuizSettings,
     triggerToast,
     speakText,
     navigateTo,
