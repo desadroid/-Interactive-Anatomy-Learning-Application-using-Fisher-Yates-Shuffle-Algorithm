@@ -92,5 +92,29 @@ export const OrganImageFlash = {
     'Osteosit': require('../../assets/rangka/sel-tulang-dewasa.png'),
     'Osteoklas': require('../../assets/rangka/sel-perombak-tulang.png'),
     
-    
+    // --- SYSTEM MUSCULAR ---
+    'Textus Muscularis': require('../../assets/otot/jaringan-otot.png'),
+    'Textus Muscularis Nonstriatus': require('../../assets/otot/otot-polos.png'),
+    'Textus Muscularis Striatus': require('../../assets/otot/otot-rangka.png'),
+    'Tendon': require('../../assets/otot/tendon.png'),
+    'Ligamentum': require('../../assets/otot/ligamentum.png'),
+    'Fascia': require('../../assets/otot/fascia.png'),
+    'Musculus Biceps Brachii': require('../../assets/otot/otot-lengan-atas-depan.png'),
+    'Musculus Triceps Brachii': require('../../assets/otot/otot-lengan-atas-belakang.png'),
+    'Musculus Pectoralis Major': require('../../assets/otot/otot-dada-besar.png'),
+    'Musculus Deltoideus': require('../../assets/otot/otot-bahu.png'),
+    'Musculus Latissimus Dorsi': require('../../assets/otot/otot-punggung-lebar.png'),
+    'Musculus Gastrocnemius': require('../../assets/otot/otot-betis.png'),
+    'Musculus Gluteus Maximus': require('../../assets/otot/otot-pantat-besar.png'),
+    'Musculus Masseter': require('../../assets/otot/otot-kunyah.png'),
+
+    // --- SYSTEM EKSKRETION ---
+    'Ren / Kidney': require('../../assets/ekskresi/ginjal.png'),
+    'Cutis': require('../../assets/ekskresi/kulit.png'),
+    'Epidermis': require('../../assets/ekskresi/kulit-ari.png'),
+    'Dermis': require('../../assets/ekskresi/dermis.png'),
+    'Ureter': require('../../assets/ekskresi/ureter.png'),
+    'Vesica Urinaria': require('../../assets/ekskresi/kantung-kemih.png'),
+    'Urethra': require('../../assets/ekskresi/urethra.png'),
+    'Glomerulus': require('../../assets/ekskresi/glomerulus.png'),
 };
