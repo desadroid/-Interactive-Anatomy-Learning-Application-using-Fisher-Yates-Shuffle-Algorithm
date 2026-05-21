@@ -99,7 +99,12 @@ export default function useAnatoMedia() {
     triggerToast(`Audio: "${text}"`);
   };
 
+  const stopSpeak = () => {
+    Speech.stop();
+  };
+
   const navigateTo = (screen) => {
+    Speech.stop();
     setQuizTimerSecs(getTimerDuration());
     setActiveScreen(screen);
     triggerToast(`Navigasi ke ${screen.toUpperCase()}`);
@@ -321,6 +326,7 @@ export default function useAnatoMedia() {
     setQuizSettings,
     triggerToast,
     speakText,
+    stopSpeak,
     navigateTo,
     getSystemCleanName,
     startQuizSimulator,
