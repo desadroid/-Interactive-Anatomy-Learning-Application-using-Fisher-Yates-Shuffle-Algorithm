@@ -26,7 +26,7 @@ const getMajorParts = (sys) => {
     case 'circulatory':
       return [
         { umum: "Pembuluh Nadi Besar", medis: "Aorta", desc: "Pembuluh arteri terbesar yang mengalirkan darah bersih kaya oksigen keluar dari bilik kiri.", top: "25%", left: "55%" },
-        { umum: "Serambi Jantung", medis: "Atrium", desc: "Ruang atas jantung yang menerima darah kotor dari tubuh (atrium kanan) atau darah bersih dari paru (atrium kiri).", top: "40%", left: "35%" },
+        { umum: "Serambi Jantung", medis: "Atrium", desc: "Ruang atas jantung yang menerima darah kotor dari tubuh (atrium kanan) atau darah bersih dari paru (atrium kiri).", top: "48%", left: "35%" },
         { umum: "Katup Jantung", medis: "Valvula", desc: "Struktur sekat dalam bilik jantung yang mencegah darah mengalir kembali ke arah salah.", top: "50%", left: "50%" },
         { umum: "Bilik Jantung", medis: "Ventriculus Cordis", desc: "Ruang bawah berotot tebal untuk memompa darah ke paru-paru (bilik kanan) atau seluruh tubuh (bilik kiri).", top: "70%", left: "60%" },
         { umum: "Jantung Keseluruhan", medis: "Cor", desc: "Organ berotot utama yang memompa darah ke seluruh tubuh melalui denyut ritmis.", top: "85%", left: "45%" }
