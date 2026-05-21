@@ -122,6 +122,20 @@ export default function OverviewScreen({ controller }) {
     });
   }, [controller.flashcardFlipped, controller.flashcardIndex]);
 
+  useEffect(() => {
+  return () => {
+    if (controller && typeof controller.stopSpeak === 'function') {
+      controller.stopSpeak();
+    }
+  };
+}, []);
+
+  useEffect(() => {
+    if (controller && typeof controller.stopSpeak === 'function') {
+      controller.stopSpeak();
+    }
+  }, [controller.studyTab]);
+
   return (
     <View style={styles.screenContainer}>
       {/* Safe Area Header */}
