@@ -198,7 +198,7 @@ export default function OverviewScreen({ controller }) {
                   <Text style={styles.atlasHudTitle}>{activePart.umum}</Text>
                   <TouchableOpacity 
                     style={styles.atlasHudMedisBadge}
-                    onPress={() => controller.speakText(activePart.medis)}
+                    onPress={() => controller.speakText(`${activePart.medis} , , . . . ${activePart.desc}`)}
                   >
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
                       <Text style={styles.atlasHudMedisText}>{activePart.medis}</Text>
@@ -288,7 +288,7 @@ export default function OverviewScreen({ controller }) {
                       <Text style={styles.termUmumText}>{term.umum}</Text>
                       <TouchableOpacity 
                         style={styles.speakBtn} 
-                        onPress={() => controller.speakText(term.medis)}
+                        onPress={() => controller.speakText(`${term.medis} , , . . . ${term.desc}`)}
                       >
                         <Ionicons name="volume-medium" size={16} color="#00A896" />
                       </TouchableOpacity>
@@ -364,7 +364,7 @@ export default function OverviewScreen({ controller }) {
                       style={{ padding: 6, borderRadius: 20, backgroundColor: 'rgba(255, 159, 67, 0.08)' }} 
                       onPress={(e) => {
                         e.stopPropagation(); // Stop flip trigger
-                        controller.speakText(currentFlashcard.medis);
+                        controller.speakText(`${currentFlashcard.medis} , , . . . ${currentFlashcard.desc}`);
                       }}
                     >
                       <Ionicons name="volume-high" size={16} color="#FF9F43" />
