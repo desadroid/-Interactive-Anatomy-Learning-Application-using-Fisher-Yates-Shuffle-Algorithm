@@ -74,6 +74,12 @@ export default function App() {
         </Animated.View>
       </View>
 
+      {/* FLOATING PRESENTER CONTROLLER TRIGGER */}
+      <TouchableOpacity style={[styles.floatingPresenterBtn, {zindex: 999, elevation:99}]} onPress={() => controller.setPresenterVisible(true)}>
+        <Ionicons name="options" size={18} color="#FFFFFF" style={{ marginRight: 6 }} />
+        <Text style={styles.floatingPresenterText}>Teleportasi</Text>
+      </TouchableOpacity>
+
       {/* Floating dynamic status toast message */}
       {controller.toastVisible && (
         <View style={styles.toastContainer}>
@@ -87,11 +93,7 @@ export default function App() {
       <PresenterModal controller={controller} />
       <TutorialModal controller={controller} />
 
-      {/* FLOATING PRESENTER CONTROLLER TRIGGER */}
-      <TouchableOpacity style={styles.floatingPresenterBtn} onPress={() => controller.setPresenterVisible(true)}>
-        <Ionicons name="options" size={18} color="#FFFFFF" style={{ marginRight: 6 }} />
-        <Text style={styles.floatingPresenterText}>Teleportasi</Text>
-      </TouchableOpacity>
+      
 
     </SafeAreaView>
   );

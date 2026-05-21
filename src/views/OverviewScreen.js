@@ -3,13 +3,21 @@ import { View, Text, TouchableOpacity, ScrollView, TextInput, Image, Animated } 
 import { Ionicons } from '@expo/vector-icons';
 import styles, { STATUSBAR_PADDING } from '../styles/styles';
 import MedicalDatabase from '../../data/database.json';
+import { OrganImageFlash } from '../views/ImageMapping';
 
 const organImages = {
+  //circulatory
   'circulatory': require('../../assets/heart.png'),
+
+  //respiratory
   'respiratory': require('../../assets/lungs.png'),
+  //digestive
   'digestive': require('../../assets/stomach.png'),
+  //skeletal
   'skeletal': require('../../assets/skeleton.png'),
+  //muscular
   'muscular': require('../../assets/muscular.png'),
+  //excretory
   'excretory': require('../../assets/kidney.png'),
 };
 
@@ -18,50 +26,50 @@ const getMajorParts = (sys) => {
     case 'circulatory':
       return [
         { umum: "Pembuluh Nadi Besar", medis: "Aorta", desc: "Pembuluh arteri terbesar yang mengalirkan darah bersih kaya oksigen keluar dari bilik kiri.", top: "25%", left: "55%" },
-        { umum: "Serambi Jantung", medis: "Atrium", desc: "Ruang atas jantung yang menerima darah kotor dari tubuh (atrium kanan) atau darah bersih dari paru (atrium kiri).", top: "40%", left: "35%" },
+        { umum: "Serambi Jantung", medis: "Atrium", desc: "Ruang atas jantung yang menerima darah kotor dari tubuh (atrium kanan) atau darah bersih dari paru (atrium kiri).", top: "48%", left: "35%" },
         { umum: "Katup Jantung", medis: "Valvula", desc: "Struktur sekat dalam bilik jantung yang mencegah darah mengalir kembali ke arah salah.", top: "50%", left: "50%" },
         { umum: "Bilik Jantung", medis: "Ventriculus Cordis", desc: "Ruang bawah berotot tebal untuk memompa darah ke paru-paru (bilik kanan) atau seluruh tubuh (bilik kiri).", top: "70%", left: "60%" },
         { umum: "Jantung Keseluruhan", medis: "Cor", desc: "Organ berotot utama yang memompa darah ke seluruh tubuh melalui denyut ritmis.", top: "85%", left: "45%" }
       ];
     case 'respiratory':
       return [
-        { umum: "Batang Tenggorokan", medis: "Trakea", desc: "Pipa napas berstruktur cincin tulang rawan elastis untuk menyalurkan udara ke paru-paru.", top: "20%", left: "50%" },
-        { umum: "Kantung Udara", medis: "Alveolus", desc: "Kantung udara mikroskopis di paru-paru tempat terjadinya pertukaran difusi gas O2 dan CO2.", top: "60%", left: "25%" },
-        { umum: "Rongga Hidung", medis: "Cavum Nasalis", desc: "Tempat awal masuknya udara pernapasan untuk disaring, dihangatkan, dan dilembapkan.", top: "10%", left: "50%" },
-        { umum: "Otot Sekat Dada", medis: "Diaphragma", desc: "Sekat rongga badan pembatas dada dan perut yang bertindak sebagai otot utama pernapasan.", top: "85%", left: "50%" },
-        { umum: "Pangkal Tenggorokan", medis: "Laring", desc: "Saluran pernapasan yang menjadi tempat pita suara dan gerbang udara menuju paru-paru.", top: "35%", left: "50%" }
+        { umum: "Batang Tenggorokan", medis: "Trakea", desc: "Pipa napas berstruktur cincin tulang rawan elastis untuk menyalurkan udara ke paru-paru.", top: "40%", left: "50%" },
+        { umum: "Kantung Udara", medis: "Alveolus", desc: "Kantung udara mikroskopis di paru-paru tempat terjadinya pertukaran difusi gas O2 dan CO2.", top: "65%", left: "55%" },
+        { umum: "Rongga Hidung", medis: "Cavum Nasalis", desc: "Tempat awal masuknya udara pernapasan untuk disaring, dihangatkan, dan dilembapkan.", top: "27%", left: "45%" },
+        { umum: "Otot Sekat Dada", medis: "Diaphragma", desc: "Sekat rongga badan pembatas dada dan perut yang bertindak sebagai otot utama pernapasan.", top: "73%", left: "45%" },
+        { umum: "Pangkal Tenggorokan", medis: "Laring", desc: "Saluran pernapasan yang menjadi tempat pita suara dan gerbang udara menuju paru-paru.", top: "50%", left: "52%" }
       ];
     case 'digestive':
       return [
-        { umum: "Kerongkongan", medis: "Esophagus", desc: "Saluran otot elastis yang menggerakkan makanan menuju lambung menggunakan gerak peristaltik.", top: "20%", left: "50%" },
-        { umum: "Hati", medis: "Hepar / Liver", desc: "Kelenjar metabolisme terbesar yang menyaring toksin darah dan memproduksi zat empedu.", top: "45%", left: "30%" },
-        { umum: "Lambung", medis: "Gaster", desc: "Organ kantung pencernaan kimiawi dengan sekresi asam klorida dan enzim pepsin.", top: "50%", left: "65%" },
+        { umum: "Kerongkongan", medis: "Esophagus", desc: "Saluran otot elastis yang menggerakkan makanan menuju lambung menggunakan gerak peristaltik.", top: "35%", left: "50%" },
+        { umum: "Hati", medis: "Hepar / Liver", desc: "Kelenjar metabolisme terbesar yang menyaring toksin darah dan memproduksi zat empedu.", top: "51%", left: "45%" },
+        { umum: "Lambung", medis: "Gaster", desc: "Organ kantung pencernaan kimiawi dengan sekresi asam klorida dan enzim pepsin.", top: "54%", left: "55%" },
         { umum: "Usus Halus", medis: "Intestinum Tenue", desc: "Saluran terpanjang tempat penyerapan sari pati nutrisi utama makanan.", top: "70%", left: "50%" },
-        { umum: "Usus Besar", medis: "Intestinum Crassum", desc: "Saluran penyerapan sisa cairan air mineral dan pembusukan feses makanan oleh bakteri.", top: "85%", left: "50%" }
+        { umum: "Usus Besar", medis: "Intestinum Crassum", desc: "Saluran penyerapan sisa cairan air mineral dan pembusukan feses makanan oleh bakteri.", top: "60%", left: "45%" }
       ];
     case 'skeletal':
       return [
         { umum: "Tulang Tengkorak", medis: "Cranium", desc: "Tulang keras pelindung organ otak utama dari trauma fisik luar.", top: "15%", left: "50%" },
-        { umum: "Tulang Rusuk", medis: "Costae", desc: "Tulang lengkung dada pelindung organ vital (jantung & paru) di rongga dada.", top: "35%", left: "50%" },
-        { umum: "Tulang Belakang", medis: "Vertebrae", desc: "Ruas-ruas tulang keras pembentuk poros tubuh pelindung sumsum saraf pusat.", top: "55%", left: "50%" },
-        { umum: "Tulang Paha", medis: "Femur", desc: "Tulang pipa terpanjang dan terkuat yang menyangga struktur paha anggota gerak bawah.", top: "75%", left: "40%" },
-        { umum: "Tulang Kering", medis: "Tibia", desc: "Tulang pipa besar kaki depan bawah penopang beban tubuh utama.", top: "85%", left: "60%" }
+        { umum: "Tulang Rusuk", medis: "Costae", desc: "Tulang lengkung dada pelindung organ vital (jantung & paru) di rongga dada.", top: "30%", left: "46%" },
+        { umum: "Tulang Belakang", medis: "Vertebrae", desc: "Ruas-ruas tulang keras pembentuk poros tubuh pelindung sumsum saraf pusat.", top: "40%", left: "50%" },
+        { umum: "Tulang Paha", medis: "Femur", desc: "Tulang pipa terpanjang dan terkuat yang menyangga struktur paha anggota gerak bawah.", top: "60%", left: "45%" },
+        { umum: "Tulang Kering", medis: "Tibia", desc: "Tulang pipa besar kaki depan bawah penopang beban tubuh utama.", top: "75%", left: "45%" }
       ];
     case 'muscular':
       return [
-        { umum: "Otot Bahu", medis: "Musculus Deltoideus", desc: "Otot segitiga tebal pembungkus sendi bahu untuk mengangkat lengan atas.", top: "25%", left: "30%" },
-        { umum: "Otot Dada Besar", medis: "Musculus Pectoralis Major", desc: "Otot kipas tebal penyusun utama dada atas pria maupun wanita.", top: "35%", left: "50%" },
-        { umum: "Otot Lengan Depan", medis: "Musculus Biceps Brachii", desc: "Otot lengan atas bagian depan pembantu gerak fleksi menekuk sendi siku.", top: "50%", left: "25%" },
-        { umum: "Otot Lengan Belakang", medis: "Musculus Triceps Brachii", desc: "Otot lengan atas belakang pembantu gerak ekstensi meluruskan sendi siku.", top: "50%", left: "75%" },
-        { umum: "Otot Rangka / Lurik", medis: "Textus Muscularis Striatus", desc: "Otot sadar berserat terang-gelap yang menempel pada rangka untuk mobilisasi tubuh.", top: "75%", left: "50%" }
+        { umum: "Otot Bahu", medis: "Musculus Deltoideus", desc: "Otot segitiga tebal pembungkus sendi bahu untuk mengangkat lengan atas.", top: "25%", left: "31%" },
+        { umum: "Otot Dada Besar", medis: "Musculus Pectoralis Major", desc: "Otot kipas tebal penyusun utama dada atas pria maupun wanita.", top: "30%", left: "60%" },
+        { umum: "Otot Lengan Depan", medis: "Musculus Biceps Brachii", desc: "Otot lengan atas bagian depan pembantu gerak fleksi menekuk sendi siku.", top: "38%", left: "55%" },
+        { umum: "Otot Lengan Belakang", medis: "Musculus Triceps Brachii", desc: "Otot lengan atas belakang pembantu gerak ekstensi meluruskan sendi siku.", top: "40%", left: "27%" },
+        { umum: "Otot Rangka / Lurik", medis: "Textus Muscularis Striatus", desc: "Otot sadar berserat terang-gelap yang menempel pada rangka untuk mobilisasi tubuh.", top: "42%", left: "66%" }
       ];
     case 'excretory':
       return [
-        { umum: "Ginjal", medis: "Ren / Kidney", desc: "Organ penyaring racun dan urea darah untuk memproduksi zat urine sekresi luring.", top: "45%", left: "35%" },
-        { umum: "Struktur Penyaring", medis: "Glomerulus", desc: "Pembuluh kapiler penyaring partikel kotoran darah tahap filtrasi utama di ginjal.", top: "45%", left: "65%" },
-        { umum: "Saluran Ginjal", medis: "Ureter", desc: "Sepasang pipa otot yang mengalirkan urine dari renal ginjal menuju kantung kemih.", top: "65%", left: "50%" },
-        { umum: "Kantung Kemih", medis: "Vesica Urinaria", desc: "Kantung otot penampung cairan urine sebelum dikeluarkan melalui proses ekskresi.", top: "85%", left: "50%" },
-        { umum: "Kulit", medis: "Cutis", desc: "Lapisan terluas pelindung tubuh dari panas luar dan sekresi keringat.", top: "15%", left: "20%" }
+        { umum: "Ginjal", medis: "Ren / Kidney", desc: "Organ penyaring racun dan urea darah untuk memproduksi zat urine sekresi luring.", top: "45%", left: "40%" },
+        { umum: "Struktur Penyaring", medis: "Glomerulus", desc: "Pembuluh kapiler penyaring partikel kotoran darah tahap filtrasi utama di ginjal.", top: "45%", left: "60%" },
+        { umum: "Saluran Ginjal", medis: "Ureter", desc: "Sepasang pipa otot yang mengalirkan urine dari renal ginjal menuju kantung kemih.", top: "57%", left: "45%" },
+        { umum: "Kantung Kemih", medis: "Vesica Urinaria", desc: "Kantung otot penampung cairan urine sebelum dikeluarkan melalui proses ekskresi.", top: "73%", left: "51%" },
+        { umum: "Kulit", medis: "Cutis", desc: "Lapisan terluas pelindung tubuh dari panas luar dan sekresi keringat.", top: "30%", left: "27%" }
       ];
     default:
       return [];
@@ -324,15 +332,25 @@ export default function OverviewScreen({ controller }) {
               {!isFlipped ? (
                 /* Front side (Bahasa Umum + Image!) */
                 <View style={{ width: '100%', alignItems: 'center' }}>
-                  {organImages[controller.activeStudySystem] && (
-                    <View style={styles.atlasImageWrapper}>
-                      <Image 
-                        source={organImages[controller.activeStudySystem]} 
-                        style={styles.atlasOrganImg} 
-                        resizeMode="contain"
-                      />
-                    </View>
-                  )}
+                  
+                  {/* LOGIKA FALLBACK GAMBAR */}
+                  {(() => {
+                    // 1. Cek apakah ada gambar spesifik per organ (misal: 'Cor')
+                    // 2. Jika tidak ada, pakai gambar sistem sebagai cadangan (misal: 'circulatory')
+                    const fallbackImage = OrganImageFlash[currentFlashcard.medis] || organImages[controller.activeStudySystem];
+                    
+                    // Jika salah satu dari gambar di atas ketemu, baru tampilkan komponen Image
+                    return fallbackImage ? (
+                      <View style={styles.atlasImageWrapper}>
+                        <Image 
+                          source={fallbackImage} 
+                          style={styles.atlasOrganImg} 
+                          resizeMode="contain"
+                        />
+                      </View>
+                    ) : null; // Jika dua-duanya tidak ada, tidak menampilkan apa-apa (aman dari crash)
+                  })()}
+
                   <Text style={styles.flashcardTitle}>Nama Umum Organ</Text>
                   <Text style={styles.flashcardMainWord}>{currentFlashcard.umum}</Text>
                   <Text style={styles.flashcardTip}>Sentuh kartu untuk membuka istilah medis</Text>
@@ -340,7 +358,6 @@ export default function OverviewScreen({ controller }) {
               ) : (
                 /* Back side (Bahasa Medis + Fungsi + Image) */
                 <View style={{ width: '100%', alignItems: 'center' }}>
-                  {/* Clean Top Header Row with Sound Button */}
                   <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: 12 }}>
                     <Text style={[styles.flashcardMedisTitle, { marginTop: 0 }]}>Nama Medis / Latin</Text>
                     <TouchableOpacity 
@@ -354,15 +371,21 @@ export default function OverviewScreen({ controller }) {
                     </TouchableOpacity>
                   </View>
 
-                  {organImages[controller.activeStudySystem] && (
-                    <View style={[styles.atlasImageWrapper, { marginBottom: 10, width: 80, height: 80, borderRadius: 16, padding: 6 }]}>
-                      <Image 
-                        source={organImages[controller.activeStudySystem]} 
-                        style={{ width: 60, height: 60 }} 
-                        resizeMode="contain"
-                      />
-                    </View>
-                  )}
+                  {/* LOGIKA FALLBACK GAMBAR BELAKANG KARTU */}
+                  {(() => {
+                    const fallbackImage = organImages[currentFlashcard.medis] || organImages[controller.activeStudySystem];
+                    
+                    return fallbackImage ? (
+                      <View style={[styles.atlasImageWrapper, { marginBottom: 10, width: 80, height: 80, borderRadius: 16, padding: 6 }]}>
+                        <Image 
+                          source={fallbackImage} 
+                          style={{ width: 60, height: 60 }} 
+                          resizeMode="contain"
+                        />
+                      </View>
+                    ) : null;
+                  })()}
+
                   <Text style={styles.flashcardMedisWord}>{currentFlashcard.medis}</Text>
                   <View style={styles.flashcardDivider} />
                   
