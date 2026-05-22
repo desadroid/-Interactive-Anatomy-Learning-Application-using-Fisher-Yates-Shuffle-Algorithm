@@ -31,7 +31,7 @@ export const OrganImageFlash = {
     'Faring': require('../../assets/sistem_pernapasan/faring.png'),
     'Nasofaring': require('../../assets/sistem_pernapasan/nasofaring.png'),
 
-    // --- SYSTEM DIGESTIVE ---
+    // --- SYSTEM DIGESTIVES ---
     'Cavum Oris': require('../../assets/pencernaan/rongga-mulut.png'),
     'Esophagus': require('../../assets/pencernaan/kerongkongan.png'),
     'Gaster': require('../../assets/pencernaan/lambung.png'),
