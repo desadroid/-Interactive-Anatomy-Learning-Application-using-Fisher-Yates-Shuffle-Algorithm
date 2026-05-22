@@ -106,7 +106,19 @@ export default function ScoreboardScreen({ controller }) {
 
           {/* Local Scoreboard log list */}
           <View style={styles.scoreboardHistorySection}>
-            <Text style={styles.scoreboardHistoryHeading}>Daftar Lengkap Riwayat Kuis:</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+            <Text style={[styles.scoreboardHistoryHeading, { marginBottom: 0 }]}>Daftar Riwayat Kuis Anda:</Text>
+            
+            {/* TOMBOL RESET BARU: Hanya muncul jika ada data di dalam riwayat */}
+            {histories.length > 0 && (
+              <TouchableOpacity 
+                style={{ backgroundColor: '#FFF5F5', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 6, borderWidth: 1, borderColor: '#FEB2B2' }}
+                onPress={controller.resetQuizHistory}
+              >
+                <Text style={{ color: '#E53E3E', fontSize: 11, fontWeight: '600' }}>Reset Histori</Text>
+              </TouchableOpacity>
+            )}
+          </View>
             {histories.length === 0 ? (
               <Text style={{ textAlign: 'center', color: '#718096', fontSize: 12, marginTop: 24, fontStyle: 'italic' }}>Belum ada kuis yang diikuti. Riwayat kuis Anda akan muncul di sini.</Text>
             ) : (

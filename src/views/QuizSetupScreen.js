@@ -6,7 +6,8 @@ import styles, { STATUSBAR_PADDING } from '../styles/styles';
 export default function QuizSetupScreen({ controller }) {
   const poolCount = controller.getFilteredQuestionsCount ? controller.getFilteredQuestionsCount() : 50;
   const sessionQsCount = Math.min(50, poolCount);
-  const estMinutes = Math.max(1, Math.round((sessionQsCount * 60) / 60));
+  const currentDuration = controller.quizDifficulty === 'easy' ? 30 : controller.quizDifficulty === 'medium' ? 20 : 10;
+  const estMinutes = Math.max(1, Math.round((sessionQsCount * currentDuration) / 60));
 
   const isQuizActive = controller.activeQuizQuestions && 
                        controller.activeQuizQuestions.length > 0 && 
@@ -58,7 +59,7 @@ export default function QuizSetupScreen({ controller }) {
             &bull; Jumlah Soal Sesi Ini: <Text style={{ fontWeight: 'bold' }}>{sessionQsCount} Soal (dari total {poolCount} soal level ini)</Text>
           </Text>
           <Text style={styles.metricsText}>
-            &bull; Waktu Menjawab: <Text style={{ fontWeight: 'bold' }}>{controller.getTimerDuration()} Detik per Soal</Text>
+            &bull; Waktu Menjawab: <Text style={{ fontWeight: 'bold' }}>{controller.quizDifficulty === 'easy' ? 30 : controller.quizDifficulty === 'medium' ? 20 : 10} Detik per Soal</Text>
           </Text>
           <Text style={styles.metricsText}>
             &bull; Estimasi Total Durasi: <Text style={{ fontWeight: 'bold' }}>{estMinutes} Menit</Text>
