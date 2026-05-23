@@ -52,7 +52,9 @@ export default function useAnatoMedia() {
   const [isQuizResultMode, setIsQuizResultMode] = useState(false);
 
   const getTimerDuration = () => {
-    return 60; // Generous 60 seconds limit for all levels
+    if (quizDifficulty === 'easy') return 30;
+    if (quizDifficulty === 'medium') return 20;
+    return 10;
   };
 
   const getDifficultyCleanName = (lvl) => {
@@ -190,7 +192,15 @@ export default function useAnatoMedia() {
     setQuizIsAnswered(false);
     setQuizTimerSecs(getTimerDuration());
 
+    // PERBAIKAN: Reset status result mode menjadi false saat kuis baru dimulai
+    setIsQuizResultMode(false);
+
     navigateTo('quiz');
+  };
+
+  const resetQuizHistory = () => {
+    setQuizHistoriesList([]); 
+    triggerToast("Riwayat perkembangan berhasil di-reset!");
   };
 
   const resumeQuizSimulator = () => {
@@ -255,6 +265,8 @@ export default function useAnatoMedia() {
       } else {
         setIsQuizResultMode(true);
         navigateTo('scoreboard');
+
+        setActiveQuizQuestions([]);
       }
     }, 4500);
   };
@@ -318,6 +330,7 @@ export default function useAnatoMedia() {
     quizHistoriesList,
     isQuizResultMode,
     setIsQuizResultMode,
+    resetQuizHistory,
     firstTimeUser,
     quizSettings,
     setFirstTimeUser,

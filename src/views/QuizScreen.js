@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, Animated } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, Animated, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles, { STATUSBAR_PADDING } from '../styles/styles';
+import { OrganImageFlash } from '../views/ImageMapping';
 
 export default function QuizScreen({ controller }) {
   const question = controller.activeQuizQuestions[controller.quizActiveIndex];
@@ -56,7 +57,7 @@ export default function QuizScreen({ controller }) {
       <ScrollView contentContainerStyle={styles.quizContentScroll}>
         <View style={styles.quizStatsRow}>
           <Text style={styles.quizIndexText}>Soal {controller.quizActiveIndex + 1} dari {totalQs}</Text>
-          <Text style={styles.quizPointsText}>Poin: {controller.quizAnswersCorrect * 10} / {totalQs * 10}</Text>
+          <Text style={styles.quizPointsText}>Poin: {controller.quizAnswersCorrect * 2} / {totalQs * 2}</Text>
         </View>
 
         {/* Progress bar */}
@@ -71,6 +72,19 @@ export default function QuizScreen({ controller }) {
             <View style={styles.questionSystemRow}>
               <Text style={styles.questionSystemText}>{controller.getSystemCleanName(question.sys).toUpperCase()}</Text>
             </View>
+            {question.image && OrganImageFlash[question.image] && (
+              <Image
+                source={OrganImageFlash[question.image]}
+                style={{
+                  width: '100%',
+                  height: 220,
+                  resizeMode: 'contain',
+                  marginBottom: 15,
+                  borderRadius: 12,
+                  backgroundColor: '#FFF'
+                }}
+              />
+            )}
             <Text style={styles.quizQuestionText}>{question.question}</Text>
           </View>
 

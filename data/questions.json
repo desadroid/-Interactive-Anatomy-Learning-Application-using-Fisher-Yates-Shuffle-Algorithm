@@ -1948,5 +1948,905 @@
     ],
     "correct": 0,
     "explanation": "Pembahasan: Pilihan yang tepat adalah A. Otak dan sumsum tulang belakang."
+  },
+  {
+    "level": "easy",
+    "sys": "circulatory",
+    "type": "identify",
+    "image": "Cor",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Jantung",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Jantung."
+  },
+  {
+    "level": "medium",
+    "sys": "circulatory",
+    "type": "medical_name",
+    "image": "Cor",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Cor",
+      "Pulmo",
+      "Ren",
+      "Pilihan 4"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Jantung adalah Cor."
+  },
+  {
+    "level": "hard",
+    "sys": "circulatory",
+    "type": "function",
+    "image": "Cor",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Memompa darah",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Jantung adalah memompa darah."
+  },
+  {
+    "level": "easy",
+    "sys": "respiratory",
+    "type": "identify",
+    "image": "Pulmo",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Paru-paru",
+      "Jantung",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Paru-paru."
+  },
+  {
+    "level": "medium",
+    "sys": "respiratory",
+    "type": "medical_name",
+    "image": "Pulmo",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Pulmo",
+      "Cor",
+      "Ren",
+      "Pilihan 4"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Paru-paru adalah Pulmo."
+  },
+  {
+    "level": "hard",
+    "sys": "respiratory",
+    "type": "function",
+    "image": "Pulmo",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Pertukaran oksigen",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Paru-paru adalah pertukaran oksigen."
+  },
+  {
+    "level": "easy",
+    "sys": "excretion",
+    "type": "identify",
+    "image": "Ren / Kidney",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Ginjal",
+      "Paru-paru",
+      "Hati",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Ginjal."
+  },
+  {
+    "level": "medium",
+    "sys": "excretion",
+    "type": "medical_name",
+    "image": "Ren / Kidney",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Ren",
+      "Pulmo",
+      "Cor",
+      "Pilihan 4"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Ginjal adalah Ren."
+  },
+  {
+    "level": "hard",
+    "sys": "excretion",
+    "type": "function",
+    "image": "Ren / Kidney",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Menyaring darah",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Ginjal adalah menyaring darah."
+  },
+  {
+    "level": "easy",
+    "sys": "digestive",
+    "type": "identify",
+    "image": "Hepar / Liver",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Hati",
+      "Paru-paru",
+      "Ginjal",
+      "Lambung"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Hati."
+  },
+  {
+    "level": "medium",
+    "sys": "digestive",
+    "type": "medical_name",
+    "image": "Hepar / Liver",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Hepar",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Hati adalah Hepar."
+  },
+  {
+    "level": "hard",
+    "sys": "digestive",
+    "type": "function",
+    "image": "Hepar / Liver",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Menghasilkan empedu",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Hati adalah menghasilkan empedu."
+  },
+  {
+    "level": "easy",
+    "sys": "digestive",
+    "type": "identify",
+    "image": "Gaster",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Lambung",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Lambung."
+  },
+  {
+    "level": "medium",
+    "sys": "digestive",
+    "type": "medical_name",
+    "image": "Gaster",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Gaster",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Lambung adalah Gaster."
+  },
+  {
+    "level": "hard",
+    "sys": "digestive",
+    "type": "function",
+    "image": "Gaster",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Mencerna makanan",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Lambung adalah mencerna makanan."
+  },
+  {
+    "level": "easy",
+    "sys": "excretion",
+    "type": "identify",
+    "image": "Glomerulus",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Glomerulus",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Glomerulus."
+  },
+  {
+    "level": "medium",
+    "sys": "excretion",
+    "type": "medical_name",
+    "image": "Glomerulus",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Glomerulus",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Glomerulus adalah Glomerulus."
+  },
+  {
+    "level": "hard",
+    "sys": "excretion",
+    "type": "function",
+    "image": "Glomerulus",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Filtrasi darah",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Glomerulus adalah filtrasi darah."
+  },
+  {
+    "level": "easy",
+    "sys": "excretion",
+    "type": "identify",
+    "image": "Ureter",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Ureter",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Ureter."
+  },
+  {
+    "level": "medium",
+    "sys": "excretion",
+    "type": "medical_name",
+    "image": "Ureter",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Ureter",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Ureter adalah Ureter."
+  },
+  {
+    "level": "hard",
+    "sys": "excretion",
+    "type": "function",
+    "image": "Ureter",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Mengalirkan urine",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Ureter adalah mengalirkan urine."
+  },
+  {
+    "level": "easy",
+    "sys": "excretion",
+    "type": "identify",
+    "image": "Vesica Urinaria",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Kandung kemih",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Kandung kemih."
+  },
+  {
+    "level": "medium",
+    "sys": "excretion",
+    "type": "medical_name",
+    "image": "Vesica Urinaria",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Vesica Urinaria",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Kandung kemih adalah Vesica Urinaria."
+  },
+  {
+    "level": "hard",
+    "sys": "excretion",
+    "type": "function",
+    "image": "Vesica Urinaria",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Menyimpan urine",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Kandung kemih adalah menyimpan urine."
+  },
+  {
+    "level": "easy",
+    "sys": "skeletal",
+    "type": "identify",
+    "image": "Cranium",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Tengkorak",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Tengkorak."
+  },
+  {
+    "level": "medium",
+    "sys": "skeletal",
+    "type": "medical_name",
+    "image": "Cranium",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Cranium",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Tengkorak adalah Cranium."
+  },
+  {
+    "level": "hard",
+    "sys": "skeletal",
+    "type": "function",
+    "image": "Cranium",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Melindungi otak",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Tengkorak adalah melindungi otak."
+  },
+  {
+    "level": "easy",
+    "sys": "skeletal",
+    "type": "identify",
+    "image": "Femur",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Tulang paha",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Tulang paha."
+  },
+  {
+    "level": "medium",
+    "sys": "skeletal",
+    "type": "medical_name",
+    "image": "Femur",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Femur",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Tulang paha adalah Femur."
+  },
+  {
+    "level": "hard",
+    "sys": "skeletal",
+    "type": "function",
+    "image": "Femur",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Menopang tubuh",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Tulang paha adalah menopang tubuh."
+  },
+  {
+    "level": "easy",
+    "sys": "skeletal",
+    "type": "identify",
+    "image": "Tibia",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Tulang kering",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Tulang kering."
+  },
+  {
+    "level": "medium",
+    "sys": "skeletal",
+    "type": "medical_name",
+    "image": "Tibia",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Tibia",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Tulang kering adalah Tibia."
+  },
+  {
+    "level": "hard",
+    "sys": "skeletal",
+    "type": "function",
+    "image": "Tibia",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Menopang tubuh",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Tulang kering adalah menopang tubuh."
+  },
+  {
+    "level": "easy",
+    "sys": "skeletal",
+    "type": "identify",
+    "image": "Fibula",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Tulang betis",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Tulang betis."
+  },
+  {
+    "level": "medium",
+    "sys": "skeletal",
+    "type": "medical_name",
+    "image": "Fibula",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Fibula",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Tulang betis adalah Fibula."
+  },
+  {
+    "level": "hard",
+    "sys": "skeletal",
+    "type": "function",
+    "image": "Fibula",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Menopang tubuh",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Tulang betis adalah menopang tubuh."
+  },
+  {
+    "level": "easy",
+    "sys": "skeletal",
+    "type": "identify",
+    "image": "Patella",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Tempurung lutut",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Tempurung lutut."
+  },
+  {
+    "level": "medium",
+    "sys": "skeletal",
+    "type": "medical_name",
+    "image": "Patella",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Patella",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Tempurung lutut adalah Patella."
+  },
+  {
+    "level": "hard",
+    "sys": "skeletal",
+    "type": "function",
+    "image": "Patella",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Melindungi lutut",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Tempurung lutut adalah melindungi lutut."
+  },
+  {
+    "level": "easy",
+    "sys": "skeletal",
+    "type": "identify",
+    "image": "Humerus",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Tulang lengan atas",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Tulang lengan atas."
+  },
+  {
+    "level": "medium",
+    "sys": "skeletal",
+    "type": "medical_name",
+    "image": "Humerus",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Humerus",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Tulang lengan atas adalah Humerus."
+  },
+  {
+    "level": "hard",
+    "sys": "skeletal",
+    "type": "function",
+    "image": "Humerus",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Membantu gerakan tangan",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Tulang lengan atas adalah membantu gerakan tangan."
+  },
+  {
+    "level": "easy",
+    "sys": "skeletal",
+    "type": "identify",
+    "image": "Radius",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Tulang pengumpil",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Tulang pengumpil."
+  },
+  {
+    "level": "medium",
+    "sys": "skeletal",
+    "type": "medical_name",
+    "image": "Radius",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Radius",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Tulang pengumpil adalah Radius."
+  },
+  {
+    "level": "hard",
+    "sys": "skeletal",
+    "type": "function",
+    "image": "Radius",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Membantu gerakan tangan",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Tulang pengumpil adalah membantu gerakan tangan."
+  },
+  {
+    "level": "easy",
+    "sys": "skeletal",
+    "type": "identify",
+    "image": "Ulna",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Tulang hasta",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Tulang hasta."
+  },
+  {
+    "level": "medium",
+    "sys": "skeletal",
+    "type": "medical_name",
+    "image": "Ulna",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Ulna",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Tulang hasta adalah Ulna."
+  },
+  {
+    "level": "hard",
+    "sys": "skeletal",
+    "type": "function",
+    "image": "Ulna",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Membantu gerakan tangan",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Tulang hasta adalah membantu gerakan tangan."
+  },
+  {
+    "level": "easy",
+    "sys": "respiratory",
+    "type": "identify",
+    "image": "Bronkus",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Bronkus",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Bronkus."
+  },
+  {
+    "level": "medium",
+    "sys": "respiratory",
+    "type": "medical_name",
+    "image": "Bronkus",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Bronkus",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Bronkus adalah Bronkus."
+  },
+  {
+    "level": "hard",
+    "sys": "respiratory",
+    "type": "function",
+    "image": "Bronkus",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Menyalurkan udara",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Bronkus adalah menyalurkan udara."
+  },
+  {
+    "level": "easy",
+    "sys": "respiratory",
+    "type": "identify",
+    "image": "Alveolus",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Alveolus",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Alveolus."
+  },
+  {
+    "level": "medium",
+    "sys": "respiratory",
+    "type": "medical_name",
+    "image": "Alveolus",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Alveolus",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Alveolus adalah Alveolus."
+  },
+  {
+    "level": "hard",
+    "sys": "respiratory",
+    "type": "function",
+    "image": "Alveolus",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Pertukaran gas",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Alveolus adalah pertukaran gas."
+  },
+  {
+    "level": "easy",
+    "sys": "respiratory",
+    "type": "identify",
+    "image": "Trakea",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Trakea",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Trakea."
+  },
+  {
+    "level": "medium",
+    "sys": "respiratory",
+    "type": "medical_name",
+    "image": "Trakea",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Trakea",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Trakea adalah Trakea."
+  },
+  {
+    "level": "hard",
+    "sys": "respiratory",
+    "type": "function",
+    "image": "Trakea",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Menyalurkan udara",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Trakea adalah menyalurkan udara."
+  },
+  {
+    "level": "easy",
+    "sys": "digestive",
+    "type": "identify",
+    "image": "Lingua",
+    "question": "Apa nama organ pada gambar di atas?",
+    "options": [
+      "Lidah",
+      "Paru-paru",
+      "Ginjal",
+      "Hati"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Organ pada gambar adalah Lidah."
+  },
+  {
+    "level": "medium",
+    "sys": "digestive",
+    "type": "medical_name",
+    "image": "Lingua",
+    "question": "Apa istilah medis dari organ pada gambar di atas?",
+    "options": [
+      "Lingua",
+      "Pulmo",
+      "Cor",
+      "Ren"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Istilah medis Lidah adalah Lingua."
+  },
+  {
+    "level": "hard",
+    "sys": "digestive",
+    "type": "function",
+    "image": "Lingua",
+    "question": "Apa fungsi utama organ pada gambar di atas?",
+    "options": [
+      "Mengecap rasa",
+      "Menghasilkan hormon",
+      "Membekukan darah",
+      "Menghasilkan suara"
+    ],
+    "correct": 0,
+    "explanation": "Pembahasan: Fungsi utama Lidah adalah mengecap rasa."
   }
 ]
