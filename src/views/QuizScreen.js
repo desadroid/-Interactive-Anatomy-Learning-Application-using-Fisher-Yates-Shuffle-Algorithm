@@ -14,13 +14,18 @@ export default function QuizScreen({ controller }) {
 
   // Animasikan masuknya pertanyaan baru setiap kali index berubah
   useEffect(() => {
+    if (question && question.question) {
+      // 1. Jalankan fungsi suara dari controller utama
+      controller.speakText(question.question);
+    }
+
     contentFadeAnim.setValue(0);
     contentSlideAnim.setValue(15);
     Animated.parallel([
       Animated.timing(contentFadeAnim, { toValue: 1, duration: 300, useNativeDriver: true }),
       Animated.timing(contentSlideAnim, { toValue: 0, duration: 300, useNativeDriver: true })
     ]).start();
-  }, [controller.quizActiveIndex]);
+  }, [controller.quizActiveIndex, question]);
 
   // Animasikan kartu penjelasan saat soal dijawab
   useEffect(() => {
@@ -69,9 +74,43 @@ export default function QuizScreen({ controller }) {
         <Animated.View style={{ opacity: contentFadeAnim, transform: [{ translateY: contentSlideAnim }] }}>
           {/* Question Card */}
           <View style={styles.quizQuestionCard}>
-            <View style={styles.questionSystemRow}>
-              <Text style={styles.questionSystemText}>{controller.getSystemCleanName(question.sys).toUpperCase()}</Text>
+            <View style={{ 
+              flexDirection: 'row', 
+              justifyContent: 'space-between', 
+              alignItems: 'center', 
+              marginBottom: 12 
+            }}>
+              <View style={styles.questionSystemRow}>
+                <Text style={styles.questionSystemText}>
+                  {controller.getSystemCleanName(question.sys).toUpperCase()}
+                </Text>
+              </View>
+              
+              {/* TOMBOL AUDIO MANUAL PREMIUM */}
+              <TouchableOpacity 
+                activeOpacity={0.6}
+                onPress={() => controller.speakText(question.question)}
+                style={{ 
+                  width: 38,
+                  height: 38,
+                  borderRadius: 19,
+                  backgroundColor: 'rgba(0, 168, 150, 0.1)', // Teal transparan lembut
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderWidth: 1,
+                  borderColor: 'rgba(0, 168, 150, 0.2)',
+                  // Efek shadow halus khusus iOS/Android
+                  shadowColor: '#00A896',
+                  shadowOffset: { width: 0, height: 2 },
+                  shadowOpacity: 0.1,
+                  shadowRadius: 3,
+                  elevation: 2,
+                }}
+              >
+                <Ionicons name="volume-high" size={18} color="#00A896" />
+              </TouchableOpacity>
             </View>
+
             {question.image && OrganImageFlash[question.image] && (
               <Image
                 source={OrganImageFlash[question.image]}
@@ -85,6 +124,8 @@ export default function QuizScreen({ controller }) {
                 }}
               />
             )}
+            
+            {/* Teks Soal Utama */}
             <Text style={styles.quizQuestionText}>{question.question}</Text>
           </View>
 
