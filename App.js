@@ -16,6 +16,7 @@ import ScoreboardScreen from './src/views/ScoreboardScreen';
 import AboutModal from './src/views/AboutModal';
 import PresenterModal from './src/views/PresenterModal';
 import TutorialModal from './src/views/TutorialModal';
+import LoginScreen from './src/views/LoginScreen';
 
 export default function App() {
   const controller = useAnatoMedia();
@@ -46,6 +47,8 @@ export default function App() {
 
   const renderScreen = () => {
     switch (controller.activeScreen) {
+      case 'login-screen': 
+          return <LoginScreen controller={controller} />;
       case 'dashboard':
         return <DashboardScreen controller={controller} />;
       case 'organ-selection':
@@ -59,7 +62,7 @@ export default function App() {
       case 'scoreboard':
         return <ScoreboardScreen controller={controller} />;
       default:
-        return <DashboardScreen controller={controller} />;
+        return <LoginScreen controller={controller} />;
     }
   };
 
@@ -75,10 +78,12 @@ export default function App() {
       </View>
 
       {/* FLOATING PRESENTER CONTROLLER TRIGGER */}
-      <TouchableOpacity style={[styles.floatingPresenterBtn, {zindex: 999, elevation:99}]} onPress={() => controller.setPresenterVisible(true)}>
-        <Ionicons name="options" size={18} color="#FFFFFF" style={{ marginRight: 6 }} />
-        <Text style={styles.floatingPresenterText}>Teleportasi</Text>
-      </TouchableOpacity>
+      {controller.currentUser && (
+        <TouchableOpacity style={[styles.floatingPresenterBtn, {zIndex: 999, elevation:99}]} onPress={() => controller.setPresenterVisible(true)}>
+          <Ionicons name="options" size={18} color="#FFFFFF" style={{ marginRight: 6 }} />
+          <Text style={styles.floatingPresenterText}>Teleportasi</Text>
+        </TouchableOpacity>
+      )}
 
       {/* Floating dynamic status toast message */}
       {controller.toastVisible && (
@@ -88,13 +93,13 @@ export default function App() {
         </View>
       )}
 
+      {controller.activeScreen === 'dashboard' && (
+        <TutorialModal controller={controller} />
+      )}
+
       {/* Slide up Overlays */}
       <AboutModal controller={controller} />
       <PresenterModal controller={controller} />
-      <TutorialModal controller={controller} />
-
-      
-
     </SafeAreaView>
   );
 }

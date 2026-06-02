@@ -40,7 +40,11 @@ export default function ScoreboardScreen({ controller }) {
     outputRange: [10, 170]
   });
 
-  const histories = controller.quizHistoriesList || [];
+  // PERBAIKAN UTAMA: Ambil histori spesifik berdasarkan User Aktif
+  const currentUsername = controller.currentUser?.username?.toLowerCase() || '';
+  // Ambil data dari objek map, jika belum ada atau kosong, default ke array []
+  const histories = (controller.quizHistoriesList && controller.quizHistoriesList[currentUsername]) || [];
+
   const totalQuizzes = histories.length;
   const averageScore = totalQuizzes > 0
     ? Math.round(histories.reduce((sum, item) => sum + item.score, 0) / totalQuizzes)
@@ -107,18 +111,19 @@ export default function ScoreboardScreen({ controller }) {
           {/* Local Scoreboard log list */}
           <View style={styles.scoreboardHistorySection}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-            <Text style={[styles.scoreboardHistoryHeading, { marginBottom: 0 }]}>Daftar Riwayat Kuis Anda:</Text>
+              <Text style={[styles.scoreboardHistoryHeading, { marginBottom: 0 }]}>Daftar Riwayat Kuis Anda:</Text>
+              
+              {/* TOMBOL RESET BARU */}
+              {histories.length > 0 && (
+                <TouchableOpacity 
+                  style={{ backgroundColor: '#FFF5F5', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 6, borderWidth: 1, borderColor: '#FEB2B2' }}
+                  onPress={controller.resetQuizHistory}
+                >
+                  <Text style={{ color: '#E53E3E', fontSize: 11, fontWeight: '600' }}>Reset Histori</Text>
+                </TouchableOpacity>
+              )}
+            </View>
             
-            {/* TOMBOL RESET BARU: Hanya muncul jika ada data di dalam riwayat */}
-            {histories.length > 0 && (
-              <TouchableOpacity 
-                style={{ backgroundColor: '#FFF5F5', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 6, borderWidth: 1, borderColor: '#FEB2B2' }}
-                onPress={controller.resetQuizHistory}
-              >
-                <Text style={{ color: '#E53E3E', fontSize: 11, fontWeight: '600' }}>Reset Histori</Text>
-              </TouchableOpacity>
-            )}
-          </View>
             {histories.length === 0 ? (
               <Text style={{ textAlign: 'center', color: '#718096', fontSize: 12, marginTop: 24, fontStyle: 'italic' }}>Belum ada kuis yang diikuti. Riwayat kuis Anda akan muncul di sini.</Text>
             ) : (

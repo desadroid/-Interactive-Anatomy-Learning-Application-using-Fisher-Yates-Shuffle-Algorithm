@@ -2,18 +2,29 @@ import { useState, useEffect, useRef } from 'react';
 import { Animated, Easing, Dimensions, BackHandler } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import * as Speech from 'expo-speech';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import MedicalDatabase from '../../data/database.json';
 import MainQuizQuestionsPool from '../../data/questions.json';
+import InitialUsersDatabase from '../../data/users.json';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 export default function useAnatoMedia() {
   // Navigation & Screen Control
-  const [activeScreen, setActiveScreen] = useState('dashboard');
+  const [activeScreen, setActiveScreen] = useState('login-screen'); // 'login-screen', 'dashboard', 'organ-selection', 'overview', 'quiz-setup', 'quiz', 'scoreboard'
   const [toastMessage, setToastMessage] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
   const [aboutModalVisible, setAboutModalVisible] = useState(false);
   const [presenterVisible, setPresenterVisible] = useState(false);
+
+  // --- STATE DATA USER & FORM INPUT BARU ---
+  const [currentUser, setCurrentUser] = useState(null);
+  const [authMode, setAuthMode] = useState('login'); // 'login' atau 'register'
+  const [usersDatabase, setUsersDatabase] = useState([]);
+  const [formName, setFormName] = useState('');
+  const [formUsername, setFormUsername] = useState('');
+  const [formPassword, setFormPassword] = useState('');
 
   // Active Organ Study Dashboard state
   const [activeStudySystem, setActiveStudySystem] = useState('digestive');
@@ -33,7 +44,7 @@ export default function useAnatoMedia() {
   });
 
   // First Time User Walkthrough flag
-  const [firstTimeUser, setFirstTimeUser] = useState(true);
+  const [firstTimeUser, setFirstTimeUser] = useState(false);
 
   // Quiz Difficulty parameter
   const [quizDifficulty, setQuizDifficulty] = useState('medium'); // 'easy', 'medium', 'hard'
@@ -45,10 +56,7 @@ export default function useAnatoMedia() {
   const [quizSelectedOptionIdx, setQuizSelectedOptionIdx] = useState(null);
   const [quizIsAnswered, setQuizIsAnswered] = useState(false);
   const [quizTimerSecs, setQuizTimerSecs] = useState(20);
-  const [quizHistoriesList, setQuizHistoriesList] = useState([
-    { title: 'Kuis Pencernaan (Gaster)', date: 'Baru Saja', score: 90, color: '#2ECC71' },
-    { title: 'Kuis Rangka (Costae)', date: 'Kemarin', score: 70, color: '#FF9F43' }
-  ]);
+  const [quizHistoriesList, setQuizHistoriesList] = useState({});
   const [isQuizResultMode, setIsQuizResultMode] = useState(false);
 
   const getTimerDuration = () => {
@@ -63,6 +71,122 @@ export default function useAnatoMedia() {
     return 'Sedang (Fungsi Organ)';
   };
 
+  // --- LOGIKA UTAMA SINKRONISASI DATABASE USERS ---
+  useEffect(() => {
+    loadUsers();
+  }, []);
+
+  const loadUsers = async () => {
+    try {
+      // Mengambil data pendaftaran lokal dari local storage HP
+      const localUsersJson = await AsyncStorage.getItem('@custom_users_db');
+      const localUsers = localUsersJson ? JSON.parse(localUsersJson) : [];
+      // Menggabungkan isi users.json statis dengan data register baru
+      setUsersDatabase([...InitialUsersDatabase, ...localUsers]);
+    } catch (error) {
+      console.error("Gagal memuat database user:", error);
+    }
+  };
+
+  // Fungsi Pendaftaran Akun Baru
+  const handleRegister = async () => {
+    if (!formName || !formUsername || !formPassword) {
+      triggerToast("Semua kolom wajib diisi!");
+      return;
+    }
+
+    const userExists = usersDatabase.find(
+      u => u.username.toLowerCase() === formUsername.toLowerCase()
+    );
+
+    if (userExists) {
+      triggerToast("Username sudah terpakai!");
+      return;
+    }
+
+    try {
+      const localUsersJson = await AsyncStorage.getItem('@custom_users_db');
+      const localUsers = localUsersJson ? JSON.parse(localUsersJson) : [];
+
+      // Dibuat SAMA PERSIS dengan struktur file users.json milikmu
+      const newUser = {
+        username: formUsername,
+        password: formPassword,
+        name: formName,
+        history: [] // Menampung data riwayat progres di masa depan
+      };
+
+      const updatedLocalUsers = [...localUsers, newUser];
+      await AsyncStorage.setItem('@custom_users_db', JSON.stringify(updatedLocalUsers));
+      
+      // Update data di memori aplikasi saat ini
+      setUsersDatabase([...InitialUsersDatabase, ...updatedLocalUsers]);
+      
+      triggerToast("Pendaftaran berhasil! Silakan masuk.");
+      setAuthMode('login');
+      setFormPassword('');
+      setFormName('');
+      setFormUsername('');
+    } catch (error) {
+      triggerToast("Gagal menyimpan ke basis data.");
+    }
+  };
+
+  // Fungsi Masuk Akun
+  const handleLogin = () => {
+    if (!formUsername || !formPassword) {
+      triggerToast("Username dan Password wajib diisi!");
+      return;
+    }
+
+    const userExists = usersDatabase.find(
+      u => u.username.toLowerCase() === formUsername.toLowerCase()
+    );
+
+    if (!userExists) {
+      triggerToast("Gagal Masuk: Username tidak terdaftar!");
+      return;
+    }
+
+    if (userExists.password !== formPassword) {
+      triggerToast("Gagal Masuk: Password yang Anda masukkan salah!");
+      return;
+    }
+
+    // ==== PROSES MASUK SUKSES ====
+    setCurrentUser(userExists);
+    
+    // TAMBAHKAN BARIS INI: Mengaktifkan status pop-up tutorial saat masuk dashboard
+    setFirstTimeUser(true); 
+    
+    triggerToast(`Selamat datang, ${userExists.name}!`);
+    navigateTo('dashboard');
+  };
+  // Fungsi Keluar Akun
+  const handleLogout = () => {
+    setCurrentUser(null);
+    setFormUsername('');
+    setFormPassword('');
+    setFormName('');
+    navigateTo('login-screen');
+    triggerToast("Berhasil keluar.");
+  };
+
+
+  const saveQuizScore = (newHistoryItem) => {
+    const currentUsername = currentUser?.username?.toLowerCase();
+    if (!currentUsername) return;
+
+    setQuizHistoriesList(prev => {
+      // Pengaman anti-crash jika state terdeteksi bukan objek
+      const safePrev = (prev && typeof prev === 'object' && !Array.isArray(prev)) ? prev : {};
+      const userOldHistory = safePrev[currentUsername] || [];
+      return {
+        ...safePrev,
+        [currentUsername]: [newHistoryItem, ...userOldHistory]
+      };
+    });
+  };
   // Quiz countdown timer ticker
   useEffect(() => {
     let timerInterval;
@@ -124,7 +248,42 @@ export default function useAnatoMedia() {
         score: finalScore,
         color: finalScore >= 80 ? '#2ECC71' : (finalScore >= 60 ? '#00A896' : '#FF9F43')
       };
-      setQuizHistoriesList(prev => [newHistory, ...prev.slice(0, 3)]);
+      const navigateTo = (screen) => {
+    Speech.stop();
+    setQuizTimerSecs(getTimerDuration());
+    setActiveScreen(screen);
+    triggerToast(`Navigasi ke ${screen.toUpperCase()}`);
+
+    if (screen === 'scoreboard') {
+      const totalActive = activeQuizQuestions.length || 50;
+      const finalScore = Math.round((quizAnswersCorrect / totalActive) * 100);
+
+      // Append score to local histories log
+      const now = new Date();
+      const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+      const newHistory = {
+        title: `Ujian Anatomi (${getDifficultyCleanName(quizDifficulty)})`,
+        date: `Baru Saja • ${now.getDate()} Mei • ${timeStr}`,
+        score: finalScore,
+        color: finalScore >= 80 ? '#2ECC71' : (finalScore >= 60 ? '#00A896' : '#FF9F43')
+      };
+
+      // PERBAIKAN UTAMA: Simpan ke dalam key username yang sedang login
+      const currentUsername = currentUser?.username?.toLowerCase();
+      if (currentUsername) {
+        setQuizHistoriesList(prev => {
+          // Pengaman jika prev belum berbentuk objek murni
+          const safePrev = (prev && typeof prev === 'object' && !Array.isArray(prev)) ? prev : {};
+          const userOldHistory = safePrev[currentUsername] || [];
+          
+          return {
+            ...safePrev,
+            [currentUsername]: [newHistory, ...userOldHistory].slice(0, 20) // Batasi 20 riwayat terakhir
+          };
+        });
+      }
+    }
+  };
     }
   };
 
@@ -199,8 +358,18 @@ export default function useAnatoMedia() {
   };
 
   const resetQuizHistory = () => {
-    setQuizHistoriesList([]); 
-    triggerToast("Riwayat perkembangan berhasil di-reset!");
+    const currentUsername = currentUser?.username?.toLowerCase();
+    if (!currentUsername) return;
+
+    setQuizHistoriesList(prev => {
+      const safePrev = (prev && typeof prev === 'object' && !Array.isArray(prev)) ? prev : {};
+      return {
+        ...safePrev,
+        [currentUsername]: [] // Hanya bersihkan laci milik user aktif ini
+      };
+    });
+
+    triggerToast("Histori kuis Anda berhasil dibersihkan!");
   };
 
   const resumeQuizSimulator = () => {
@@ -210,7 +379,6 @@ export default function useAnatoMedia() {
   // Android Hardware Back Button Handler
   useEffect(() => {
     const backAction = () => {
-      // Return true to prevent default exit, false to allow exit
       switch (activeScreen) {
         case 'overview':
           setActiveScreen('organ-selection');
@@ -226,8 +394,12 @@ export default function useAnatoMedia() {
           setActiveScreen('dashboard');
           return true;
         case 'dashboard':
+          // Di halaman dashboard, tombol back fisik membawa user kembali ke halaman login
+          setActiveScreen('login-screen');
+          return true;
+        case 'login-screen':
         default:
-          return false; // Allow exit app
+          return false; // Di halaman login, tombol back fisik langsung keluar dari aplikasi
       }
     };
 
@@ -357,6 +529,18 @@ export default function useAnatoMedia() {
     getTimerDuration,
     getDifficultyCleanName,
     getFilteredQuestionsCount,
-    resumeQuizSimulator
+    resumeQuizSimulator,
+    currentUser,
+    authMode,
+    setAuthMode,
+    formName,
+    setFormName,
+    formUsername,
+    setFormUsername,
+    formPassword,
+    setFormPassword,
+    handleLogin,
+    handleRegister,
+    handleLogout
   };
 }
