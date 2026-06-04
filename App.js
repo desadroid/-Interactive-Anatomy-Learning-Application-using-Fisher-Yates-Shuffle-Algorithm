@@ -17,6 +17,9 @@ import AboutModal from './src/views/AboutModal';
 import PresenterModal from './src/views/PresenterModal';
 import TutorialModal from './src/views/TutorialModal';
 import LoginScreen from './src/views/LoginScreen';
+import ProfileScreen from './src/views/ProfileScreen';
+import SplashScreen from './src/views/SplashScreen';
+
 
 export default function App() {
   const controller = useAnatoMedia();
@@ -26,6 +29,12 @@ export default function App() {
   const slideAnim = useRef(new Animated.Value(20)).current;
 
   useEffect(() => {
+    if (controller.activeScreen === 'splash') {
+      fadeAnim.setValue(1);
+      slideAnim.setValue(0);
+      return;
+    }
+
     // Reset nilai setiap kali layar berubah
     fadeAnim.setValue(0);
     slideAnim.setValue(15);
@@ -47,6 +56,8 @@ export default function App() {
 
   const renderScreen = () => {
     switch (controller.activeScreen) {
+      case 'splash':
+        return <SplashScreen controller={controller} />;
       case 'login-screen': 
           return <LoginScreen controller={controller} />;
       case 'dashboard':
@@ -61,6 +72,8 @@ export default function App() {
         return <QuizScreen controller={controller} />;
       case 'scoreboard':
         return <ScoreboardScreen controller={controller} />;
+      case 'profile-screen':
+        return <ProfileScreen controller={controller} />;
       default:
         return <LoginScreen controller={controller} />;
     }

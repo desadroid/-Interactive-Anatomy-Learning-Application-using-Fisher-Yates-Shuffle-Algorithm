@@ -44,11 +44,8 @@ export default function LoginScreen({ controller }) {
 
         {/* Form Kontainer */}
         <View style={{ flex: 1, paddingHorizontal: 24, paddingTop: 32 }}>
-          <Text style={[styles.sectionTitle, { marginBottom: 4, fontSize: 18 }]}>
-            {isLogin ? 'Autentikasi' : 'Pendaftaran Akun'}
-          </Text>
-          <Text style={{ color: '#718096', fontSize: 13, marginBottom: 24 }}>
-            {isLogin ? 'Gunakan data dari users.json atau buat akun baru' : 'Lengkapi data di bawah untuk membuat profil medis baru'}
+          <Text style={[styles.sectionTitle, { marginBottom: 24, fontSize: 22, fontWeight: 'bold', color: '#2C3E50', textAlign: 'center', letterSpacing: 0.5 }]}>
+            {isLogin ? 'MASUK' : 'DAFTAR AKUN'}
           </Text>
 
           {/* Input: Nama Lengkap (Hanya muncul saat Register) */}
@@ -111,7 +108,7 @@ export default function LoginScreen({ controller }) {
             onPress={isLogin ? controller.handleLogin : controller.handleRegister}
           >
             <Text style={{ color: '#FFFFFF', fontSize: 16, fontWeight: 'bold', marginRight: 8 }}>
-              {isLogin ? 'Masuk Aplikasi' : 'Daftar Sekarang'}
+              {isLogin ? 'MASUK' : 'DAFTAR'}
             </Text>
             <Ionicons name={isLogin ? "log-in-outline" : "person-add-outline"} size={20} color="#FFFFFF" />
           </TouchableOpacity>

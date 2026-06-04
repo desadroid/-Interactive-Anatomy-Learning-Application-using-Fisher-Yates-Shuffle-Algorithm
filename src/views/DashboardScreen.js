@@ -45,6 +45,23 @@ export default function DashboardScreen({ controller }) {
                 <Ionicons name="school" size={20} color="#FFFFFF" />
               </TouchableOpacity>
 
+              {/* TOMBOL PENGATURAN PROFIL */}
+              <TouchableOpacity 
+                style={{
+                  width: 42,
+                  height: 42,
+                  borderRadius: 12,
+                  backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderWidth: 1,
+                  borderColor: 'rgba(255, 255, 255, 0.25)',
+                }} 
+                onPress={() => controller.navigateTo('profile-screen')}
+              >
+                <Ionicons name="settings" size={20} color="#FFFFFF" />
+              </TouchableOpacity>
+
               {/* TOMBOL LOGOUT BARU: Elegan, Minimalis, & Berkelas Medis */}
               <TouchableOpacity 
                 style={{

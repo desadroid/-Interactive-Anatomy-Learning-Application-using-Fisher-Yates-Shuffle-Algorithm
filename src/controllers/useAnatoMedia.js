@@ -12,7 +12,7 @@ const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 export default function useAnatoMedia() {
   // Navigation & Screen Control
-  const [activeScreen, setActiveScreen] = useState('login-screen'); // 'login-screen', 'dashboard', 'organ-selection', 'overview', 'quiz-setup', 'quiz', 'scoreboard'
+  const [activeScreen, setActiveScreen] = useState('splash'); // 'splash', 'login-screen', 'dashboard', 'organ-selection', 'overview', 'quiz-setup', 'quiz', 'scoreboard'
   const [toastMessage, setToastMessage] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
   const [aboutModalVisible, setAboutModalVisible] = useState(false);
@@ -172,6 +172,63 @@ export default function useAnatoMedia() {
     triggerToast("Berhasil keluar.");
   };
 
+  // Fungsi Update Profil Akun
+  const handleUpdateProfile = async (newName, newUsername, newPassword) => {
+    if (!newName || !newUsername || !newPassword) {
+      triggerToast("Semua kolom profil wajib diisi!");
+      return false;
+    }
+
+    try {
+      const currentUsername = currentUser.username.toLowerCase();
+      
+      // Check if new username is already taken by someone else
+      if (currentUsername !== newUsername.toLowerCase()) {
+        const usernameTaken = usersDatabase.find(
+          u => u.username.toLowerCase() === newUsername.toLowerCase()
+        );
+        if (usernameTaken) {
+          triggerToast("Username sudah digunakan oleh akun lain!");
+          return false;
+        }
+      }
+
+      // Update local storage
+      const localUsersJson = await AsyncStorage.getItem('@custom_users_db');
+      const localUsers = localUsersJson ? JSON.parse(localUsersJson) : [];
+      
+      let userUpdated = false;
+      const updatedLocalUsers = localUsers.map(u => {
+        if (u.username.toLowerCase() === currentUsername) {
+          userUpdated = true;
+          return { ...u, name: newName, username: newUsername, password: newPassword };
+        }
+        return u;
+      });
+
+      if (!userUpdated) {
+        updatedLocalUsers.push({ ...currentUser, name: newName, username: newUsername, password: newPassword });
+      }
+
+      await AsyncStorage.setItem('@custom_users_db', JSON.stringify(updatedLocalUsers));
+
+      const updatedUser = { ...currentUser, name: newName, username: newUsername, password: newPassword };
+      setCurrentUser(updatedUser);
+      
+      setUsersDatabase(prev => prev.map(u => {
+        if (u.username.toLowerCase() === currentUsername) {
+           return updatedUser;
+        }
+        return u;
+      }));
+
+      triggerToast("Profil berhasil diperbarui!");
+      return true;
+    } catch (error) {
+      triggerToast("Gagal menyimpan perubahan profil.");
+      return false;
+    }
+  };
 
   const saveQuizScore = (newHistoryItem) => {
     const currentUsername = currentUser?.username?.toLowerCase();
@@ -541,6 +598,7 @@ export default function useAnatoMedia() {
     setFormPassword,
     handleLogin,
     handleRegister,
-    handleLogout
+    handleLogout,
+    handleUpdateProfile
   };
 }
