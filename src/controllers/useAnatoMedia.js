@@ -16,7 +16,6 @@ export default function useAnatoMedia() {
   const [toastMessage, setToastMessage] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
   const [aboutModalVisible, setAboutModalVisible] = useState(false);
-  const [presenterVisible, setPresenterVisible] = useState(false);
 
   // --- STATE DATA USER & FORM INPUT BARU ---
   const [currentUser, setCurrentUser] = useState(null);
@@ -542,7 +541,6 @@ export default function useAnatoMedia() {
     toastMessage,
     toastVisible,
     aboutModalVisible,
-    presenterVisible,
     activeStudySystem,
     studyTab,
     dictionarySearch,
@@ -581,7 +579,6 @@ export default function useAnatoMedia() {
     setDictionarySearch,
     setFlashcardFlipped,
     setAboutModalVisible,
-    setPresenterVisible,
     setQuizSettings,
     getTimerDuration,
     getDifficultyCleanName,
