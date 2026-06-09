@@ -5,8 +5,14 @@ import { Ionicons } from '@expo/vector-icons';
 import styles, { STATUSBAR_PADDING } from '../styles/styles';
 
 export default function ScoreboardScreen({ controller }) {
-  const totalQs = controller.activeQuizQuestions.length > 0 ? controller.activeQuizQuestions.length : 50;
-  const finalScore = Math.round((controller.quizAnswersCorrect / totalQs) * 100);
+  const isResultMode = controller.isQuizResultMode;
+  const totalQs = (isResultMode && controller.lastQuizResult)
+    ? controller.lastQuizResult.total
+    : (controller.activeQuizQuestions.length > 0 ? controller.activeQuizQuestions.length : 50);
+
+  const finalScore = (isResultMode && controller.lastQuizResult)
+    ? controller.lastQuizResult.score
+    : Math.round((controller.quizAnswersCorrect / totalQs) * 100);
 
   // Local Animation Value
   const confettiAnimValue = useRef(new Animated.Value(0)).current;
@@ -201,11 +207,15 @@ export default function ScoreboardScreen({ controller }) {
         {/* Statistics summary row */}
         <View style={styles.statsDetailsCard}>
           <View style={styles.statsCol}>
-            <Text style={[styles.statsVal, { color: '#2ECC71' }]}>{controller.quizAnswersCorrect}</Text>
+            <Text style={[styles.statsVal, { color: '#2ECC71' }]}>
+              {controller.lastQuizResult ? controller.lastQuizResult.correct : controller.quizAnswersCorrect}
+            </Text>
             <Text style={styles.statsLabel}>Jawaban Benar</Text>
           </View>
           <View style={[styles.statsCol, styles.borderRightLeft]}>
-            <Text style={[styles.statsVal, { color: '#E74C3C' }]}>{controller.quizAnswersWrong}</Text>
+            <Text style={[styles.statsVal, { color: '#E74C3C' }]}>
+              {controller.lastQuizResult ? controller.lastQuizResult.wrong : controller.quizAnswersWrong}
+            </Text>
             <Text style={styles.statsLabel}>Jawaban Salah</Text>
           </View>
           <View style={styles.statsCol}>

@@ -16,6 +16,7 @@ export default function useAnatoMedia() {
   const [toastMessage, setToastMessage] = useState("");
   const [toastVisible, setToastVisible] = useState(false);
   const [aboutModalVisible, setAboutModalVisible] = useState(false);
+  const [lastQuizResult, setLastQuizResult] = useState(null);
 
   // --- STATE DATA USER & FORM INPUT BARU ---
   const [currentUser, setCurrentUser] = useState(null);
@@ -602,6 +603,13 @@ export default function useAnatoMedia() {
           });
         }
 
+        setLastQuizResult({
+          correct: newCorrectCount,
+          wrong: totalQs - newCorrectCount,
+          total: totalQs,
+          score: finalScore
+        });
+
         setIsQuizResultMode(true);
         navigateTo("scoreboard");
         setActiveQuizQuestions([]);
@@ -669,6 +677,7 @@ export default function useAnatoMedia() {
     quizHistoriesList,
     isQuizResultMode,
     setIsQuizResultMode,
+    lastQuizResult,
     resetQuizHistory,
     firstTimeUser,
     quizSettings,
