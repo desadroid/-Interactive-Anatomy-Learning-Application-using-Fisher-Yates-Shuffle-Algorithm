@@ -387,7 +387,7 @@ export default function OverviewScreen({ controller }) {
 
                   {/* LOGIKA FALLBACK GAMBAR BELAKANG KARTU */}
                   {(() => {
-                    const fallbackImage = organImages[currentFlashcard.medis] || organImages[controller.activeStudySystem];
+                    const fallbackImage = OrganImageFlash[currentFlashcard.medis] || organImages[controller.activeStudySystem];
                     
                     return fallbackImage ? (
                       <View style={[styles.atlasImageWrapper, { marginBottom: 10, width: 80, height: 80, borderRadius: 16, padding: 6 }]}>

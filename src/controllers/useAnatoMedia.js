@@ -1,54 +1,54 @@
-import { useState, useEffect, useRef } from 'react';
-import { Animated, Easing, Dimensions, BackHandler } from 'react-native';
-import * as Haptics from 'expo-haptics';
-import * as Speech from 'expo-speech';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useState, useEffect, useRef } from "react";
+import { Animated, Easing, Dimensions, BackHandler } from "react-native";
+import * as Haptics from "expo-haptics";
+import * as Speech from "expo-speech";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import MedicalDatabase from '../../data/database.json';
-import MainQuizQuestionsPool from '../../data/questions.json';
-import InitialUsersDatabase from '../../data/users.json';
+import MedicalDatabase from "../../data/database.json";
+import MainQuizQuestionsPool from "../../data/questions.json";
+import InitialUsersDatabase from "../../data/users.json";
 
-const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 export default function useAnatoMedia() {
   // Navigation & Screen Control
-  const [activeScreen, setActiveScreen] = useState('login-screen'); // 'login-screen', 'dashboard', 'organ-selection', 'overview', 'quiz-setup', 'quiz', 'scoreboard'
-  const [toastMessage, setToastMessage] = useState('');
+  const [activeScreen, setActiveScreen] = useState("login-screen"); // 'login-screen', 'dashboard', 'organ-selection', 'overview', 'quiz-setup', 'quiz', 'scoreboard'
+  const [toastMessage, setToastMessage] = useState("");
   const [toastVisible, setToastVisible] = useState(false);
   const [aboutModalVisible, setAboutModalVisible] = useState(false);
   const [presenterVisible, setPresenterVisible] = useState(false);
 
   // --- STATE DATA USER & FORM INPUT BARU ---
   const [currentUser, setCurrentUser] = useState(null);
-  const [authMode, setAuthMode] = useState('login'); // 'login' atau 'register'
+  const [authMode, setAuthMode] = useState("login"); // 'login' atau 'register'
   const [usersDatabase, setUsersDatabase] = useState([]);
-  const [formName, setFormName] = useState('');
-  const [formUsername, setFormUsername] = useState('');
-  const [formPassword, setFormPassword] = useState('');
+  const [formName, setFormName] = useState("");
+  const [formUsername, setFormUsername] = useState("");
+  const [formPassword, setFormPassword] = useState("");
 
   // Active Organ Study Dashboard state
-  const [activeStudySystem, setActiveStudySystem] = useState('digestive');
-  const [studyTab, setStudyTab] = useState('atlas'); // 'atlas', 'kamus', 'kartu'
-  const [dictionarySearch, setDictionarySearch] = useState('');
-  
+  const [activeStudySystem, setActiveStudySystem] = useState("digestive");
+  const [studyTab, setStudyTab] = useState("atlas"); // 'atlas', 'kamus', 'kartu'
+  const [dictionarySearch, setDictionarySearch] = useState("");
+
   // Flashcard Deck study state
   const [flashcardIndex, setFlashcardIndex] = useState(0);
   const [flashcardFlipped, setFlashcardFlipped] = useState(false);
-  const [flashcardProgress, setFlashcardProgress] = useState({ 
-    circulatory: 0, 
-    respiratory: 0, 
-    digestive: 0, 
-    skeletal: 0, 
-    muscular: 0, 
-    excretory: 0 
+  const [flashcardProgress, setFlashcardProgress] = useState({
+    circulatory: 0,
+    respiratory: 0,
+    digestive: 0,
+    skeletal: 0,
+    muscular: 0,
+    excretory: 0,
   });
 
   // First Time User Walkthrough flag
   const [firstTimeUser, setFirstTimeUser] = useState(false);
 
   // Quiz Difficulty parameter
-  const [quizDifficulty, setQuizDifficulty] = useState('medium'); // 'easy', 'medium', 'hard'
-  const [quizSettings, setQuizSettings] = useState({ system: 'all' });
+  const [quizDifficulty, setQuizDifficulty] = useState("medium"); // 'easy', 'medium', 'hard'
+  const [quizSettings, setQuizSettings] = useState({ system: "all" });
   const [activeQuizQuestions, setActiveQuizQuestions] = useState([]);
   const [quizActiveIndex, setQuizActiveIndex] = useState(0);
   const [quizAnswersCorrect, setQuizAnswersCorrect] = useState(0);
@@ -58,17 +58,18 @@ export default function useAnatoMedia() {
   const [quizTimerSecs, setQuizTimerSecs] = useState(20);
   const [quizHistoriesList, setQuizHistoriesList] = useState({});
   const [isQuizResultMode, setIsQuizResultMode] = useState(false);
+  const [isStartingQuiz, setIsStartingQuiz] = useState(false);
 
   const getTimerDuration = () => {
-    if (quizDifficulty === 'easy') return 30;
-    if (quizDifficulty === 'medium') return 20;
+    if (quizDifficulty === "easy") return 30;
+    if (quizDifficulty === "medium") return 20;
     return 10;
   };
 
   const getDifficultyCleanName = (lvl) => {
-    if (lvl === 'easy') return 'Mudah (Istilah Dasar)';
-    if (lvl === 'hard') return 'Sulit (Struktur & Klinis)';
-    return 'Sedang (Fungsi Organ)';
+    if (lvl === "easy") return "Mudah";
+    if (lvl === "hard") return "Sulit";
+    return "Sedang";
   };
 
   // --- LOGIKA UTAMA SINKRONISASI DATABASE USERS ---
@@ -79,7 +80,7 @@ export default function useAnatoMedia() {
   const loadUsers = async () => {
     try {
       // Mengambil data pendaftaran lokal dari local storage HP
-      const localUsersJson = await AsyncStorage.getItem('@custom_users_db');
+      const localUsersJson = await AsyncStorage.getItem("@custom_users_db");
       const localUsers = localUsersJson ? JSON.parse(localUsersJson) : [];
       // Menggabungkan isi users.json statis dengan data register baru
       setUsersDatabase([...InitialUsersDatabase, ...localUsers]);
@@ -96,7 +97,7 @@ export default function useAnatoMedia() {
     }
 
     const userExists = usersDatabase.find(
-      u => u.username.toLowerCase() === formUsername.toLowerCase()
+      (u) => u.username.toLowerCase() === formUsername.toLowerCase(),
     );
 
     if (userExists) {
@@ -105,7 +106,7 @@ export default function useAnatoMedia() {
     }
 
     try {
-      const localUsersJson = await AsyncStorage.getItem('@custom_users_db');
+      const localUsersJson = await AsyncStorage.getItem("@custom_users_db");
       const localUsers = localUsersJson ? JSON.parse(localUsersJson) : [];
 
       // Dibuat SAMA PERSIS dengan struktur file users.json milikmu
@@ -113,20 +114,23 @@ export default function useAnatoMedia() {
         username: formUsername,
         password: formPassword,
         name: formName,
-        history: [] // Menampung data riwayat progres di masa depan
+        history: [], // Menampung data riwayat progres di masa depan
       };
 
       const updatedLocalUsers = [...localUsers, newUser];
-      await AsyncStorage.setItem('@custom_users_db', JSON.stringify(updatedLocalUsers));
-      
+      await AsyncStorage.setItem(
+        "@custom_users_db",
+        JSON.stringify(updatedLocalUsers),
+      );
+
       // Update data di memori aplikasi saat ini
       setUsersDatabase([...InitialUsersDatabase, ...updatedLocalUsers]);
-      
+
       triggerToast("Pendaftaran berhasil! Silakan masuk.");
-      setAuthMode('login');
-      setFormPassword('');
-      setFormName('');
-      setFormUsername('');
+      setAuthMode("login");
+      setFormPassword("");
+      setFormName("");
+      setFormUsername("");
     } catch (error) {
       triggerToast("Gagal menyimpan ke basis data.");
     }
@@ -140,7 +144,7 @@ export default function useAnatoMedia() {
     }
 
     const userExists = usersDatabase.find(
-      u => u.username.toLowerCase() === formUsername.toLowerCase()
+      (u) => u.username.toLowerCase() === formUsername.toLowerCase(),
     );
 
     if (!userExists) {
@@ -155,44 +159,44 @@ export default function useAnatoMedia() {
 
     // ==== PROSES MASUK SUKSES ====
     setCurrentUser(userExists);
-    
+
     // TAMBAHKAN BARIS INI: Mengaktifkan status pop-up tutorial saat masuk dashboard
-    setFirstTimeUser(true); 
-    
+    setFirstTimeUser(true);
+
     triggerToast(`Selamat datang, ${userExists.name}!`);
-    navigateTo('dashboard');
+    navigateTo("dashboard");
   };
   // Fungsi Keluar Akun
   const handleLogout = () => {
     setCurrentUser(null);
-    setFormUsername('');
-    setFormPassword('');
-    setFormName('');
-    navigateTo('login-screen');
+    setFormUsername("");
+    setFormPassword("");
+    setFormName("");
+    navigateTo("login-screen");
     triggerToast("Berhasil keluar.");
   };
-
 
   const saveQuizScore = (newHistoryItem) => {
     const currentUsername = currentUser?.username?.toLowerCase();
     if (!currentUsername) return;
 
-    setQuizHistoriesList(prev => {
+    setQuizHistoriesList((prev) => {
       // Pengaman anti-crash jika state terdeteksi bukan objek
-      const safePrev = (prev && typeof prev === 'object' && !Array.isArray(prev)) ? prev : {};
+      const safePrev =
+        prev && typeof prev === "object" && !Array.isArray(prev) ? prev : {};
       const userOldHistory = safePrev[currentUsername] || [];
       return {
         ...safePrev,
-        [currentUsername]: [newHistoryItem, ...userOldHistory]
+        [currentUsername]: [newHistoryItem, ...userOldHistory],
       };
     });
   };
   // Quiz countdown timer ticker
   useEffect(() => {
     let timerInterval;
-    if (activeScreen === 'quiz' && !quizIsAnswered) {
+    if (activeScreen === "quiz" && !quizIsAnswered) {
       timerInterval = setInterval(() => {
-        setQuizTimerSecs(prev => {
+        setQuizTimerSecs((prev) => {
           if (prev <= 1) {
             clearInterval(timerInterval);
             handleSelectOption(-1); // Automatically mark as timed out
@@ -218,9 +222,9 @@ export default function useAnatoMedia() {
     if (!text) return;
     Speech.stop();
     Speech.speak(text, {
-      language: 'id', // Clean ID speech dialect pronunciation
+      language: "id", // Clean ID speech dialect pronunciation
       pitch: 1.0,
-      rate: 0.85 // Slightly slower for clear clinical terminology articulation
+      rate: 0.85, // Slightly slower for clear clinical terminology articulation
     });
     triggerToast(`Audio: "${text}"`);
   };
@@ -234,68 +238,24 @@ export default function useAnatoMedia() {
     setQuizTimerSecs(getTimerDuration());
     setActiveScreen(screen);
     triggerToast(`Navigasi ke ${screen.toUpperCase()}`);
-
-    if (screen === 'scoreboard') {
-      const totalActive = activeQuizQuestions.length || 50;
-      const finalScore = Math.round((quizAnswersCorrect / totalActive) * 100);
-
-      // Append score to local histories log
-      const now = new Date();
-      const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-      const newHistory = {
-        title: `Ujian Anatomi (${getDifficultyCleanName(quizDifficulty)})`,
-        date: `Baru Saja • ${now.getDate()} Mei • ${timeStr}`,
-        score: finalScore,
-        color: finalScore >= 80 ? '#2ECC71' : (finalScore >= 60 ? '#00A896' : '#FF9F43')
-      };
-      const navigateTo = (screen) => {
-    Speech.stop();
-    setQuizTimerSecs(getTimerDuration());
-    setActiveScreen(screen);
-    triggerToast(`Navigasi ke ${screen.toUpperCase()}`);
-
-    if (screen === 'scoreboard') {
-      const totalActive = activeQuizQuestions.length || 50;
-      const finalScore = Math.round((quizAnswersCorrect / totalActive) * 100);
-
-      // Append score to local histories log
-      const now = new Date();
-      const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-      const newHistory = {
-        title: `Ujian Anatomi (${getDifficultyCleanName(quizDifficulty)})`,
-        date: `Baru Saja • ${now.getDate()} Mei • ${timeStr}`,
-        score: finalScore,
-        color: finalScore >= 80 ? '#2ECC71' : (finalScore >= 60 ? '#00A896' : '#FF9F43')
-      };
-
-      // PERBAIKAN UTAMA: Simpan ke dalam key username yang sedang login
-      const currentUsername = currentUser?.username?.toLowerCase();
-      if (currentUsername) {
-        setQuizHistoriesList(prev => {
-          // Pengaman jika prev belum berbentuk objek murni
-          const safePrev = (prev && typeof prev === 'object' && !Array.isArray(prev)) ? prev : {};
-          const userOldHistory = safePrev[currentUsername] || [];
-          
-          return {
-            ...safePrev,
-            [currentUsername]: [newHistory, ...userOldHistory].slice(0, 20) // Batasi 20 riwayat terakhir
-          };
-        });
-      }
-    }
-  };
-    }
   };
 
   const getSystemCleanName = (key) => {
     switch (key) {
-      case 'circulatory': return 'Peredaran Darah';
-      case 'respiratory': return 'Pernapasan';
-      case 'digestive': return 'Pencernaan';
-      case 'skeletal': return 'Rangka';
-      case 'muscular': return 'Otot';
-      case 'excretory': return 'Ekskresi';
-      default: return 'Semua Sistem';
+      case "circulatory":
+        return "Peredaran Darah";
+      case "respiratory":
+        return "Pernapasan";
+      case "digestive":
+        return "Pencernaan";
+      case "skeletal":
+        return "Rangka";
+      case "muscular":
+        return "Otot";
+      case "excretory":
+        return "Ekskresi";
+      default:
+        return "Semua Sistem";
     }
   };
 
@@ -311,36 +271,48 @@ export default function useAnatoMedia() {
 
   const getFilteredQuestionsCount = () => {
     let pool = MainQuizQuestionsPool;
-    if (quizSettings.system !== 'all') {
-      pool = MainQuizQuestionsPool.filter(q => q.sys === quizSettings.system);
+    if (quizSettings.system !== "all") {
+      pool = MainQuizQuestionsPool.filter((q) => q.sys === quizSettings.system);
     }
-    let filtered = pool.filter(q => q.level === quizDifficulty);
+    let filtered = pool.filter((q) => q.level === quizDifficulty);
     if (filtered.length < 5) return pool.length;
     return filtered.length;
   };
 
   // Launch and initialize the customized Quiz
-  const startQuizSimulator = () => {
+  const startQuizSimulator = (force = false) => {
+    const isForce = force === true;
+    if (
+      !isForce &&
+      activeQuizQuestions.length > 0 &&
+      quizActiveIndex < activeQuizQuestions.length &&
+      !isQuizResultMode
+    ) {
+      navigateTo("quiz");
+      return;
+    }
+    // cegah double tap / double execute
+
     let pool = MainQuizQuestionsPool;
-    if (quizSettings.system !== 'all') {
-      pool = MainQuizQuestionsPool.filter(q => q.sys === quizSettings.system);
+
+    if (quizSettings.system !== "all") {
+      pool = MainQuizQuestionsPool.filter((q) => q.sys === quizSettings.system);
     }
 
     if (pool.length === 0) {
       triggerToast("Kuis sistem terpilih belum siap!");
+      setIsStartingQuiz(false);
       return;
     }
 
-    // Filter by anatomical difficulty
-    let filteredByDiff = pool.filter(q => q.level === quizDifficulty);
-    
-    // Fallback if system has too few questions under this level
+    let filteredByDiff = pool.filter((q) => q.level === quizDifficulty);
+
     if (filteredByDiff.length < 5) {
       filteredByDiff = pool;
     }
 
     const shuffled = shuffleArray(filteredByDiff);
-    // Pick all questions (50 questions per session)
+
     const selected = shuffled.slice(0, 50);
 
     setActiveQuizQuestions(selected);
@@ -351,21 +323,87 @@ export default function useAnatoMedia() {
     setQuizIsAnswered(false);
     setQuizTimerSecs(getTimerDuration());
 
-    // PERBAIKAN: Reset status result mode menjadi false saat kuis baru dimulai
     setIsQuizResultMode(false);
 
-    navigateTo('quiz');
+    const now = new Date();
+
+    const timeStr = `${now.getHours().toString().padStart(2, "0")}:${now
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}`;
+
+    const currentUsername = currentUser?.username?.toLowerCase();
+
+    if (currentUsername) {
+      setQuizHistoriesList((prev) => {
+        const safePrev =
+          prev && typeof prev === "object" && !Array.isArray(prev) ? prev : {};
+
+        let userOldHistory = safePrev[currentUsername] || [];
+
+        // If force restart, update any existing ongoing quizzes to 'aborted'
+        if (isForce) {
+          userOldHistory = userOldHistory.map((item) => {
+            if (item.status === "ongoing") {
+              const progressPercent = activeQuizQuestions.length > 0
+                ? Math.round((quizActiveIndex / activeQuizQuestions.length) * 100)
+                : 0;
+              return {
+                ...item,
+                status: "aborted",
+                title: item.title
+                  .replace("Ujian Anatomi Kesulitan", "Kuis Dibatalkan:")
+                  .replace("Kuis Anatomi -", "Kuis Dibatalkan:")
+                  .replace("Kuis Anatomi:", "Kuis Dibatalkan:"),
+                progress: progressPercent,
+                color: "#E74C3C", // Red color for aborted
+              };
+            }
+            return item;
+          });
+        } else {
+          // kalau ada ongoing jangan tambah
+          const hasOngoing = userOldHistory.some(
+            (item) => item.status === "ongoing",
+          );
+
+          if (hasOngoing) {
+            return safePrev;
+          }
+        }
+
+        const ongoingQuiz = {
+          id: Date.now(),
+          title: `Kuis Anatomi: ${getDifficultyCleanName(quizDifficulty)}`,
+          date: `${now.getDate()}/${
+            now.getMonth() + 1
+          }/${now.getFullYear()} • ${timeStr}`,
+          score: 0,
+          progress: 0,
+          status: "ongoing",
+          color: "#FF9F43",
+        };
+
+        return {
+          ...safePrev,
+          [currentUsername]: [ongoingQuiz, ...userOldHistory],
+        };
+      });
+    }
+
+    navigateTo("quiz");
   };
 
   const resetQuizHistory = () => {
     const currentUsername = currentUser?.username?.toLowerCase();
     if (!currentUsername) return;
 
-    setQuizHistoriesList(prev => {
-      const safePrev = (prev && typeof prev === 'object' && !Array.isArray(prev)) ? prev : {};
+    setQuizHistoriesList((prev) => {
+      const safePrev =
+        prev && typeof prev === "object" && !Array.isArray(prev) ? prev : {};
       return {
         ...safePrev,
-        [currentUsername]: [] // Hanya bersihkan laci milik user aktif ini
+        [currentUsername]: [], // Hanya bersihkan laci milik user aktif ini
       };
     });
 
@@ -373,99 +411,173 @@ export default function useAnatoMedia() {
   };
 
   const resumeQuizSimulator = () => {
-    setActiveScreen('quiz');
+    setActiveScreen("quiz");
   };
 
   // Android Hardware Back Button Handler
   useEffect(() => {
     const backAction = () => {
       switch (activeScreen) {
-        case 'overview':
-          setActiveScreen('organ-selection');
+        case "overview":
+          setActiveScreen("organ-selection");
           return true;
-        case 'quiz':
-          setActiveScreen('quiz-setup');
+        case "quiz":
+          setActiveScreen("quiz-setup");
           return true;
-        case 'scoreboard':
-          setActiveScreen('dashboard');
+        case "scoreboard":
+          setActiveScreen("dashboard");
           return true;
-        case 'organ-selection':
-        case 'quiz-setup':
-          setActiveScreen('dashboard');
+        case "organ-selection":
+        case "quiz-setup":
+          setActiveScreen("dashboard");
           return true;
-        case 'dashboard':
+        case "dashboard":
           // Di halaman dashboard, tombol back fisik membawa user kembali ke halaman login
-          setActiveScreen('login-screen');
+          setActiveScreen("login-screen");
           return true;
-        case 'login-screen':
+        case "login-screen":
         default:
           return false; // Di halaman login, tombol back fisik langsung keluar dari aplikasi
       }
     };
 
-    const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction,
+    );
     return () => backHandler.remove();
   }, [activeScreen]);
 
   // Handle choice locking & explanation triggers
   const handleSelectOption = (idx) => {
     if (quizIsAnswered) return;
+
     setQuizIsAnswered(true);
     setQuizSelectedOptionIdx(idx);
 
     const question = activeQuizQuestions[quizActiveIndex];
     const isCorrect = idx === question.correct;
 
+    // hitung nilai lokal langsung
+    const newCorrectCount = isCorrect
+      ? quizAnswersCorrect + 1
+      : quizAnswersCorrect;
+
     if (isCorrect) {
-      setQuizAnswersCorrect(prev => prev + 1);
+      setQuizAnswersCorrect((prev) => prev + 1);
       triggerToast("Jawaban Benar");
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     } else {
-      setQuizAnswersWrong(prev => prev + 1);
+      setQuizAnswersWrong((prev) => prev + 1);
       triggerToast("Jawaban Kurang Tepat");
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error); // Native Android/iOS strong haptic feedback
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
     }
 
-    // Hold screen for 4.5 seconds so students can read the detailed clinical explanation
+    // Update ongoing progress in history
+    const totalQs = activeQuizQuestions.length;
+    const currentUsername = currentUser?.username?.toLowerCase();
+    if (currentUsername) {
+      setQuizHistoriesList((prev) => {
+        const safePrev =
+          prev && typeof prev === "object" && !Array.isArray(prev) ? prev : {};
+        const updatedHistory = [...(safePrev[currentUsername] || [])];
+        const ongoingIndex = updatedHistory.findIndex(
+          (item) => item.status === "ongoing",
+        );
+        if (ongoingIndex !== -1) {
+          const progressPercent = totalQs > 0 ? Math.round(((quizActiveIndex + 1) / totalQs) * 100) : 0;
+          updatedHistory[ongoingIndex] = {
+            ...updatedHistory[ongoingIndex],
+            progress: progressPercent,
+          };
+        }
+        return {
+          ...safePrev,
+          [currentUsername]: updatedHistory,
+        };
+      });
+    }
+
     setTimeout(() => {
-      const totalQs = activeQuizQuestions.length;
       if (quizActiveIndex < totalQs - 1) {
-        setQuizActiveIndex(prev => prev + 1);
+        // lanjut soal berikutnya
+        setQuizActiveIndex((prev) => prev + 1);
         setQuizSelectedOptionIdx(null);
         setQuizIsAnswered(false);
         setQuizTimerSecs(getTimerDuration());
       } else {
-        setIsQuizResultMode(true);
-        navigateTo('scoreboard');
+        // ===== QUIZ SELESAI =====
+        const finalScore = Math.round((newCorrectCount / totalQs) * 100);
 
+        if (currentUsername) {
+          setQuizHistoriesList((prev) => {
+            const safePrev =
+              prev && typeof prev === "object" && !Array.isArray(prev)
+                ? prev
+                : {};
+
+            const userOldHistory = safePrev[currentUsername] || [];
+            const updatedHistory = [...userOldHistory];
+
+            const ongoingIndex = updatedHistory.findIndex(
+              (item) => item.status === "ongoing",
+            );
+
+            if (ongoingIndex !== -1) {
+              updatedHistory[ongoingIndex] = {
+                ...updatedHistory[ongoingIndex],
+                score: finalScore,
+                progress: 100,
+                status: "finished",
+                title: `Kuis Anatomi: ${getDifficultyCleanName(quizDifficulty)}`,
+                color:
+                  finalScore >= 80
+                    ? "#2ECC71"
+                    : finalScore >= 60
+                      ? "#00A896"
+                      : "#FF9F43",
+              };
+            }
+
+            return {
+              ...safePrev,
+              [currentUsername]: updatedHistory,
+            };
+          });
+        }
+
+        setIsQuizResultMode(true);
+        navigateTo("scoreboard");
         setActiveQuizQuestions([]);
       }
     }, 4500);
   };
 
   const nextFlashcard = () => {
-    const terms = MedicalDatabase.filter(t => t.sys === activeStudySystem);
+    const terms = MedicalDatabase.filter((t) => t.sys === activeStudySystem);
     setFlashcardFlipped(false);
     setTimeout(() => {
-      setFlashcardIndex(prev => (prev < terms.length - 1 ? prev + 1 : 0));
+      setFlashcardIndex((prev) => (prev < terms.length - 1 ? prev + 1 : 0));
     }, 120);
   };
 
   const prevFlashcard = () => {
-    const terms = MedicalDatabase.filter(t => t.sys === activeStudySystem);
+    const terms = MedicalDatabase.filter((t) => t.sys === activeStudySystem);
     setFlashcardFlipped(false);
     setTimeout(() => {
-      setFlashcardIndex(prev => (prev > 0 ? prev - 1 : terms.length - 1));
+      setFlashcardIndex((prev) => (prev > 0 ? prev - 1 : terms.length - 1));
     }, 120);
   };
 
   const jumpToFlashcard = (umumName) => {
-    const terms = MedicalDatabase.filter(t => t.sys === activeStudySystem);
-    const foundIdx = terms.findIndex(t => t.umum.toLowerCase() === umumName.toLowerCase());
+    const terms = MedicalDatabase.filter((t) => t.sys === activeStudySystem);
+    const foundIdx = terms.findIndex(
+      (t) => t.umum.toLowerCase() === umumName.toLowerCase(),
+    );
     if (foundIdx !== -1) {
       setFlashcardIndex(foundIdx);
       setFlashcardFlipped(true); // Auto flipped to reveal medical term & structure illustration
-      setStudyTab('kartu');
+      setStudyTab("kartu");
       triggerToast(`Buka Kartu: ${umumName}`);
     }
   };
@@ -473,11 +585,11 @@ export default function useAnatoMedia() {
   // Open specific Organ Dashboard
   const openOrganDashboard = (sysKey) => {
     setActiveStudySystem(sysKey);
-    setStudyTab('atlas');
+    setStudyTab("atlas");
     setFlashcardIndex(0);
     setFlashcardFlipped(false);
-    setDictionarySearch('');
-    navigateTo('overview');
+    setDictionarySearch("");
+    navigateTo("overview");
   };
 
   return {
@@ -525,7 +637,6 @@ export default function useAnatoMedia() {
     setFlashcardFlipped,
     setAboutModalVisible,
     setPresenterVisible,
-    setQuizSettings,
     getTimerDuration,
     getDifficultyCleanName,
     getFilteredQuestionsCount,
@@ -541,6 +652,6 @@ export default function useAnatoMedia() {
     setFormPassword,
     handleLogin,
     handleRegister,
-    handleLogout
+    handleLogout,
   };
 }

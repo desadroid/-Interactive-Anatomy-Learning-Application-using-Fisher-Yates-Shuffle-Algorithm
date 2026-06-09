@@ -7,6 +7,7 @@ import styles from './src/styles/styles';
 import useAnatoMedia from './src/controllers/useAnatoMedia';
 
 // View Imports
+import * as SplashScreen from 'expo-splash-screen';
 import DashboardScreen from './src/views/DashboardScreen';
 import OrganSelectionScreen from './src/views/OrganSelectionScreen';
 import OverviewScreen from './src/views/OverviewScreen';
@@ -18,12 +19,25 @@ import PresenterModal from './src/views/PresenterModal';
 import TutorialModal from './src/views/TutorialModal';
 import LoginScreen from './src/views/LoginScreen';
 
+
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
   const controller = useAnatoMedia();
 
   // Animasi Transisi Halaman (Aman dari Bug Freeze Android)
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(20)).current;
+
+  useEffect(() => {
+    const prepare = async () => {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      await SplashScreen.hideAsync();
+    };
+
+    prepare();
+  }, []);
+
 
   useEffect(() => {
     // Reset nilai setiap kali layar berubah

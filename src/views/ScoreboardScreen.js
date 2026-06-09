@@ -59,14 +59,14 @@ export default function ScoreboardScreen({ controller }) {
           <TouchableOpacity style={styles.navBtn} onPress={() => controller.navigateTo('dashboard')}>
             <Ionicons name="arrow-back" size={20} color="#2C3E50" />
           </TouchableOpacity>
-          <Text style={styles.navTitle}>Riwayat Perkembangan</Text>
+          <Text style={styles.navTitle}>Riwayat Kuis</Text>
           <TouchableOpacity style={styles.navBtn} onPress={() => controller.triggerToast("Data Riwayat Sinkron")}>
             <Ionicons name="pulse" size={18} color="#00A896" />
           </TouchableOpacity>
         </View>
 
         <ScrollView contentContainerStyle={styles.scoreboardScroll}>
-          <Text style={styles.celebrateTitle}>RINGKASAN PERKEMBANGAN</Text>
+          <Text style={styles.celebrateTitle}>RINGKASAN KUIS</Text>
           <Text style={styles.celebrateSub}>Evaluasi hasil belajar dan kuis kedokteran mandiri</Text>
 
           {/* Quick Stats Grid */}
@@ -131,10 +131,14 @@ export default function ScoreboardScreen({ controller }) {
                 <View key={idx} style={styles.historyItemBox}>
                   <View>
                     <Text style={styles.historyItemName}>{item.title}</Text>
-                    <Text style={styles.historyItemMeta}>{item.date}</Text>
+                    <Text style={styles.historyItemMeta}>
+                      {item.date} &bull; <Text style={{ fontWeight: '600' }}>{item.status === 'finished' ? 'Selesai' : (item.status === 'aborted' ? 'Dibatalkan' : 'Sedang Berjalan')}</Text>
+                    </Text>
                   </View>
                   <View style={[styles.historyItemScoreBadge, { backgroundColor: item.color + '15', borderColor: item.color }]}>
-                    <Text style={[styles.historyItemScoreText, { color: item.color }]}>{item.score}%</Text>
+                    <Text style={[styles.historyItemScoreText, { color: item.color }]}>
+                      {item.status === 'finished' ? item.score : (item.progress || 0)}%
+                    </Text>
                   </View>
                 </View>
               ))
@@ -229,10 +233,14 @@ export default function ScoreboardScreen({ controller }) {
             <View key={idx} style={styles.historyItemBox}>
               <View>
                 <Text style={styles.historyItemName}>{item.title}</Text>
-                <Text style={styles.historyItemMeta}>{item.date}</Text>
+                <Text style={styles.historyItemMeta}>
+                  {item.date} &bull; <Text style={{ fontWeight: '600' }}>{item.status === 'finished' ? 'Selesai' : (item.status === 'aborted' ? 'Dibatalkan' : 'Sedang Berjalan')}</Text>
+                </Text>
               </View>
               <View style={[styles.historyItemScoreBadge, { backgroundColor: item.color + '15', borderColor: item.color }]}>
-                <Text style={[styles.historyItemScoreText, { color: item.color }]}>{item.score}%</Text>
+                <Text style={[styles.historyItemScoreText, { color: item.color }]}>
+                  {item.status === 'finished' ? item.score : (item.progress || 0)}%
+                </Text>
               </View>
             </View>
           ))}

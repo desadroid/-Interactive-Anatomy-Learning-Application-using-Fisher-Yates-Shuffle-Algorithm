@@ -79,7 +79,7 @@ export default function QuizSetupScreen({ controller }) {
               <Ionicons name="play-forward" size={18} color="#FFFFFF" style={{ marginRight: 6 }} />
               <Text style={styles.btnFilledTealText}>Lanjutkan Kuis</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.btnFilledTeal, { flex: 1, backgroundColor: '#E63946', paddingVertical: 14 }]} onPress={controller.startQuizSimulator}>
+            <TouchableOpacity style={[styles.btnFilledTeal, { flex: 1, backgroundColor: '#E63946', paddingVertical: 14 }]} onPress={() => controller.startQuizSimulator(true)}>
               <Ionicons name="refresh" size={18} color="#FFFFFF" style={{ marginRight: 6 }} />
               <Text style={styles.btnFilledTealText}>Mulai Ulang</Text>
             </TouchableOpacity>

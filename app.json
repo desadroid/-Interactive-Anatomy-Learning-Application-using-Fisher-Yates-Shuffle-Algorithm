@@ -21,10 +21,15 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.AnatoMediaApp"
+      "package": "com.desadroid.AnatoMediaApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a20c01b8-7e5e-49af-87db-1088458629f7"
+      }
     }
   }
 }
