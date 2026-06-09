@@ -7,6 +7,7 @@ import styles from './src/styles/styles';
 import useAnatoMedia from './src/controllers/useAnatoMedia';
 
 // View Imports
+import * as SplashScreen from 'expo-splash-screen';
 import DashboardScreen from './src/views/DashboardScreen';
 import OrganSelectionScreen from './src/views/OrganSelectionScreen';
 import OverviewScreen from './src/views/OverviewScreen';
@@ -20,6 +21,9 @@ import ProfileScreen from './src/views/ProfileScreen';
 import SplashScreen from './src/views/SplashScreen';
 
 
+
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
   const controller = useAnatoMedia();
 
@@ -28,12 +32,21 @@ export default function App() {
   const slideAnim = useRef(new Animated.Value(20)).current;
 
   useEffect(() => {
+    const prepare = async () => {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      await SplashScreen.hideAsync();
+    };
+
+    prepare();
+  }, []);
+
+
+  useEffect(() => {
     if (controller.activeScreen === 'splash') {
       fadeAnim.setValue(1);
       slideAnim.setValue(0);
       return;
     }
-
     // Reset nilai setiap kali layar berubah
     fadeAnim.setValue(0);
     slideAnim.setValue(15);

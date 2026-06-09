@@ -16,10 +16,11 @@ export default function LoginScreen({ controller }) {
 
   // Cek apakah pesan toast berisi tanda sukses/keluar/selamat
   const lowerMessage = controller.toastMessage?.toLowerCase() || '';
-  const isSuccess = 
-    controller.toastMessage?.includes('Berhasil') || 
-    controller.toastMessage?.includes('Selamat') || 
-    controller.toastMessage?.includes('welcome');
+  const isSuccess =
+    lowerMessage.includes('berhasil') ||
+    lowerMessage.includes('selamat') ||
+    lowerMessage.includes('welcome') ||
+    lowerMessage.includes('sukses');
 
   return (
     <KeyboardAvoidingView 
