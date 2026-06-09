@@ -10,9 +10,13 @@ export default function ScoreboardScreen({ controller }) {
     ? controller.lastQuizResult.total
     : (controller.activeQuizQuestions.length > 0 ? controller.activeQuizQuestions.length : 50);
 
-  const finalScore = (isResultMode && controller.lastQuizResult)
+  let finalScore = (isResultMode && controller.lastQuizResult)
     ? controller.lastQuizResult.score
     : Math.round((controller.quizAnswersCorrect / totalQs) * 100);
+
+  if (isNaN(finalScore)) {
+    finalScore = 0;
+  }
 
   // Local Animation Value
   const confettiAnimValue = useRef(new Animated.Value(0)).current;
@@ -141,8 +145,8 @@ export default function ScoreboardScreen({ controller }) {
                       {item.date} &bull; <Text style={{ fontWeight: '600' }}>{item.status === 'finished' ? 'Selesai' : (item.status === 'aborted' ? 'Dibatalkan' : 'Sedang Berjalan')}</Text>
                     </Text>
                   </View>
-                  <View style={[styles.historyItemScoreBadge, { backgroundColor: item.color + '15', borderColor: item.color }]}>
-                    <Text style={[styles.historyItemScoreText, { color: item.color }]}>
+                  <View style={[styles.historyItemScoreBadge, { backgroundColor: (item.color || '#718096') + '15', borderColor: item.color || '#718096' }]}>
+                    <Text style={[styles.historyItemScoreText, { color: item.color || '#718096' }]}>
                       {item.status === 'finished' ? item.score : (item.progress || 0)}%
                     </Text>
                   </View>
@@ -247,8 +251,8 @@ export default function ScoreboardScreen({ controller }) {
                   {item.date} &bull; <Text style={{ fontWeight: '600' }}>{item.status === 'finished' ? 'Selesai' : (item.status === 'aborted' ? 'Dibatalkan' : 'Sedang Berjalan')}</Text>
                 </Text>
               </View>
-              <View style={[styles.historyItemScoreBadge, { backgroundColor: item.color + '15', borderColor: item.color }]}>
-                <Text style={[styles.historyItemScoreText, { color: item.color }]}>
+              <View style={[styles.historyItemScoreBadge, { backgroundColor: (item.color || '#718096') + '15', borderColor: item.color || '#718096' }]}>
+                <Text style={[styles.historyItemScoreText, { color: item.color || '#718096' }]}>
                   {item.status === 'finished' ? item.score : (item.progress || 0)}%
                 </Text>
               </View>

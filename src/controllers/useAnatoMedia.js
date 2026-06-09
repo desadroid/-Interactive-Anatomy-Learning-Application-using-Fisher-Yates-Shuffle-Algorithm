@@ -277,17 +277,25 @@ export default function useAnatoMedia() {
   // Google Text-to-Speech Pronunciation Engine
   const speakText = (text) => {
     if (!text) return;
-    Speech.stop();
-    Speech.speak(text, {
-      language: "id", // Clean ID speech dialect pronunciation
-      pitch: 1.0,
-      rate: 0.85, // Slightly slower for clear clinical terminology articulation
-    });
-    triggerToast(`Audio: "${text}"`);
+    try {
+      Speech.stop();
+      Speech.speak(text, {
+        language: "id", // Clean ID speech dialect pronunciation
+        pitch: 1.0,
+        rate: 0.85, // Slightly slower for clear clinical terminology articulation
+      });
+      triggerToast(`Audio: "${text}"`);
+    } catch (e) {
+      console.warn("Speech pronunciation error:", e);
+    }
   };
 
   const stopSpeak = () => {
-    Speech.stop();
+    try {
+      Speech.stop();
+    } catch (e) {
+      console.warn("Speech stop error:", e);
+    }
   };
 
   const navigateTo = (screen) => {
@@ -520,14 +528,18 @@ export default function useAnatoMedia() {
       ? quizAnswersCorrect + 1
       : quizAnswersCorrect;
 
-    if (isCorrect) {
-      setQuizAnswersCorrect((prev) => prev + 1);
-      triggerToast("Jawaban Benar");
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-    } else {
-      setQuizAnswersWrong((prev) => prev + 1);
-      triggerToast("Jawaban Kurang Tepat");
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    try {
+      if (isCorrect) {
+        setQuizAnswersCorrect((prev) => prev + 1);
+        triggerToast("Jawaban Benar");
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      } else {
+        setQuizAnswersWrong((prev) => prev + 1);
+        triggerToast("Jawaban Kurang Tepat");
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      }
+    } catch (e) {
+      console.warn("Haptics trigger failed:", e);
     }
 
     // Update ongoing progress in history
@@ -612,7 +624,6 @@ export default function useAnatoMedia() {
 
         setIsQuizResultMode(true);
         navigateTo("scoreboard");
-        setActiveQuizQuestions([]);
       }
     }, 4500);
   };
