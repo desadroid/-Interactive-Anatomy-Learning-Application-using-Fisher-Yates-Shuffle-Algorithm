@@ -178,7 +178,7 @@ export default function ScoreboardScreen({ controller }) {
         <Text style={styles.celebrateTitle}>
           {finalScore >= 80 ? 'LULUS EVALUASI MATERI' : (finalScore >= 60 ? 'HASIL CUKUP MEMUASKAN' : 'EVALUASI BELAJAR DIANJURKAN')}
         </Text>
-        <Text style={styles.celebrateSub}>Pembelajaran Kedokteran Mandiri Tanpa Akun</Text>
+        <Text style={styles.celebrateSub}>Pembelajaran Kedokteran Mandiri dengan Profil Lokal</Text>
 
         {/* SVG Score Circle with integrated neon cardiac scanner */}
         <View style={styles.circularProgressContainer}>

@@ -9,7 +9,7 @@ export default function TutorialModal({ controller }) {
   const stepsData = [
     {
       title: "Selamat Datang di AnatoMedia 🩺",
-      desc: "Platform pembelajaran istilah kedokteran interaktif luring (100% offline). Belajar dan uji kompetensi medis Anda tanpa perlu pendaftaran akun sama sekali.",
+      desc: "Platform pembelajaran istilah kedokteran interaktif luring (100% offline). Belajar dan uji kompetensi medis Anda dengan profil mandiri secara aman.",
       icon: "pulse",
       color: "#00A896"
     },

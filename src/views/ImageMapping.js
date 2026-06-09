@@ -40,7 +40,7 @@ export const OrganImageFlash = {
     'Jejunum': require('../../assets/pencernaan/jejunum.png'),
     'Ileum': require('../../assets/pencernaan/ileum.png'),
     'Intestinum Crassum': require('../../assets/pencernaan/usus-besar.png'),
-    'Pancreas': require('../../assets/pencernaan/empedu.png'),
+
     'Cecum': require('../../assets/pencernaan/cecum.png'),
     'Appendix': require('../../assets/pencernaan/umbai-cacing.png'),
     'Rectum': require('../../assets/pencernaan/rectum.png'),

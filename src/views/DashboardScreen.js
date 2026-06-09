@@ -3,8 +3,6 @@ import { ScrollView, View, Text, TouchableOpacity, TextInput } from 'react-nativ
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import styles, { STATUSBAR_PADDING } from '../styles/styles';
 
-// IMPORT komponen tutorial agar bisa dirender langsung di dalam layar dashboard
-import TutorialModal from './TutorialModal'; 
 
 export default function DashboardScreen({ controller }) {
   return (

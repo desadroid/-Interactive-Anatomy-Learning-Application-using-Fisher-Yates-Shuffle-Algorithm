@@ -34,14 +34,7 @@ export default function useAnatoMedia() {
   // Flashcard Deck study state
   const [flashcardIndex, setFlashcardIndex] = useState(0);
   const [flashcardFlipped, setFlashcardFlipped] = useState(false);
-  const [flashcardProgress, setFlashcardProgress] = useState({
-    circulatory: 0,
-    respiratory: 0,
-    digestive: 0,
-    skeletal: 0,
-    muscular: 0,
-    excretory: 0,
-  });
+
 
   // First Time User Walkthrough flag
   const [firstTimeUser, setFirstTimeUser] = useState(false);
@@ -72,9 +65,10 @@ export default function useAnatoMedia() {
     return "Sedang";
   };
 
-  // --- LOGIKA UTAMA SINKRONISASI DATABASE USERS ---
+  // --- LOGIKA UTAMA SINKRONISASI DATABASE USERS & HISTORI ---
   useEffect(() => {
     loadUsers();
+    loadQuizHistories();
   }, []);
 
   const loadUsers = async () => {
@@ -86,6 +80,17 @@ export default function useAnatoMedia() {
       setUsersDatabase([...InitialUsersDatabase, ...localUsers]);
     } catch (error) {
       console.error("Gagal memuat database user:", error);
+    }
+  };
+
+  const loadQuizHistories = async () => {
+    try {
+      const savedHistories = await AsyncStorage.getItem("@custom_quiz_histories_db");
+      if (savedHistories) {
+        setQuizHistoriesList(JSON.parse(savedHistories));
+      }
+    } catch (error) {
+      console.error("Gagal memuat database riwayat kuis:", error);
     }
   };
 
@@ -136,6 +141,16 @@ export default function useAnatoMedia() {
     }
   };
 
+  const resetQuizState = () => {
+    setActiveQuizQuestions([]);
+    setQuizActiveIndex(0);
+    setQuizAnswersCorrect(0);
+    setQuizAnswersWrong(0);
+    setQuizSelectedOptionIdx(null);
+    setQuizIsAnswered(false);
+    setIsQuizResultMode(false);
+  };
+
   // Fungsi Masuk Akun
   const handleLogin = () => {
     if (!formUsername || !formPassword) {
@@ -158,6 +173,7 @@ export default function useAnatoMedia() {
     }
 
     // ==== PROSES MASUK SUKSES ====
+    resetQuizState();
     setCurrentUser(userExists);
 
     // TAMBAHKAN BARIS INI: Mengaktifkan status pop-up tutorial saat masuk dashboard
@@ -168,6 +184,7 @@ export default function useAnatoMedia() {
   };
   // Fungsi Keluar Akun
   const handleLogout = () => {
+    resetQuizState();
     setCurrentUser(null);
     setFormUsername("");
     setFormPassword("");
@@ -216,6 +233,20 @@ export default function useAnatoMedia() {
 
       await AsyncStorage.setItem('@custom_users_db', JSON.stringify(updatedLocalUsers));
 
+      const newUsernameLower = newUsername.toLowerCase();
+      if (currentUsername !== newUsernameLower) {
+        setQuizHistoriesList((prev) => {
+          const safePrev = prev && typeof prev === "object" && !Array.isArray(prev) ? prev : {};
+          const userHistory = safePrev[currentUsername] || [];
+          const updated = { ...safePrev };
+          delete updated[currentUsername];
+          updated[newUsernameLower] = userHistory;
+          AsyncStorage.setItem("@custom_quiz_histories_db", JSON.stringify(updated))
+            .catch(err => console.warn("Gagal migrasi riwayat kuis:", err));
+          return updated;
+        });
+      }
+
       const updatedUser = { ...currentUser, name: newName, username: newUsername, password: newPassword };
       setCurrentUser(updatedUser);
       
@@ -233,21 +264,7 @@ export default function useAnatoMedia() {
       return false;
     }
   };
-  const saveQuizScore = (newHistoryItem) => {
-    const currentUsername = currentUser?.username?.toLowerCase();
-    if (!currentUsername) return;
 
-    setQuizHistoriesList((prev) => {
-      // Pengaman anti-crash jika state terdeteksi bukan objek
-      const safePrev =
-        prev && typeof prev === "object" && !Array.isArray(prev) ? prev : {};
-      const userOldHistory = safePrev[currentUsername] || [];
-      return {
-        ...safePrev,
-        [currentUsername]: [newHistoryItem, ...userOldHistory],
-      };
-    });
-  };
   // Quiz countdown timer ticker
   useEffect(() => {
     let timerInterval;
@@ -449,10 +466,13 @@ export default function useAnatoMedia() {
           color: "#FF9F43",
         };
 
-        return {
+        const updated = {
           ...safePrev,
           [currentUsername]: [ongoingQuiz, ...userOldHistory],
         };
+        AsyncStorage.setItem("@custom_quiz_histories_db", JSON.stringify(updated))
+          .catch(err => console.warn("Gagal menyimpan riwayat kuis baru:", err));
+        return updated;
       });
     }
 
@@ -466,10 +486,13 @@ export default function useAnatoMedia() {
     setQuizHistoriesList((prev) => {
       const safePrev =
         prev && typeof prev === "object" && !Array.isArray(prev) ? prev : {};
-      return {
+      const updated = {
         ...safePrev,
         [currentUsername]: [], // Hanya bersihkan laci milik user aktif ini
       };
+      AsyncStorage.setItem("@custom_quiz_histories_db", JSON.stringify(updated))
+        .catch(err => console.warn("Gagal menyimpan reset histori kuis:", err));
+      return updated;
     });
 
     triggerToast("Histori kuis Anda berhasil dibersihkan!");
@@ -560,10 +583,13 @@ export default function useAnatoMedia() {
             progress: progressPercent,
           };
         }
-        return {
+        const updated = {
           ...safePrev,
           [currentUsername]: updatedHistory,
         };
+        AsyncStorage.setItem("@custom_quiz_histories_db", JSON.stringify(updated))
+          .catch(err => console.warn("Gagal menyimpan progres kuis:", err));
+        return updated;
       });
     }
 
@@ -608,10 +634,13 @@ export default function useAnatoMedia() {
               };
             }
 
-            return {
+            const updated = {
               ...safePrev,
               [currentUsername]: updatedHistory,
             };
+            AsyncStorage.setItem("@custom_quiz_histories_db", JSON.stringify(updated))
+              .catch(err => console.warn("Gagal menyimpan hasil kuis:", err));
+            return updated;
           });
         }
 
@@ -623,6 +652,12 @@ export default function useAnatoMedia() {
         });
 
         setIsQuizResultMode(true);
+        setActiveQuizQuestions([]);
+        setQuizActiveIndex(0);
+        setQuizAnswersCorrect(0);
+        setQuizAnswersWrong(0);
+        setQuizSelectedOptionIdx(null);
+        setQuizIsAnswered(false);
         navigateTo("scoreboard");
       }
     }, 4500);
@@ -677,7 +712,7 @@ export default function useAnatoMedia() {
     dictionarySearch,
     flashcardIndex,
     flashcardFlipped,
-    flashcardProgress,
+
     activeQuizQuestions,
     quizActiveIndex,
     quizAnswersCorrect,

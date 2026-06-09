@@ -26,10 +26,10 @@ export default function AboutModal({ controller }) {
 
           <ScrollView contentContainerStyle={{ paddingVertical: 12 }}>
             <Text style={styles.aboutDesc}>
-              AnatoMedia adalah aplikasi pembelajaran anatomi kedokteran interaktif 100% luring (offline) tanpa perlu pendaftaran akun. Aplikasi ini mengintegrasikan seluruh materi istilah medis resmi dari data PDF berdasarkan kurikulum IDI 2026.
+              AnatoMedia adalah aplikasi pembelajaran anatomi kedokteran interaktif 100% luring (offline) dengan profil mandiri. Aplikasi ini mengintegrasikan seluruh materi istilah medis resmi dari data PDF berdasarkan kurikulum IDI 2026.
             </Text>
             <View style={styles.aboutTagsRow}>
-              <Text style={styles.aboutTag}>Tanpa Akun (Privasi Penuh)</Text>
+              <Text style={styles.aboutTag}>Profil Mandiri (Privasi Penuh)</Text>
               <Text style={styles.aboutTag}>100 Istilah Medis PDF</Text>
               <Text style={styles.aboutTag}>Kuis 50 Soal Kustom</Text>
             </View>

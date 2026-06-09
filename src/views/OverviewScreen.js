@@ -351,7 +351,7 @@ export default function OverviewScreen({ controller }) {
                   {(() => {
                     // 1. Cek apakah ada gambar spesifik per organ (misal: 'Cor')
                     // 2. Jika tidak ada, pakai gambar sistem sebagai cadangan (misal: 'circulatory')
-                    const fallbackImage = OrganImageFlash[currentFlashcard.medis] || organImages[controller.activeStudySystem];
+                    const fallbackImage = (currentFlashcard && OrganImageFlash[currentFlashcard.medis]) || organImages[controller.activeStudySystem];
                     
                     // Jika salah satu dari gambar di atas ketemu, baru tampilkan komponen Image
                     return fallbackImage ? (
@@ -366,7 +366,7 @@ export default function OverviewScreen({ controller }) {
                   })()}
 
                   <Text style={styles.flashcardTitle}>Nama Umum Organ</Text>
-                  <Text style={styles.flashcardMainWord}>{currentFlashcard.umum}</Text>
+                  <Text style={styles.flashcardMainWord}>{currentFlashcard?.umum}</Text>
                   <Text style={styles.flashcardTip}>Sentuh kartu untuk membuka istilah medis</Text>
                 </View>
               ) : (
@@ -378,7 +378,7 @@ export default function OverviewScreen({ controller }) {
                       style={{ padding: 6, borderRadius: 20, backgroundColor: 'rgba(255, 159, 67, 0.08)' }} 
                       onPress={(e) => {
                         e.stopPropagation(); // Stop flip trigger
-                        controller.speakText(`${currentFlashcard.medis} , , . . . ${currentFlashcard.desc}`);
+                        controller.speakText(`${currentFlashcard?.medis || ''} , , . . . ${currentFlashcard?.desc || ''}`);
                       }}
                     >
                       <Ionicons name="volume-high" size={16} color="#FF9F43" />
@@ -387,7 +387,7 @@ export default function OverviewScreen({ controller }) {
 
                   {/* LOGIKA FALLBACK GAMBAR BELAKANG KARTU */}
                   {(() => {
-                    const fallbackImage = OrganImageFlash[currentFlashcard.medis] || organImages[controller.activeStudySystem];
+                    const fallbackImage = (currentFlashcard && OrganImageFlash[currentFlashcard.medis]) || organImages[controller.activeStudySystem];
                     
                     return fallbackImage ? (
                       <View style={[styles.atlasImageWrapper, { marginBottom: 10, width: 80, height: 80, borderRadius: 16, padding: 6 }]}>
@@ -400,7 +400,7 @@ export default function OverviewScreen({ controller }) {
                     ) : null;
                   })()}
 
-                  <Text style={styles.flashcardMedisWord}>{currentFlashcard.medis}</Text>
+                  <Text style={styles.flashcardMedisWord}>{currentFlashcard?.medis}</Text>
                   <View style={styles.flashcardDivider} />
                   
                   {/* Scrollable Description so it never overflows */}
@@ -410,7 +410,7 @@ export default function OverviewScreen({ controller }) {
                     showsVerticalScrollIndicator={true}
                     nestedScrollEnabled={true}
                   >
-                    <Text style={styles.flashcardDesc}>{currentFlashcard.desc}</Text>
+                    <Text style={styles.flashcardDesc}>{currentFlashcard?.desc}</Text>
                   </ScrollView>
                 </View>
               )}
