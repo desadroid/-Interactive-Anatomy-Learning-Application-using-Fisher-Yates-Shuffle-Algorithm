@@ -18,7 +18,7 @@ import AboutModal from './src/views/AboutModal';
 import TutorialModal from './src/views/TutorialModal';
 import LoginScreen from './src/views/LoginScreen';
 import ProfileScreen from './src/views/ProfileScreen';
-import SplashScreen from './src/views/SplashScreen';
+import WelcomeSplashScreen from './src/views/SplashScreen';
 
 
 
@@ -69,7 +69,7 @@ export default function App() {
   const renderScreen = () => {
     switch (controller.activeScreen) {
       case 'splash':
-        return <SplashScreen controller={controller} />;
+        return <WelcomeSplashScreen controller={controller} />;
       case 'login-screen': 
           return <LoginScreen controller={controller} />;
       case 'dashboard':
