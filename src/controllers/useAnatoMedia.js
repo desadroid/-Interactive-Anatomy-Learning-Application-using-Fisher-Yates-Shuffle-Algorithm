@@ -319,7 +319,9 @@ export default function useAnatoMedia() {
     Speech.stop();
     setQuizTimerSecs(getTimerDuration());
     setActiveScreen(screen);
-    triggerToast(`Navigasi ke ${screen.toUpperCase()}`);
+    if (screen !== 'login-screen') {
+      triggerToast(`Navigasi ke ${screen.toUpperCase()}`);
+    }
   };
 
   const getSystemCleanName = (key) => {

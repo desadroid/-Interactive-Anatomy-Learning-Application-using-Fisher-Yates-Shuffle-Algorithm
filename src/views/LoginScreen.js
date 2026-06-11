@@ -14,13 +14,13 @@ import styles from '../styles/styles';
 export default function LoginScreen({ controller }) {
   const isLogin = controller.authMode === 'login';
 
-  // Cek apakah pesan toast berisi tanda sukses/keluar/selamat
   const lowerMessage = controller.toastMessage?.toLowerCase() || '';
-  const isSuccess =
-    lowerMessage.includes('berhasil') ||
-    lowerMessage.includes('selamat') ||
-    lowerMessage.includes('welcome') ||
-    lowerMessage.includes('sukses');
+  const isError =
+    lowerMessage.includes('gagal') ||
+    lowerMessage.includes('salah') ||
+    lowerMessage.includes('wajib') ||
+    lowerMessage.includes('terpakai');
+  const isSuccess = !isError;
 
   return (
     <KeyboardAvoidingView 
