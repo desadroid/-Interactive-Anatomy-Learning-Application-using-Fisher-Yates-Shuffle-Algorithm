@@ -28,7 +28,7 @@ export default function QuizSetupScreen({ controller }) {
       <ScrollView contentContainerStyle={{ padding: 20 }}>
         <Text style={styles.setupHeading}>Konfigurasi Kuis</Text>
         <Text style={styles.setupSubheading}>Atur parameter kuis kedokteran interaktif di bawah:</Text>
-
+        
         {/* Setting 1: Difficulty Levels */}
         <View style={styles.settingCard}>
           <Text style={styles.settingLabel}><Ionicons name="flash" size={16} color="#FF9F43" /> Pilih Tingkat Kesulitan</Text>
@@ -54,7 +54,7 @@ export default function QuizSetupScreen({ controller }) {
         {/* Simulation overview metrics info */}
         <View style={styles.simulationMetricsCard}>
           <Text style={styles.metricsTitle}>Detil Kuis:</Text>
-          <Text style={styles.metricsText}>&bull; Mode Kuis: <Text style={{ fontWeight: 'bold' }}>Tanpa Akun (100% Offline)</Text></Text>
+          <Text style={styles.metricsText}>&bull; Mode Kuis: <Text style={{ fontWeight: 'bold' }}>Campuran (Pilihan Ganda & Tebak Kata)</Text></Text>
           <Text style={styles.metricsText}>
             &bull; Jumlah Soal Sesi Ini: <Text style={{ fontWeight: 'bold' }}>{sessionQsCount} Soal (dari total {poolCount} soal level ini)</Text>
           </Text>

@@ -76,7 +76,7 @@ export default function ScoreboardScreen({ controller }) {
         </View>
 
         <ScrollView contentContainerStyle={styles.scoreboardScroll}>
-          <Text style={styles.celebrateTitle}>RINGKASAN KUIS</Text>
+          <Text style={styles.celebrateTitle}>RIWAYAT KUIS</Text>
           <Text style={styles.celebrateSub}>Evaluasi hasil belajar dan kuis kedokteran mandiri</Text>
 
           {/* Quick Stats Grid */}

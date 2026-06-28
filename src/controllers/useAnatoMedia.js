@@ -60,6 +60,102 @@ export default function useAnatoMedia() {
   const [isQuizResultMode, setIsQuizResultMode] = useState(false);
   const [isStartingQuiz, setIsStartingQuiz] = useState(false);
 
+  // spelling mode state variables
+  const [spellingInput, setSpellingInput] = useState([]);
+  const [spellingOptions, setSpellingOptions] = useState([]);
+  const [spellingSelectedIndexes, setSpellingSelectedIndexes] = useState([]);
+
+
+
+  // spelling initialization effect
+  useEffect(() => {
+    if (activeQuizQuestions.length > 0 && quizActiveIndex < activeQuizQuestions.length) {
+      const q = activeQuizQuestions[quizActiveIndex];
+      const currentQuestionMode = q.questionMode || 'choice';
+      if (currentQuestionMode === 'spelling') {
+        const originalAnswer = q.options[q.correct].toUpperCase();
+        
+        // Buat inputArr: kosong untuk A-Z, karakter asli untuk yang lain
+        const inputArr = originalAnswer.split('').map(char => {
+          if (char >= 'A' && char <= 'Z') {
+            return '';
+          }
+          return char;
+        });
+        setSpellingInput(inputArr);
+        setSpellingSelectedIndexes([]);
+
+        const answerLetters = originalAnswer.replace(/[^A-Z]/g, '').split('');
+        const uniqueLetters = [...new Set(answerLetters)];
+        
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const options = [...uniqueLetters];
+        while (options.length < 14) {
+          const randChar = alphabet[Math.floor(Math.random() * 26)];
+          if (!options.includes(randChar)) {
+            options.push(randChar);
+          }
+        }
+        
+        // Shuffle options using Fisher-Yates
+        const arr = [...options];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        setSpellingOptions(arr);
+      }
+    }
+  }, [quizActiveIndex, activeQuizQuestions]);
+
+  const handlePressLetter = (char, keyIdx) => {
+    if (quizIsAnswered) return;
+    
+    const nextEmptyIdx = spellingInput.indexOf('');
+    if (nextEmptyIdx === -1) return; // already full
+
+    const newInput = [...spellingInput];
+    newInput[nextEmptyIdx] = char;
+    setSpellingInput(newInput);
+    
+    const newSelectedIndexes = [...spellingSelectedIndexes, keyIdx];
+    setSpellingSelectedIndexes(newSelectedIndexes);
+
+    // Check if now full
+    if (newInput.indexOf('') === -1) {
+      const question = activeQuizQuestions[quizActiveIndex];
+      const spelledWord = newInput.join('').replace(/[^A-Z]/g, '');
+      const correctWord = question.options[question.correct].toUpperCase().replace(/[^A-Z]/g, '');
+      const isCorrect = spelledWord === correctWord;
+      
+      handleSelectOption(isCorrect ? question.correct : -1);
+    }
+  };
+
+  const handleDeleteLetter = () => {
+    if (quizIsAnswered) return;
+    if (spellingSelectedIndexes.length === 0) return;
+
+    const newSelectedIndexes = [...spellingSelectedIndexes];
+    const lastKeyIdx = newSelectedIndexes.pop();
+    setSpellingSelectedIndexes(newSelectedIndexes);
+
+    const newInput = [...spellingInput];
+    const question = activeQuizQuestions[quizActiveIndex];
+    if (!question) return;
+    const originalAnswer = question.options[question.correct].toUpperCase();
+    
+    for (let i = newInput.length - 1; i >= 0; i--) {
+      const origChar = originalAnswer[i];
+      const isLetter = origChar >= 'A' && origChar <= 'Z';
+      if (isLetter && newInput[i] !== '') {
+        newInput[i] = '';
+        break;
+      }
+    }
+    setSpellingInput(newInput);
+  };
+
   const getTimerDuration = () => {
     if (quizDifficulty === "easy") return 30;
     if (quizDifficulty === "medium") return 20;
@@ -284,7 +380,6 @@ export default function useAnatoMedia() {
         pitch: 1.0,
         rate: 0.85, // Slightly slower for clear clinical terminology articulation
       });
-      triggerToast(`Audio: "${text}"`);
     } catch (e) {
       console.warn("Speech pronunciation error:", e);
     }
@@ -302,7 +397,6 @@ export default function useAnatoMedia() {
     Speech.stop();
     setQuizTimerSecs(getTimerDuration());
     setActiveScreen(screen);
-    triggerToast(`Navigasi ke ${screen.toUpperCase()}`);
   };
 
   const getSystemCleanName = (key) => {
@@ -378,7 +472,36 @@ export default function useAnatoMedia() {
 
     const shuffled = shuffleArray(filteredByDiff);
 
-    const selected = shuffled.slice(0, 50);
+    // Build set of organ names to identify naming/term questions
+    const organNamesSet = new Set();
+    MedicalDatabase.forEach((item) => {
+      if (item.umum) {
+        organNamesSet.add(item.umum.toLowerCase().trim());
+      }
+      if (item.medis) {
+        const parts = item.medis.split('/');
+        parts.forEach((p) => {
+          organNamesSet.add(p.trim().toLowerCase());
+        });
+      }
+    });
+
+    // Map each question to either spelling or choice dynamically
+    const selected = shuffled.slice(0, 50).map((q) => {
+      const answer = q.options[q.correct];
+      const letterCount = answer.replace(/[^A-Za-z]/g, '').length;
+      const spaceCount = (answer.match(/ /g) || []).length;
+
+      const isOrganName = organNamesSet.has(answer.toLowerCase().trim());
+      const isSpellingEligible = letterCount >= 3 && letterCount <= 12 && spaceCount <= 1 && isOrganName;
+
+      // If eligible, 50% chance of spelling, 50% choice. Otherwise, always choice.
+      let mode = 'choice';
+      if (isSpellingEligible) {
+        mode = Math.random() < 0.5 ? 'spelling' : 'choice';
+      }
+      return { ...q, questionMode: mode };
+    });
 
     setActiveQuizQuestions(selected);
     setQuizActiveIndex(0);
@@ -517,6 +640,9 @@ export default function useAnatoMedia() {
   const handleSelectOption = (idx) => {
     if (quizIsAnswered) return;
 
+    // Hentikan suara pertanyaan saat ini
+    stopSpeak();
+
     setQuizIsAnswered(true);
     setQuizSelectedOptionIdx(idx);
 
@@ -645,15 +771,21 @@ export default function useAnatoMedia() {
   };
 
   const jumpToFlashcard = (umumName) => {
-    const terms = MedicalDatabase.filter((t) => t.sys === activeStudySystem);
-    const foundIdx = terms.findIndex(
-      (t) => t.umum.toLowerCase() === umumName.toLowerCase(),
+    const foundTerm = MedicalDatabase.find(
+      (t) => t.umum.toLowerCase() === umumName.toLowerCase()
     );
-    if (foundIdx !== -1) {
-      setFlashcardIndex(foundIdx);
-      setFlashcardFlipped(true); // Auto flipped to reveal medical term & structure illustration
-      setStudyTab("kartu");
-      triggerToast(`Buka Kartu: ${umumName}`);
+    if (foundTerm) {
+      setActiveStudySystem(foundTerm.sys);
+      const terms = MedicalDatabase.filter((t) => t.sys === foundTerm.sys);
+      const foundIdx = terms.findIndex(
+        (t) => t.umum.toLowerCase() === umumName.toLowerCase()
+      );
+      if (foundIdx !== -1) {
+        setFlashcardIndex(foundIdx);
+        setFlashcardFlipped(true); // Auto flipped to reveal medical term & structure illustration
+        setStudyTab("kartu");
+        triggerToast(`Buka Kartu: ${umumName}`);
+      }
     }
   };
 
@@ -728,5 +860,10 @@ export default function useAnatoMedia() {
     handleRegister,
     handleLogout,
     handleUpdateProfile,
+    spellingInput,
+    spellingOptions,
+    spellingSelectedIndexes,
+    handlePressLetter,
+    handleDeleteLetter,
   };
 }

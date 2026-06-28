@@ -21,7 +21,14 @@ export default function OrganSelectionScreen({ controller }) {
           <Ionicons name="arrow-back" size={20} color="#2C3E50" />
         </TouchableOpacity>
         <Text style={styles.navTitle}>Materi Pembelajaran</Text>
-        <TouchableOpacity style={styles.navBtn} onPress={() => controller.triggerToast("Pencarian materi diaktifkan.")}>
+        <TouchableOpacity 
+          style={styles.navBtn} 
+          onPress={() => {
+            controller.openOrganDashboard('digestive'); // Default study system
+            controller.setStudyTab('kamus'); // Switch tab to Kamus (Dictionary)
+            controller.triggerToast("Ketik untuk mencari istilah medis!");
+          }}
+        >
           <Ionicons name="search" size={18} color="#2C3E50" />
         </TouchableOpacity>
       </View>

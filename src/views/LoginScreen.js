@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   View, 
   Text, 
@@ -13,6 +13,7 @@ import styles from '../styles/styles';
 
 export default function LoginScreen({ controller }) {
   const isLogin = controller.authMode === 'login';
+  const [securePassword, setSecurePassword] = useState(true);
 
   // Cek apakah pesan toast berisi tanda sukses/keluar/selamat
   const lowerMessage = controller.toastMessage?.toLowerCase() || '';
@@ -82,12 +83,15 @@ export default function LoginScreen({ controller }) {
             <TextInput
               placeholder="Password"
               placeholderTextColor="#A0AEC0"
-              secureTextEntry
+              secureTextEntry={securePassword}
               autoCapitalize="none"
               style={[styles.searchInput, { color: '#2D3748', fontSize: 15 }]}
               value={controller.formPassword}
               onChangeText={controller.setFormPassword}
             />
+            <TouchableOpacity onPress={() => setSecurePassword(!securePassword)} style={{ padding: 4 }}>
+              <Ionicons name={securePassword ? "eye-off-outline" : "eye-outline"} size={20} color="#718096" />
+            </TouchableOpacity>
           </View>
 
           {/* Tombol Aksi Utama */}

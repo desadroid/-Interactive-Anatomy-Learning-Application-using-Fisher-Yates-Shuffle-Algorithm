@@ -8,6 +8,7 @@ export default function ProfileScreen({ controller }) {
   const usernameRef = useRef(controller.currentUser?.username || '');
   const passwordRef = useRef(controller.currentUser?.password || '');
   const [isSaving, setIsSaving] = useState(false);
+  const [securePassword, setSecurePassword] = useState(true);
 
   const handleSave = async () => {
     setIsSaving(true);
@@ -88,8 +89,11 @@ export default function ProfileScreen({ controller }) {
               onChangeText={(text) => passwordRef.current = text}
               placeholder="Masukkan kata sandi baru"
               placeholderTextColor="#A0AEC0"
-              secureTextEntry
+              secureTextEntry={securePassword}
             />
+            <TouchableOpacity onPress={() => setSecurePassword(!securePassword)} style={{ padding: 4 }}>
+              <Ionicons name={securePassword ? "eye-off-outline" : "eye-outline"} size={20} color="#718096" />
+            </TouchableOpacity>
           </View>
 
           <TouchableOpacity 

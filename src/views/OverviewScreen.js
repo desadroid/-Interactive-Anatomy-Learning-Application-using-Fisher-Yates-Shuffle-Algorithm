@@ -80,10 +80,12 @@ export default function OverviewScreen({ controller }) {
   const [activePartIdx, setActivePartIdx] = useState(0);
   const systemTerms = MedicalDatabase.filter(item => item.sys === controller.activeStudySystem);
   
-  const filteredTerms = systemTerms.filter(item => 
-    item.umum.toLowerCase().includes(controller.dictionarySearch.toLowerCase()) ||
-    item.medis.toLowerCase().includes(controller.dictionarySearch.toLowerCase())
-  );
+  const filteredTerms = controller.dictionarySearch.trim() !== ''
+    ? MedicalDatabase.filter(item => 
+        item.umum.toLowerCase().includes(controller.dictionarySearch.toLowerCase()) ||
+        item.medis.toLowerCase().includes(controller.dictionarySearch.toLowerCase())
+      )
+    : systemTerms;
 
   const currentFlashcard = systemTerms[controller.flashcardIndex] || systemTerms[0];
 
